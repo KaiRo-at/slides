@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>L10n talk - FOSDEM 2004 - Mozilla Meeting</title>
+  <link rel="stylesheet" type="text/css" href="l10ntalk.css">
+  <link rel="contents" href="index.html" title="Contents">
+  <link rel="index" href="l10ntalk_overview.html" title="Overview">
+  <link rel="glossary" href="l10ntalk_glossary.html" title="Glossary">
+  <link rel="start" href="index.html" title="Start">
+  <link rel="first" href="l10ntalk_01.html" title="First page">
+  <link rel="previous" href="l10ntalk_01.html" title="Previous page">
+  <link rel="next" href="l10ntalk_03.html" title="Next page">
+  <link rel="last" href="l10ntalk_end.html" title="Last page">
+</head>
+<body>
+
+<h1>diff -D 02/2003 -D 02/2004 mozilla-l10n</h1>
+
+<div class="explanation">
+<pre>--- mozilla-l10n        2003-02-FOSDEM
++++ mozilla-l10n        2004-02-FOSDEM
+@@ -a,b +x,y @@</pre>
+Well, let's make it a small bit less geeky ;-). So what has happened in the last year of Mozilla L10n?
+<ul>
+ <li class="minus"><b>big manual localeVersion change patches</b>: locale packs from different Mozilla versions are incompatible because of
+     changed, added or removed texts in the UI. To avoid crashes or other side-effects, we have internal
+     versioning of locale in chrome registry, fed into it by contents.rdf files.
+     <br>Those were <span class="hilite">previously hardcoded</span> and I did big manual patches to change them. After I found a way to 
+     insert the versions at build-time and patched the whole tree to do that using the C preprocessor
+     (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=154927">bug 154927</a>),
+     I was told we should use the <span class="hilite">XUL preprocessor</span>. I made that change recently
+     (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=232011">bug 232011</a>)
+     and set tinderboxen on fire (as some of you may remember)...
+     <br>After some help from tinderbox admins and bsmedberg (who had to fix make-jars.pl for a bug I triggered),
+     we show now be have that long-standing bug finally resolved (and themes will follow that way soon -
+     <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=234014">bug 234014</a>).
+     <br>BTW, all chrome version strings are now defined in
+     <a href="http://lxr.mozilla.org/mozilla/source/config/chrome-versions.sh">mozilla/config/chrome-versions.sh</a>.</li>
+ <li class="minus"><b>XPI error -239</b>: When installing our <span class="hilite">locale XPI files</span>, we often ran into XPInstall
+     error -239 (CHROME_REGISTRY_ERROR), especially on unix machines. This had been happening quite
+     frequently for at least 18 months (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=109044">bug 109044</a>),
+     and noone had an idea why that happened, when it started magically disappearing in some cases last summer.
+     <br>DocWilco then <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=109044#c64">filed a patch</a>
+     for a case where he was still seeing (and which was "a tough one to crack"), and we didn't hear a lot about
+     that error again. He also <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=221994">improved reporting</a>
+     of what happens when it still hits a -239 in a followup.
+     <br>Another nasty <span class="hilite">problem is history now</span>.</li>
+ <li class="plus"><b>more attention to L10n</b>: Starting with last December, L10n got more attention of
+     mozilla.org staff than in previous times. It all started with a staff meeting on 2003-12-08 (see the
+     <a href="http://groups.google.com/groups?as_umsgid=3FDB8346.9010004@mozilla.org">"minutes" posting</a>):
+     <pre class="border">
+     *Localisation packs*
+
+- Quarterly/monthly <span class="hilite">IRC meetings</span> for l10n (blizzard, bart)
+- What is our end goal for internationalization?
+- <span class="hilite">Goal: 5 or 6 languages we ship pretty regularly</span>, of reasonable to good
+   quality
+- Start incrementally
+
+- Agreed: <span class="hilite">translations need to be in CVS</span>; too separated from release
+   process
+
+- chofmann to write a message to l10n newsgroup:
+   - 1) Tell people how to nominate bugs to drivers
+   - 2) Mention monthly IRC chat, hosted by chofmann
+        (gerv query: what time to have this? Hard to pick one which is
+         good for everyone, because of timezone issues)
+   - 3) If you have a localised version ready 1 week after 1.6, let us
+        know now (or then) and we'll try and get it on the CD.
+   - 4) There will be a <span class="hilite">string freeze after beta</span> - it's a done deal
+   - 5) We want your localisation by 1 week after our planned release
+        date (But CD gets burned 2 days before we release)
+
+- We need a simple post-freeze string change process - Bugzilla keyword,
+   post to newsgroup etc.</pre>
+   The first L10n IRC meeting was on 2003-12-15, The 1.6 CD shipped with a few important / finished-in-time
+   localization XPI packs, we're still hoping further actions will happen. The first string freeze (1.7b -> 1.7)
+   is still to happen, and getting translations into CVS is actually a quite old bug report,
+   <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=57878">bug 57878</a> that still doesn't have much attention, as well as the one for
+   getting German L10n into CVS (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=179949">bug 179949</a>).
+   <br>Let's hope the positive movement of December can be carried on into the future.</li>
+ <li class="plus"><b>Mozilla Europe</b>: Just last week, the <a href="http://www.mozilla-europe.org/">Mozilla Foundation Europe</a>
+   has been launched, having a <span class="hilite">multi-language web site</span>, and that probably will
+   <span class="hilite">attract even more users</span> to localized versions of Mozilla and its derivates.
+   <br>We'll see what this means to our L10n projects...</li>
+</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+/* styles fpr L10n talk slides */
+
+body {
+  margin: 0px;
+  padding: 3px;
+  border: 0px;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  color: black;
+  background-color: white;
+  
+}
+
+h1 {
+  margin: 0.5em;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  margin: 0.5em;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h3 {
+  margin: 0.5em;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h4 {
+  margin: 0.5em;
+  font-size: 19px;
+  font-weight: bold;
+  text-align: left;
+}
+
+div.explanation {
+  margin: 1em;
+  padding: 0.5em;
+  border: 1px solid grey;
+  background-color: #FFFFF8;
+}
+
+div.sample {
+  margin: 1em;
+  padding: 0px;
+  border: 1px solid grey;
+  background-color: #FFF8F8;
+}
+
+div.samplecontent {
+  margin: 0px;
+  padding: 0.5em;
+  border: 0px;
+  border-top: 1px solid grey;
+  background-color: #F8F8FF;
+}
+
+p.sampledesc {
+  margin: 0.5em;
+  font-weight: bold;
+}
+
+span.hilite {
+  font-weight: bold;
+  color: #FF8080;
+}
+
+ul.filetree {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  margin: 0px 0px 0px 16px;
+  font-size: 0.8em;
+}
+
+ul.filetree ul {
+  margin: 0px 0px 0px 16px;
+  padding: 0px;
+  border: 0px;
+}
+ul.filetree li {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  list-style-image:url(folder-open.gif)
+}
+
+ul.filetree li.file {
+  list-style-image:url(file.gif)
+}
+
+ul.filetree li.dirclosed {
+  list-style-image:url(folder-closed.gif)
+}
+
+ul.filetree *|*:-moz-list-bullet {
+  margin-right: 3px;
+}
+
+ul.rdftree {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  margin: 0px 0px 0px 0px;
+  font-size: 0.8em;
+}
+
+ul.rdftree ul {
+  list-style-type: none;
+  margin: 0px 0px 0px 16px;
+  padding: 0px;
+  border: 0px;
+}
+
+ul.rdftree li {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+ul.rdftree > li.starttag {
+  margin: 0.5em 0px 0px 0px;
+}
+
+ul.smalltree {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  margin: 0px 0px 0px 15px;
+  font-size: 0.8em;
+}
+
+ul.smalltree > li {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+span.treespacer {
+  width: 1em;
+}

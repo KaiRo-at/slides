@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>L10n talk - FOSDEM 2003 - Mozilla Meeting</title>
+  <link rel="stylesheet" type="text/css" href="l10ntalk.css">
+  <link rel="contents" href="index.html" title="Contents">
+  <link rel="index" href="l10ntalk_overview.html" title="Overview">
+  <link rel="start" href="index.html" title="Start">
+  <link rel="first" href="l10ntalk_01.html" title="First page">
+  <link rel="previous" href="l10ntalk_04.html" title="Previous page">
+  <link rel="next" href="l10ntalk_06.html" title="Next page">
+  <link rel="last" href="l10ntalk_12.html" title="Last page">
+</head>
+<body>
+
+<h1>using JavaScript to display text</h1>
+
+<div class="explanation">
+Sometimes we have to display text dynamically in the UI though, which XUL alone can't do.
+Most times JavaScript is used for that. C++ is sometimes used as well, it uses a similar technique for
+displaying localized content though, and it uses the same type of files for localization.
+</div>
+
+<div class="sample">
+<p class="sampledesc">Sample XUL: openLocation.xul, calling some JS code</p>
+<div class="samplecontent">
+&lt;?xml version=&quot;1.0&quot;?&gt;
+<br>&lt;!DOCTYPE dialog SYSTEM &quot;chrome://communicator/locale/openLocation.dtd&quot;&gt;
+<br>&lt;dialog id=&quot;openLocation&quot; ... title=&quot;&amp;caption.label;&quot; <b>onLoad=&quot;onLoad();&quot;</b>&gt;
+<br>&lt;script type=&quot;application/x-javascript&quot; src=&quot;chrome://communicator/<b>content/openLocation.js</b>&quot;/&gt;
+<br>...
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;menuitem value=&quot;0&quot; id=&quot;currentWindow&quot; label=&quot;&amp;topWindow.label;&quot;/&gt;
+<br>...
+<br>&lt;/dialog&gt;
+</div>
+</div>
+
+<div class="sample">
+<p class="sampledesc">Sample JavaScript: openLocation.js</p>
+<div class="samplecontent">
+...
+<br>function onLoad()
+<br>{
+<br>&nbsp;&nbsp;dialog.main = document.getElementById("openLocation");
+<br>&nbsp;&nbsp;dialog.openTopWindow = document.getElementById("currentWindow");
+<br>&nbsp;&nbsp;if (!browser) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;// No browser supplied - we are calling from Composer
+<br>&nbsp;&nbsp;&nbsp;&nbsp;// Change string to make more sense for Composer
+<br>&nbsp;&nbsp;&nbsp;&nbsp;dialog.openTopWindow.setAttribute("label", "<span class="hilite">Existing Navigator window</span>");
+<br>&nbsp;&nbsp;&nbsp;&nbsp;// change title to 'Open Location with Mozilla'
+<br>&nbsp;&nbsp;&nbsp;&nbsp;dialog.open.setAttribute("title", "<span class="hilite">Open Location with Mozilla</span>");
+<br>&nbsp;&nbsp;}
+<br>}
+</div>
+</div>
+
+</body>
+</html>

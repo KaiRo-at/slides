@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>L10n talk - FOSDEM 2003 - Mozilla Meeting</title>
+  <link rel="stylesheet" type="text/css" href="l10ntalk.css">
+  <link rel="contents" href="index.html" title="Contents">
+  <link rel="index" href="l10ntalk_overview.html" title="Overview">
+  <link rel="start" href="index.html" title="Start">
+  <link rel="first" href="l10ntalk_01.html" title="First page">
+  <link rel="previous" href="l10ntalk_07.html" title="Previous page">
+  <link rel="next" href="l10ntalk_09.html" title="Next page">
+  <link rel="last" href="l10ntalk_12.html" title="Last page">
+</head>
+<body>
+
+<h1>chrome URIs / chrome registry</h1>
+
+<div class="explanation">
+The DTD file is referenced by a <b>chrome URI</b>, e.g. &quot;chrome://communicator/locale/openLocation.dtd&quot;.
+<br>All chrome URIs have the form of <b>chrome://&lt;package&gt;/{content|locale|skin}/&lt;path-to-file&gt;</b>.
+<br>To which file on disk (or in a .jar package) this URI resolves, is determined by the <b>chrome registry</b>:
+The chrome registry knows which <b>locales</b> (e.g. en-US, de-AT, it-IT) are installed for which <b>packages</b>
+(e.g. communicator, navigator, messenger), and which locale is selected for those packages.
+<br>As a side note, the chrome registry stores the same information for themes as well.
+</div>
+
+<div class="sample">
+<p class="sampledesc">Example directory tree with files</p>
+<div class="samplecontent">
+<ul class="filetree">
+ <li>mozilla
+  <ul>
+   <li>chrome
+    <ul>
+     <li>comm
+      <ul>
+       <li>content
+        <ul>
+         <li>communicator
+          <ul>
+	         <li class="file">openLocation.xul</li>
+          </ul>
+	       </li>
+         <li class="dirclosed">navigator</li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li class="file">en-US.jar
+      <ul>
+       <li>locale
+        <ul>
+         <li>en-US
+          <ul>
+	         <li>communicator
+            <ul>
+	           <li class="file">openLocation.dtd</li>
+	           <li class="file">openLocation.properties</li>
+             </ul>
+	         </li>
+	         <li>global
+            <ul>
+	           <li class="file">brand.dtd</li>
+	           <li class="file">brand.properties</li>
+            </ul>
+	         </li>
+           <li class="dirclosed">navigator</li>
+          </ul>
+	       </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li class="file">de-AT.jar
+      <ul>
+       <li>communicator
+        <ul>
+         <li class="file">openLocation.dtd</li>
+         <li class="file">openLocation.properties</li>
+        </ul>
+       </li>
+       <li>global
+        <ul>
+         <li class="file">brand.dtd</li>
+	       <li class="file">brand.properties</li>
+        </ul>
+       </li>
+       <li class="dirclosed">navigator</li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+</div>
+</div>
+
+<div class="sample">
+<p class="sampledesc">Sample chrome registry (main chrome.rdf + profile's chrome.rdf)</p>
+<div class="samplecontent">
+<ul class="rdftree">
+ <li>...</li>
+ <li class="starttag">&lt;RDF:Seq about="urn:mozilla<b>:package:root</b>"&gt;
+  <ul>
+	 <li>&lt;RDF:li resource="urn:mozilla:package:communicator"/&gt;</li>
+	 <li>&lt;RDF:li resource="urn:mozilla:package:global"/&gt;</li>
+	 <li>...</li>
+	</ul>
+ </li>
+ <li>&lt;/RDF:Seq&gt;
+ <li class="starttag">&lt;RDF:Description about="urn:mozilla:package:communicator" c:baseURL="<b>resource:/chrome/comm/content/communicator/</b>" c:localeVersion="1.3b" ...&gt;
+  <ul>
+	 <li>&lt;c:<b>selectedLocale</b> resource="urn:mozilla:locale:<b>de-AT:communicator</b>"/&gt;</li>
+	</ul>
+ </li>
+ <li>&lt;/RDF:Description&gt;
+ <li class="starttag">&lt;RDF:Description about="urn:mozilla:package:global" c:baseURL="<b>jar:</b>resource:/chrome/<b>toolkit.jar!</b>/content/global/" c:localeVersion="1.3b" ...&gt;
+  <ul>
+	 <li>&lt;c:selectedLocale resource="urn:mozilla:locale:de-AT:global"/&gt;</li>
+	</ul>
+ </li>
+ <li>&lt;/RDF:Description&gt;
+ <li class="starttag">&lt;RDF:Seq about="urn:mozilla<b>:locale:root</b>"&gt;
+  <ul>
+	 <li>&lt;RDF:li resource="urn:mozilla:locale:de-AT"/&gt;</li>
+	 <li>&lt;RDF:li resource="urn:mozilla:locale:AT"/&gt;</li>
+	 <li>&lt;RDF:li resource="urn:mozilla:locale:en-US"/&gt;</li>
+	 <li>&lt;RDF:li resource="urn:mozilla:locale:US"/&gt;</li>
+	</ul>
+ </li>
+ <li>&lt;/RDF:Seq&gt;
+ <li class="starttag">&lt;RDF:Description about="urn:mozilla:locale:<b>en-US:communicator</b>" c:baseURL="jar:resource:/chrome/<b>en-US.jar!/locale/en-US/communicator/</b>" c:localeVersion="1.3b"&gt;
+  <ul>
+	 <li>&lt;c:package resource="urn:mozilla:package:communicator"/&gt;</li>
+	</ul>
+ </li>
+ <li>&lt;/RDF:Description&gt;
+ <li class="starttag">&lt;RDF:Description about="urn:mozilla:locale:en-US:global" c:baseURL="jar:resource:/chrome/en-US.jar!/locale/en-US/global/" c:localeVersion="1.3b"&gt;
+  <ul>
+	 <li>&lt;c:package resource="urn:mozilla:package:global"/&gt;</li>
+	</ul>
+ </li>
+ <li>&lt;/RDF:Description&gt;
+ <li class="starttag">&lt;RDF:Description about="urn:mozilla:locale:<b>de-AT:communicator</b>" c:baseURL="jar:resource:/chrome/<b>de-AT.jar!/communicator/</b>" c:localeVersion="1.3b"&gt;
+  <ul>
+	 <li>&lt;c:package resource="urn:mozilla:package:communicator"/&gt;</li>
+	</ul>
+ </li>
+ <li>&lt;/RDF:Description&gt;
+ <li class="starttag">&lt;RDF:Description about="urn:mozilla:locale:de-AT:global" c:baseURL="jar:resource:/chrome/de-AT.jar!/global/" c:localeVersion="1.3b"&gt;
+  <ul>
+	 <li>&lt;c:package resource="urn:mozilla:package:global"/&gt;</li>
+	</ul>
+ </li>
+ <li>&lt;/RDF:Description&gt;
+</ul>
+</div>
+</div>
+
+</body>
+</html>

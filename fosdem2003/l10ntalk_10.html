@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>L10n talk - FOSDEM 2003 - Mozilla Meeting</title>
+  <link rel="stylesheet" type="text/css" href="l10ntalk.css">
+  <link rel="contents" href="index.html" title="Contents">
+  <link rel="index" href="l10ntalk_overview.html" title="Overview">
+  <link rel="start" href="index.html" title="Start">
+  <link rel="first" href="l10ntalk_01.html" title="First page">
+  <link rel="previous" href="l10ntalk_09.html" title="Previous page">
+  <link rel="next" href="l10ntalk_11.html" title="Next page">
+  <link rel="last" href="l10ntalk_12.html" title="Last page">
+</head>
+<body>
+
+<h1>current problems with L10n work (helpwanted!)</h1>
+
+<div class="explanation">
+As always, there are some more or less big problems in current Mozilla L10n:
+<ul>
+ <li><b>Hardcoded content</b>: Some projects still have hardcoded un-localizable code in their UI files,
+     e.g. Calendar and ChatZilla - but also Browser and MailNews have a bunch of those left.
+		 A big part of this is low-hanging fruit for contributors and blocks L10n severily sometimes.
+		 <br>All relevant bugs (should) have the "L12y" keyword set.
+		 Query for <a href="http://bugzilla.mozilla.org/buglist.cgi?keywords_type=allwords&keywords=L12y&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED">All bugs with L12y keyword set</a>
+		 (44 bugs found as of Fri Feb 7 06:30:17 PST 2003).</li>
+ <li><b>Ignorance</b>: Many US programmers think "It works for me and my collegues, and so it's alright" -
+     and they forget about i18n issues or things like locale switching altogether.
+		 <br>I had to fix breakage of the pref panel four times from 2002-03-31 to 2002-08-26 -
+		 the FastLoad workaround (see below) is the fith issue that broke it during that time span!
+		 See <a href="http://bonsai.mozilla.org/cvslog.cgi?file=mozilla/extensions/content-packs/resources/content/pref-contentpacks.xul">CVS Log of the pref panel</a>.</li>
+ <li><b>Content packs</b>: Content packs (a.k.a. "region" packs) were a somehow interesting idea, but they
+     aren't used by anyone. 99.999999% of our users only use one language pack and one content pack together.
+     They should get re-merged into one pack again, the files should stay seperate though, as it's quite good
+		 to have all URLs that are used in the UI seperated from the other content.
+		 <br>It looks as even Netscape, who had originally created that split-up has no interest any more in those
+		 content packs. It even blocks me from renaming the generic German language pack to a simple "de.jar".
+ <li><b>localeVersion updates</b>: locale packs from different Mozilla versions are incompatible because of
+     changed, added or removed texts in the UI. Quite some time ago, we introduced a localeVersion attribute
+	   in chrome registry that has to fit, so that Mozilla knows it has a working set of chrome files.
+		 <br>So far, so good. Lots of contents.rdf files in the tree carry that information, which is hardcoded
+		 there, and it's a <b>big pain to update</b> them for every version.
+		 See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=175853" title="Update localeVersion strings for 1.2 final - and do it correctly!">bug 175853</a>,
+		 <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=185698" title="localeVersion update for 1.3b on trunk">bug 185698</a>
+		 and <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=154927" title="automate localeVersion updates based on milestone.txt">bug 154927</a>.</li>
+ <li><b>no fallback mechanism</b>: If people would try to use some non-fitting locale packs, they get crashes
+     and XML errors because we have no fallback if lookup for a locale string fails somewhere (string or file not found).
+		 See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=71797" title="Mozilla fails to fallback to another skin or locale if the preferences point to a non-existant one">bug 71797</a>.</li>
+ <li><b>XUL FastLoad problems</b>: XUL FastLoad fails to update the strings after a locale switch.
+     There is a workaround in place, which also fails sometimes, and was promised to be replaced by a fix for 1.1 final.
+		 See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=142623" title="No reload of Language strings due to XUL FastLoad">bug 142623</a>.</li>
+ <li><b>XPI installation problems - error -239</b>: This bug is a really strange thing, and does hurt us mainly on unix.
+     When installing an XPI on most unix systems and some other systems as well, it fails with
+		 error -239 (CHROME_REGISTRY_ERROR) for no obvious reason.
+		 <br>We're using a workaround for unix, but this workaround prohibits installing a new locale into the
+		 profile directory, which would be needed for non-root users in the common case.
+		 See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=109044" title="Install error -239 registering chrome on some systems">bug 109044</a>.</li>
+ <li><b>No stringbundles from non-privileged files</b>: This started to hurt me when trying to make about:plugins
+     localizable (see <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=56863" title="make about:plugins localizable">bug 56863</a>).
+     In fact, I had to give about:plugins full chrome privileges just to access stringbundles - this opened
+		 a potential security issue though. Even if about:plugins might go a different way now (HTML created by C++),
+		 this is a potential issue for other areas.
+		 See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=98298" title="do not have stringbundle access from about:plugins">bug 98298</a>.</li>
+ <li><b>Resources</b>: Currently, there's no single collection of documentation, tools, etc. for L10n people.
+     We're currently working on getting such a thing up and running now though.
+		 See <a href="http://l10ntools.mozdev.org/">l10ntools.mozdev.org</a>.</li>
+</ul>
+This should be some points to start for contributors who want to help us, and an overview what's bugging
+us most currently. I'm sure the list is not complete, but it's what came to my mind when writing the slides...
+</div>
+
+</body>
+</html>

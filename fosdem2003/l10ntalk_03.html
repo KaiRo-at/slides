@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>L10n talk - FOSDEM 2003 - Mozilla Meeting</title>
+  <link rel="stylesheet" type="text/css" href="l10ntalk.css">
+  <link rel="contents" href="index.html" title="Contents">
+  <link rel="index" href="l10ntalk_overview.html" title="Overview">
+  <link rel="start" href="index.html" title="Start">
+  <link rel="first" href="l10ntalk_01.html" title="First page">
+  <link rel="previous" href="l10ntalk_02.html" title="Previous page">
+  <link rel="next" href="l10ntalk_04.html" title="Next page">
+  <link rel="last" href="l10ntalk_12.html" title="Last page">
+</head>
+<body>
+
+<h1>adding a DTD file</h1>
+
+<div class="explanation">
+To be able to localize all that text, we need to declare general (text) <b>entities</b> for
+all locale sensitive resources in an <b>external DTD</b> (Document Type Definition) subset and use an
+<b>XML entity reference</b>, "<span class="hilite">&amp;entity_name;</span>", to reference them.
+<br>The DTD file is placed in an appropriate "locale" directory of our project.
+</div>
+
+<div class="sample">
+<p class="sampledesc">Sample XUL: openLocation.xul</p>
+<div class="samplecontent">
+&lt;?xml version=&quot;1.0&quot;?&gt;
+<br>&lt;!DOCTYPE dialog SYSTEM &quot;chrome://communicator/<b>locale/openLocation.dtd</b>&quot;&gt;
+<br>&lt;dialog ... title=&quot;<span class="hilite">&amp;caption.label;</span>&quot;&gt;
+<br>...
+<br>&lt;description&gt;<span class="hilite">&amp;enter.label;</span>&lt;/description&gt;
+<br>...
+<br>&lt;/dialog&gt;
+</div>
+</div>
+
+<div class="sample">
+<p class="sampledesc">Sample DTD: openLocation.dtd</p>
+<div class="samplecontent">
+&lt;!ENTITY <span class="hilite">caption.label</span> &quot;Mozilla - Open Web Location&quot;&gt;
+<br>&lt;!ENTITY <span class="hilite">enter.label</span> &quot;Enter the web location (URL), or specify the local file you would like to open:&quot;&gt;  
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>L10n talk - FOSDEM 2003 - Mozilla Meeting</title>
+  <link rel="stylesheet" type="text/css" href="l10ntalk.css">
+  <link rel="contents" href="index.html" title="Contents">
+  <link rel="index" href="l10ntalk_overview.html" title="Overview">
+  <link rel="start" href="index.html" title="Start">
+  <link rel="first" href="l10ntalk_01.html" title="First page">
+  <link rel="previous" href="l10ntalk_10.html" title="Previous page">
+  <link rel="next" href="l10ntalk_12.html" title="Next page">
+  <link rel="last" href="l10ntalk_12.html" title="Last page">
+</head>
+<body>
+
+<h1>useful resources for L10n work</h1>
+
+<div class="explanation">
+There are a few places to look for Mozilla L10n resources currently:
+<ul>
+ <li><b>MLP</b>: The <a href="http://www.mozilla.org/projects/l10n/">Mozilla Localization Project</a>
+     is hosted on mozilla.org and contains a list of all major contributors to all languages supported on any
+		 Mozilla version. There's a small howto, a page with various locale packs available for Mozilla, and
+		 <a href="ftp://ftp.mozilla.org/pub/mozilla/l10n/lang/">ftp.mozilla.org</a>
+		 hosts downloads for locale packs and localized Mozilla binaries.
+		 (There are currently 89 L10n projects [excluding en-US] registered, 10 projects have released 1.3a versions,
+		 30 have 1.2.1 available).</li>
+ <li><b>MozillaTranslator</b>: The <a href="http://www.mozillatranslator.org/">MozillaTranslator</a> tool
+     has its own website, with a mini-howto (contributors to the documentation wanted!), downloads of
+		 the tool itself as well as its source code, and a download page for language packs
+		 (often a bit outdated though).</li>
+ <li><b>Creating Applications with Mozilla</b>: <a href="http://books.mozdev.org/chapters/ch11.html">Chapter 11</a>
+     of the book about creating Mozilla applications (this chapter was written by Brian King)
+		 is worth a look as well, esp. if you're writing your own application using the Mozilla framework
+		 (I haven't come around to read it though).</li>
+ <li><b>l10ntools</b>: Finally, the new <a href="http://l10ntools.mozdev.org/">l10ntools MozDev project</a>
+     is currently built up and should contain a bunch of tools to deal with L10n work, some docs, and some
+		 link to those other resources.
+		 <br>One subproject is <b>mozpotools</b>, which allows converting Mozilla's locale files to the GNU gettext
+		 .po format, use the common translation tools for that format (KBabel etc.), and then convert the files back
+		 to Mozilla's format.
+		 <br>l10ntools will also provide <b>XPI install scripts</b> for use in a locale's installable XPI language packs,
+     <b>scripts for creating XPI packs</b> from the .jar files that get exported by MozillaTranslator, and even
+     <b>scripts for creating localized binaries</b> from the XPI file created above and an existing .tar.gz or .zip
+		 binary Mozilla build, as well as <b>some documentation</b> about those tools and prbably general L10n issues.
+		 Other useful tools will probably be added if people give them to us.</li>
+</ul>
+In the future, <b>l10ntools</b> should have link to all those resources (or host them theirselves).
+</div>
+
+</body>
+</html>
