@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>L10n talk - FOSDEM 2005 - Mozilla Meeting</title>
+  <link rel="stylesheet" type="text/css" href="l10ntalk.css">
+  <link rel="contents" href="index.html" title="Contents">
+  <link rel="index" href="l10ntalk_overview.html" title="Overview">
+  <link rel="glossary" href="l10ntalk_glossary.html" title="Glossary">
+  <link rel="start" href="index.html" title="Start">
+  <link rel="first" href="l10ntalk_01.html" title="First page">
+  <link rel="previous" href="l10ntalk_03.html" title="Previous page">
+  <link rel="next" href="l10ntalk_end.html" title="Next page">
+  <link rel="last" href="l10ntalk_end.html" title="Last page">
+</head>
+<body>
+
+<h1>Current Problems In L10n Area (helpwanted!)</h1>
+
+<div class="explanation">
+<ul class="bugs">
+ <li><b>no fallback mechanism</b>: If people would try to use some non-fitting locale packs, they get
+     <span class="hilite">crashes and XML errors</span> because we have no fallback if lookup for
+     a locale string fails somewhere (string or file not found).
+     See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=71797" title="Mozilla fails to fallback to another skin or locale if the preferences point to a non-existant one">bug 71797</a>.</li>
+ <li><b>SeaMonkey vs. Aviary</b>: The differences between SeaMonkey and the "aviary" applications based on the new toolkit
+     make work difficult sometimes fot getting source L10n to work correctly.
+     <br>L10n work for the two product lines is getting <span class="hilite">more and more different</span>,
+     though the source files are similar or identical on both sides.
+     <br>This situation would get much better if we
+     <a href="http://wiki.mozilla.org/wiki/User:Biesi#port_seamonkey_to_.22new_toolkit.22.2Fxulrunner">port seamonkey to "new toolkit"/xulrunner</a>,
+     we'd still need volunteers for that effort (this is not strictly L10n, but it affects us a lot, and we still have quite a lot of SeaMonkey L10n out there).
+ <li><b>MLP web pages are a mess</b>: We (MLP staff) know about that, and we are working on it. See
+     <a href="http://wiki.mozilla.org/wiki/L10n:MLP_page_structure">MozillaWiki - L10n:MLP_page_structure</a>.
+ <li><b>L12y bugs</b>: Just as a reminder, we have some <span class="hilite">localizability problems</span> left in Mozilla code.
+     <br>All relevant bugs (should) have <a href="http://bugzilla.mozilla.org/describekeywords.cgi#l12y">the "L12y" keyword</a> set.
+     Query for <a href="http://bugzilla.mozilla.org/buglist.cgi?keywords_type=allwords&amp;keywords=L12y&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED">All bugs with L12y keyword set</a>
+     <small>(87 bugs found as of Wed Feb 23 12:56:11 PST 2005,
+     48 of them in <a href="http://bugzilla.mozilla.org/buglist.cgi?keywords_type=allwords&amp;keywords=L12y&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;product=Core">Core product</a>,
+     14 of them in <a href="http://bugzilla.mozilla.org/buglist.cgi?keywords_type=allwords&amp;keywords=L12y&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;product=Mozilla+Application+Suite">"Mozilla Application Suite" (Seamonkey) product</a>,
+     13 of them in <a href="http://bugzilla.mozilla.org/buglist.cgi?keywords_type=allwords&amp;keywords=L12y&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;product=Firefox">Firefox product</a>,
+     6 of them in <a href="http://bugzilla.mozilla.org/buglist.cgi?keywords_type=allwords&amp;keywords=L12y&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;product=Thunderbird">Thunderbird product</a>,
+     the other 6 in PSM, Update, mozilla.org)</small>.</li>
+ <li><b>No stringbundles from non-privileged files</b>: This started to hurt me when trying to make about:plugins
+     localizable (see <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=56863" title="make about:plugins localizable">bug 56863</a>).
+     In fact, I had to give about:plugins full chrome privileges just to access stringbundles - this opened
+     a potential security issue though.
+     See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=98298" title="do not have stringbundle access from about:plugins">bug 98298</a>.</li>
+ <li><b>XUL FastLoad problems</b>: XUL FastLoad fails to update the strings
+     <span class="hilite">after a locale switch</span>. There is a workaround in place (killing the FastLoad file),
+     which also fails sometimes, and was promised to be replaced by a fix for 1.1 final (!).
+     See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=142623" title="No reload of Language strings due to XUL FastLoad">bug 142623</a>.</li>
+</ul>
+This should be some points to start for contributors who want to help us, and an overview what's bugging us
+most currently. I'm sure the list is not complete, but it's what came to my mind when writing the slides...
+</div>
+
+<p class="forward"><a href="l10ntalk_end.html">next</a></p>
+
+</body>
+</html>
