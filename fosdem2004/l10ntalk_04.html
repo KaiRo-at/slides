@@ -28,7 +28,7 @@
      <span class="hilite">after a locale switch</span>. There is a workaround in place (killing the FastLoad file),
      which also fails sometimes, and was promised to be replaced by a fix for 1.1 final (!).
      See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=142623" title="No reload of Language strings due to XUL FastLoad">bug 142623</a>.</li>
- <li><b>Hardcoded content</b>: Yes, there's still some hardcoded un-localizable code in UI files left,
+ <li><b>Hardcoded content</b>: Yes, there's still some hardcoded <span class="hilite">un-localizable code</span> in UI files left,
      a big part of this is low-hanging fruit for contributors and blocks L10n severily sometimes.
      <br>All relevant bugs (should) have <a href="http://bugzilla.mozilla.org/describekeywords.cgi#l12y">the "L12y" keyword</a> set.
      Query for <a href="http://bugzilla.mozilla.org/buglist.cgi?keywords_type=allwords&keywords=L12y&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED">All bugs with L12y keyword set</a>
@@ -42,14 +42,16 @@
      and they forget about i18n issues or things like locale switching altogether.
      <br>I had to fix breakage of the locale switching pref panel four times from 2002-03-31 to 2002-08-26 -
      the FastLoad workaround (see above) was the fith issue that broke it during that time span!
-     See <a href="http://bonsai.mozilla.org/cvslog.cgi?file=mozilla/extensions/content-packs/resources/content/pref-contentpacks.xul">CVS Log of the pref panel</a>.</li>
+     See <a href="http://bonsai.mozilla.org/cvslog.cgi?file=mozilla/extensions/content-packs/resources/content/pref-contentpacks.xul">CVS Log of the pref panel</a>.
+     <br>BTW, <span class="hilite">locale switching is now broken once again</span> (even in 1.7a): See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=235058" title="Content/language switching from UI is broken">bug 235058</a>.</li>
  <li><b>No stringbundles from non-privileged files</b>: This started to hurt me when trying to make about:plugins
      localizable (see <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=56863" title="make about:plugins localizable">bug 56863</a>).
      In fact, I had to give about:plugins full chrome privileges just to access stringbundles - this opened
      a potential security issue though.
      See <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=98298" title="do not have stringbundle access from about:plugins">bug 98298</a>.</li>
  <li><b>Content packs</b>: We should investigate if we really need seperate packages for that content,
-     as the real idea never took off. Merging them back into normal localization content could ease a few things.</li>
+     as <span class="hilite">the real idea never took off</span> (mainly Netscape had further plans with that).
+     Merging them back into normal localization content could ease a few things.</li>
 </ul>
 This should be some points to start for contributors who want to help us, and an overview what's bugging us
 most currently. I'm sure the list is not complete, but it's what came to my mind when writing the slides...

@@ -29,18 +29,19 @@ Well, let's make it a small bit less geeky ;-). So what has happened in the last
      versioning of locale in chrome registry, fed into it by contents.rdf files.
      <br>Those were <span class="hilite">previously hardcoded</span> and I did big manual patches to change them. After I found a way to 
      insert the versions at build-time and patched the whole tree to do that using the C preprocessor
-     (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=154927">bug 154927</a>),
+     (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=154927" title="automate localeVersion updates based on milestone.txt">bug 154927</a>),
      I was told we should use the <span class="hilite">XUL preprocessor</span>. I made that change recently
-     (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=232011">bug 232011</a>)
+     (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=232011" title="Use the XUL preprocessor for build-time inserting of localeVersion strings">bug 232011</a>)
      and set tinderboxen on fire (as some of you may remember)...
      <br>After some help from tinderbox admins and bsmedberg (who had to fix make-jars.pl for a bug I triggered),
      we should now have that long-standing bug finally resolved (and themes will follow that way soon -
-     <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=234014">bug 234014</a>).
+     <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=234014" title="Use the XUL preprocessor for build-time inserting of skinVersion strings">bug 234014</a>).
      <br>BTW, all chrome version strings are now defined in
      <a href="http://lxr.mozilla.org/mozilla/source/config/chrome-versions.sh">mozilla/config/chrome-versions.sh</a>.</li>
  <li class="minus"><b>XPI error -239</b>: When installing our <span class="hilite">locale XPI files</span>, we often ran into XPInstall
      error -239 (CHROME_REGISTRY_ERROR), especially on unix machines. This had been happening quite
-     frequently for at least 18 months (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=109044">bug 109044</a>),
+     frequently for at least 18 months
+     (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=109044" title=" 	Install error -239 registering chrome on some systems">bug 109044</a>),
      and noone had an idea why that happened, when it started magically disappearing in some cases last summer.
      <br>DocWilco then <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=109044#c64">filed a patch</a>
      for a case where he was still seeing (and which was "a tough one to crack"), and we didn't hear a lot about
@@ -78,8 +79,10 @@ Well, let's make it a small bit less geeky ;-). So what has happened in the last
    The first L10n IRC meeting was on 2003-12-15, The 1.6 CD shipped with a few important / finished-in-time
    localization XPI packs, we're still hoping further actions will happen. The first string freeze (1.7b -> 1.7)
    is still to happen, and getting translations into CVS is actually a quite old bug report,
-   <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=57878">bug 57878</a> that still doesn't have much attention, as well as the one for
-   getting German L10n into CVS (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=179949">bug 179949</a>).
+   <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=57878" title="Translations should be in CVS">bug 57878</a>,
+   that still doesn't have much attention, as well as the one for
+   getting German L10n into CVS
+   (<a href="http://bugzilla.mozilla.org/show_bug.cgi?id=179949" title="Get German/de-AT translation into CVS">bug 179949</a>).
    <br>Let's hope the positive movement of December can be carried on into the future.</li>
  <li class="plus"><b>Mozilla Europe</b>: Just last week, the <a href="http://www.mozilla-europe.org/">Mozilla Foundation Europe</a>
    has been launched, having a <span class="hilite">multi-language web site</span>, and that probably will
