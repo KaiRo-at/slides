@@ -8,7 +8,7 @@ body {
 /*  font-size: 16px; */
   color: black;
   background-color: white;
-  
+
 }
 
 h1 {
@@ -85,12 +85,8 @@ pre.border {
 ul {
   padding-left: 1.2em;
 }
-li.plus {
-  list-style-image:url("plus.png");
-  margin: 0.5em 0;
-}
-li.minus {
-  list-style-image:url("minus.png");
+
+ul.timeline > li {
   margin: 0.5em 0;
 }
 
