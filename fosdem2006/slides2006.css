@@ -1,0 +1,143 @@
+/**************************
+ * styles for talk slides *
+ *    by Robert Kaiser    *
+ *    <kairo@kairo.at>    *
+ *   (for FOSDEM 2006)    *
+ **************************/
+
+
+/***** base style *****/
+
+body {
+  margin: 0px;
+  padding: 3px;
+  border: 0px;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 2em;
+  color: black;
+  background-color: white;
+  background-image: url('seamonkey64.png');
+  background-repeat: no-repeat;
+  background-position: 1em 1em;
+}
+
+ul {
+  padding-left: 1.2em;
+}
+
+/***** headers *****/
+
+h1 {
+  margin: 0.5em;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  margin: 0.5em;
+  font-size: 1.75em;
+  font-weight: bold;
+  text-align: center;
+}
+
+h3 {
+  margin: 0.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+h4 {
+  margin: 0.5em;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: left;
+}
+
+/***** boxes *****/
+
+div.explanation {
+  margin: 1em;
+  padding: 0.5em;
+  border: 1px solid grey;
+  background-color: #FFFFF8;
+}
+
+div.sample {
+  margin: 1em;
+  padding: 0px;
+  border: 1px solid grey;
+  background-color: #FFF8F8;
+}
+
+div.samplecontent {
+  margin: 0px;
+  padding: 0.5em;
+  border: 0px;
+  border-top: 1px solid grey;
+  background-color: #F8F8FF;
+}
+
+p.sampledesc {
+  margin: 0.5em;
+  font-weight: bold;
+}
+
+/***** navigation *****/
+
+p.forward {
+  text-align: right;
+  font-size: 0.75em;
+  margin: 0em 1.5em;
+}
+
+/***** misc formatting *****/
+
+span.hilite {
+  font-weight: bold;
+  color: #FF8080;
+}
+
+pre.border {
+  border: 1px solid #FF8080;
+  padding: 0.5em;
+}
+
+ul.timeline > li {
+  margin: 0.25em 0;
+}
+
+ul.timeline > li > ul > li {
+  margin-top: 0.2em;
+}
+
+ul.timeline > li > ul > li > ul > li {
+  margin-top: 0.1em;
+}
+
+ul.bugs > li {
+  list-style-image:url("bug.png");
+  margin: 0.5em 0;
+}
+
+/***** small stuff *****/
+
+.small {
+  font-size: 0.75em;
+}
+
+ul.small,
+.small ul {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  margin: 0px 0px 0px 1em;
+}
+
+ul.small > li
+.small ul > li {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
