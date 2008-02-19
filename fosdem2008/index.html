@@ -12,8 +12,15 @@
   <link rel="previous" href="slide_xxx.html" title="Previous page"> -->
   <link rel="next" href="slide_introduction.html" title="Next page">
   <link rel="last" href="slide_end.html" title="Last page">
+<script type="text/javascript">
+function docClicked(event) {
+  if (event.target.nodeName != "A") {
+    location.href = document.getElementById('goNext').href;
+  }
+}
+</script>
 </head>
-<body>
+<body onLoad="document.body.onclick = docClicked;">
 <div id="header"><div id="header-text">And the beast shall come forth...</div>
   <img src="template/header-logo.png" height="38" width="260" alt="">
 </div>
@@ -21,7 +28,7 @@
   <a href="toc.html" accesskey="t">toc</a> ||
   <a href="index.html" accesskey="s">start</a> ||
   <span class="nolink">&lt; prev</span> |
-  <a href="slide_introduction.html" accesskey="n">next &gt;</a>
+  <a href="slide_introduction.html" id="goNext" accesskey="n">next &gt;</a>
 </div>
 
 <h1>And the beast shall come forth...</h1>
