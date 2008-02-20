@@ -2,7 +2,7 @@
  * styles for talk slides *
  *    by Robert Kaiser    *
  *    <kairo@kairo.at>    *
- *   (for FOSDEM 2007)    *
+ *   (for FOSDEM 2008)    *
  **************************/
 
 
@@ -46,6 +46,18 @@ ul:last-child {
   font-size: 24px;
   font-weight: bold;
   color: #7f7c45;
+}
+
+#header-text.neartime {
+  color: #000080;
+}
+
+#header-text.ontime {
+  color: #008000;
+}
+
+#header-text.overtime {
+  color: #800000;
 }
 
 #slidenav {
