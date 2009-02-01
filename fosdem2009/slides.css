@@ -159,6 +159,7 @@ h4 {
 .hilite {
   font-weight: bold;
   color: #0060C0;
+  text-shadow: #5959ec 1px 1px 1px;
 }
 
 .border {
