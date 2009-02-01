@@ -5,12 +5,6 @@
  *     (for FOSDEM 2007)      *
  ******************************/
 
-function docClicked(event) {
-  if (event.target.nodeName != "A") {
-    location.href = document.getElementById('goNext').href;
-  }
-}
-
 // do timed color variantion on slides
 var slide_seconds = 3*60;
 var slide_start = new Date();
@@ -34,5 +28,37 @@ function timerFired() {
     setTimeout("timerFired()", 1000);
   }
 }
-
 setTimeout("timerFired()", 1000*(slide_seconds/3));
+
+(function() {
+  function go(where) {
+    where = where || "next";
+    var links = document.getElementsByTagName("link");
+    for (var i = 0; i < links.length; ++i) {
+      if (links[i].rel == where) {
+        window.location.href = links[i].href;
+        break;
+      }
+    }
+  }
+
+  function handleClick(e) {
+    e = e || event;
+    var target = (window.event) ? e.srcElement : e.target;
+    if (e.which == 1 && target.nodeName != "A")
+      go("next");
+  }
+
+  function handleKeyPress(e) {
+    e = e || event;
+    switch (e.keyCode) {
+      case e.DOM_VK_LEFT:
+        go("previous"); break;
+      case e.DOM_VK_RIGHT:
+        go("next"); break;
+    }
+  }
+
+  window.onclick = handleClick;
+  window.onkeypress = handleKeyPress;
+})();
