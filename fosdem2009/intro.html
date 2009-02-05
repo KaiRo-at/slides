@@ -14,20 +14,10 @@
   <link rel="start" href="index.html" title="Start">
   <link rel="next" href="index.html" title="Next page">
 <style type="text/css">
-html {
-  height: 100%;
-  border: 0px solid transparent;
-  padding: 0;
-  margin: 0;
-}
 body {
   background-color: black;
   color: #5b5bed;
   text-align: center;
-  height: 100%;
-  border: 0px solid transparent;
-  padding: 0;
-  margin: 0;
 }
 h1 {
   font-size: 2em;
@@ -35,16 +25,22 @@ h1 {
   font-weight: bold;
   text-align: center;
 }
+#shadow {
+  position: absolute;
+  background-color: black;
+  height: 400px;
+  width: 90%;
+  left: 5%;
+}
 #introvideo {
-  margin: auto;
+  margin: 0 auto;
   border: 0px solid transparent;
   padding: 0;
   display: block;
 }
 #intrologo {
   display: block;
-  margin: auto;
-  margin-top: 1em;
+  margin: 1em auto;
   border: 0px solid transparent;
   padding: 0;
 }
@@ -52,9 +48,12 @@ h1 {
 </head>
 <body>
 <h1>The Future Begins</h1>
+<div id="shadow" onclick="document.getElementById('shadow').style.display='none';document.getElementById('introvideo').play();">
+<img src="intro-logo.png" onclick="true;">
+</div>
 <video id="introvideo" src="trailer.ogg" controls="true">
   The future will begin once you have a browser that supports the <code>video</code> element.
-</video>  
+</video>
 <img id="intrologo" src="intro-logo.png">
 </body>
 </html>
