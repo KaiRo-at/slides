@@ -23,10 +23,7 @@ ul {
   margin-bottom: 0.5em;
 }
 
-ul:first-child {
-  margin-top: 0;
-}
-
+ul:first-child,
 ul:last-child {
   margin-top: 0;
 }
@@ -122,17 +119,16 @@ h4 {
 /***** boxes *****/
 
 .simplebox {
-  margin: 1em;
   padding: 0.5em;
-  border: 1px solid #0060C0;
-  background-color: #E0E9E9;
-  -moz-border-radius: .5em;
-  -moz-box-shadow: #b7d8f9 2px 2px 3px;
 }
 
 .captionedbox {
-  margin: 1em;
   padding: 0px;
+}
+
+.simplebox,
+.captionedbox {
+  margin: 1em;
   border: 1px solid #0060C0;
   background-color: #E0E9E9;
   -moz-border-radius: .5em;
@@ -191,7 +187,6 @@ a:hover, a:active { color: #800000; text-decoration: underline; }
 
 ul.small,
 .small ul {
-  margin: 0px;
   padding: 0px;
   border: 0px;
   margin: 0px 0px 0px 1em;

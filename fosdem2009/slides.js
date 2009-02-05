@@ -5,7 +5,7 @@
  *     (for FOSDEM 2007)      *
  ******************************/
 
-// do timed color variantion on slides
+// do timed color variation on slides
 var slide_seconds = 3*60;
 var slide_start = new Date();
 
@@ -45,7 +45,7 @@ setTimeout("timerFired()", 1000*(slide_seconds/3));
   function handleClick(e) {
     e = e || event;
     var target = (window.event) ? e.srcElement : e.target;
-    if (e.which == 1 && target.nodeName != "A")
+    if (e.which == 1 && target.nodeName != "A" && target.nodeName != "VIDEO")
       go("next");
   }
 
