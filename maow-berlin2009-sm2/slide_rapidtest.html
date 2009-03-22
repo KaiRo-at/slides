@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>FF/TB-Erweiterungen in SM2 - Schnelles Testen</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_overlay.html" title="Vorige Seite">
+  <link rel="next" href="slide_demo.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">FF/TB-Erweiterungen in SM2</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_overlay.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_demo.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>Schnelles Testen von Erweiterungs-&Auml;nderungen</h1>
+
+<div class="simplebox">
+Warnung: Diese Anleitung f&uuml;hrt unsichere Aktionen im Profil aus -
+bitte entweder die Profildaten sichern oder ein neues Testprofil anlegen,
+bevor das ausprobiert wird!
+<ol>
+  <li><code>about:config</code> aufrufen, eine neue Bool-Pref
+    <code>extensions.checkCompatibility</code> erstellen und und auf
+    <code>false</code> setzen. Damit l&auml;sst sich jede Firefox-Erweiterung
+    in SeaMonkey 2 prinzipiell installieren.</li>
+  <li>Die zu bearbeitende Erweiterung installieren (funktioniert
+    nat&uuml;rlich noch nicht korrekt).</li>
+  <li>SeaMonkey beenden, und die installierte Erweiterung in
+    <code>extensions/</code> im Profilverzeichnis finden.</li>
+  <li><code>install.rdf</code> kann dort gleich angepasst werden, sodass beim
+    n&auml;chsten SeaMonkey-Start <code>extensions.checkCompatibility</code>
+    wieder r&uuml;ckgesetzt werden kann.</li>
+  <li>Die ev. vorhandene <code>.jar</code>-Datei der Erweiterung in ein
+    gleichnamiges Verzeichnis entpacken und in <code>chrome.manifest</code> das
+    <code>jar:</code>-Pr&auml;fix und den <code>.jar!</code>-Teil entfernen.</li>
+  <li>Die entpackten Dateien werden jetzt direkt verwendet, d.h. Editieren aller
+    Dateien der Erweiterung ist sofort beim SeaMonkey-Neustart wirksam. Die
+    vorinstallieren Werkzeuge DOM-Inspector und Venkman (JavaScript-Debugger)
+    k&ouml;nnen bei der Entwicklung der Anpassungen hilfreich sein.</li>
+  <li>Sobald alle &Auml;nderungen gemacht wurden, kann die <code>.jar</code>
+    wieder gepackt werden und <code>chrome.manifest</code> zur&uuml;ck
+    ge&auml;ndert werden oder die neuen Dateien in den Erweiterungs-Quelltext
+    &uuml;bernommen werden.</li>
+</ol>
+</div>
+</div>
+
+</body>
+</html>

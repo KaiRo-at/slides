@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>FF/TB-Erweiterungen in SM2 - chrome.manifest</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_installrdf.html" title="Vorige Seite">
+  <link rel="next" href="slide_overlay.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">FF/TB-Erweiterungen in SM2</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_installrdf.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_overlay.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>Portierung, Schritt 2: chrome.manifest</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Entweder separate oder gemeinsame Overlays mit
+    <code>application</code>-Flags versehen, um sie nur auf Firefox oder
+    Thunderbird oder SeaMonkey zu registrieren:
+<pre>content testext content/
+skin    testext classic/1.0 skin/
+overlay chrome://browser/content/browser.xul           chrome://testext/content/overlay.xul application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+overlay chrome://communicator/content/tasksOverlay.xul chrome://testext/content/overlay.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</pre></li>
+  <li>In diesem Fall w&uuml;rde ohne <code>application</code>-Flags noch immer
+    auf beiden Anwendungen alles funktionieren, aber die Fehler-Konsole
+    w&uuml;rde nicht existierende Overlay-Ziele melden.</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

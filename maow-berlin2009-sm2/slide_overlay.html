@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>FF/TB-Erweiterungen in SM2 - Einfaches Overlay</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_manifest.html" title="Vorige Seite">
+  <link rel="next" href="slide_rapidtest.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">FF/TB-Erweiterungen in SM2</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_manifest.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_rapidtest.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>Portierung, Schritt 3: Einfaches Overlay</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Overlays ignorieren Elemente, die nicht angewendet werden k&ouml;nnen:
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;!-- [...Lizenz-Kopf...] --&gt;
+&lt;overlay id="testextOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"&gt;
+
+    &lt;!-- Firefox: Extras --&gt;
+    &lt;menupopup id="menu_ToolsPopup"&gt;
+        &lt;menuitem id="testext-menu" oncommand="window.open('chrome://testext/content/testext.xul'...);"
+                  label="Test-Erweiterung" accesskey="T"/&gt;
+    &lt;/menupopup&gt;
+
+    &lt;!-- SeaMonkey: Extras > Web-Entwicklung --&gt;
+    &lt;menupopup id="toolsPopup"&gt;
+        &lt;menuitem id="testext-menu" oncommand="window.open('chrome://testext/content/testext.xul'...);"
+                  label="Test-Erweiterung" accesskey="E"/&gt;
+    &lt;/menupopup&gt;
+&lt;/overlay&gt;</pre></li>
+  <li>Das Extras-Men&uuml; selbst hat unter SeaMonkey die ID
+    "<code>taskPopup</code>", leider auch eine andere als in Firefox, davon
+    h&auml;ngen aber bereits genug Dinge ab, dass sie nicht so leicht
+    abzugleichen ist.</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

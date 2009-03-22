@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>FF/TB-Erweiterungen in SM2 - install.rdf</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_differences.html" title="Vorige Seite">
+  <link rel="next" href="slide_manifest.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">FF/TB-Erweiterungen in SM2</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_differences.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_manifest.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>Portierung, Schritt 1: install.rdf</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Einfach SeaMonkey als <code>targetApplication</code> hinzuf&uuml;gen:
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#"&gt;
+  &lt;Description about="urn:mozilla:install-manifest"&gt;
+    &lt;em:id&gt;testext@eample.org&lt;/em:id&gt;
+    &lt;em:name&gt;Test Extension&lt;/em:name&gt;
+    &lt;em:version&gt;1.0&lt;/em:version&gt;
+    &lt;em:description&gt;An example extension for testing only.&lt;/em:description&gt;
+    &lt;em:creator&gt;Robert Kaiser&lt;/em:creator&gt;
+    &lt;em:type&gt;2&lt;/em:type&gt;
+
+    &lt;!-- Firefox --&gt;
+    &lt;em:targetApplication&gt;
+      &lt;Description&gt;
+        &lt;em:id&gt;{ec8030f7-c20a-464f-9b0e-13a3a9e97384}&lt;/em:id&gt;
+        &lt;em:minVersion&gt;3.0b5&lt;/em:minVersion&gt;
+        &lt;em:maxVersion&gt;3.6a1pre&lt;/em:maxVersion&gt;
+      &lt;/Description&gt;
+    &lt;/em:targetApplication&gt;
+
+    &lt;!-- SeaMonkey --&gt;
+    &lt;em:targetApplication&gt;
+      &lt;Description&gt;
+        &lt;em:id&gt;{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}&lt;/em:id&gt;
+        &lt;em:minVersion&gt;2.0a1pre&lt;/em:minVersion&gt;
+        &lt;em:maxVersion&gt;2.0.*&lt;/em:maxVersion&gt;
+      &lt;/Description&gt;
+    &lt;/em:targetApplication&gt;
+  &lt;/Description&gt;
+&lt;/RDF&gt;</pre></li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
