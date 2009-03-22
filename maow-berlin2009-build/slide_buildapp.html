@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Das Mozilla-Build-System - Anwendung bauen</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_mozconfig.html" title="Vorige Seite">
+  <link rel="next" href="slide_makefiles.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">Das Mozilla-Build-System</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_mozconfig.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_makefiles.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>XULRunner-Anwendung mit Extra-Erweiterung bauen</h1>
+
+<div class="simplebox">
+<ul>
+  <li><code>mozconfig</code>:
+    <pre># mozconfig-testapp
+# objdir setzten, relativ zum Quellcode
+mk_add_options MOZ_OBJDIR=../objdir-testapp
+# zwei Projekte bauen: XULRunner und unser Anwendung
+mk_add_options MOZ_BUILD_PROJECTS="xulrunner testapp"
+ac_add_app_options xulrunner --enable-application=xulrunner
+ac_add_app_options testapp --enable-application=testapp
+ac_add_app_options testapp --with-libxul-sdk=../xulrunner/dist
+# Standard-Erweiterungen plus testext bauen
+ac_add_app_options testapp --enable-extensions=default,testext</pre>
+    </li>
+  <li>Unsere Anwendung liegt in <code>mozilla-central/testapp/</code></li>
+  <li>Unsere Erweiterung liegt in <code>mozilla-central/extensions/testext/</code></li>
+  <li>Befehle zum "Bauen":
+    <pre>cd mozilla-central
+MOZCONFIG=../mozconfig-testapp make -f client.mk build</pre>
+    </li>
+  <li>XULRunner findet sich in <code>objdir-testapp/xulrunner/dist/bin/</code>,
+    die ausf&uuml;hrbare Anwendung findet sich in
+    <code>objdir-testapp/testapp/dist/bin/</code>, inklusive der
+    vorinstallierten Erweiterung</li>
+  <li><a href="http://hg.mozilla.org/mobile-browser">mobile-browser</a> (Fennec)
+    ist ein gutes Beispiel f&uuml;r eine XULRunner-Anwendung, die das
+    Build-System verwendet</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Das Mozilla-Build-System - JAR-Maker</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_makefiles.html" title="Vorige Seite">
+  <link rel="next" href="slide_appfiles.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">Das Mozilla-Build-System</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_makefiles.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_appfiles.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>Der JAR-Maker und jar.mn-Dateien</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Liegt parallel zu einem Makefile eine <code>jar.mn</code>-Datei
+    (<a href="https://developer.mozilla.org/En/JAR_Manifests">JAR-Manifest</a>)
+    vor, wird sie automatisch abgearbeitet</li>
+  <li><code>mozilla-central/extensions/testext/jar.mn</code>:
+    <pre>testext.jar:
+# Zeilen, die mit % beginnen, werden in chrome.manifest geschrieben
+# Weitere %-Zeichen darin werden durch URL zur .jar-Datei ersetzt
+% content testext %content/testext/ xpcnativewrappers=yes
+% overlay chrome://browser/content/browser.xul chrome://testext/content/testextOverlay.xul
+# Datei aus dem lokalen Verzeichnis an den angegeben Ort in der .jar schreiben
+  content/testext/testext.xul
+# Zeilen, die mit * beginnen, lassen Dateien durch einen <a href="https://developer.mozilla.org/en/Build/Text_Preprocessor">Text-Pr&auml;prozessor</a> laufen
+* content/testext/testext.js
+# Datei aus einem Unterverzeichnis (oder mit anderm Namen) beziehen
+  content/testext/testextOverlay.xul        (overlays/testextOverlay.xul)
+% skin testext classic/1.0 %skin/testext/
+  skin/testext/testext.css                  (skin/classic/testext.css)
+</pre>
+    </li>
+  <li>Der Text-Pr&auml;prozessor kann an vielen Stellen im Build-System
+    eingesetzt werden, um Variablen in div. Dateien zu schleusen, beim Bauen auf
+    verschiedenen Plattformen verschiedenen Code zu aktivieren, usw.</li>
+  <li><code>locales</code> funktionieren genauso, aber ich hatte im Makefile auf
+    der letzten Folie ein Unterverzeichnis daf&uuml;r angegeben</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

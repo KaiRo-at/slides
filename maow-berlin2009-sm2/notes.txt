@@ -1,2 +1,1 @@
-surman-freedom-foto:
-http://www.flickr.com/photos/28959625@N04/3324030644/in/set-72157614734249362/
+https://developer.mozilla.org/en/Extensions_support_in_SeaMonkey_2

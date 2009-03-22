@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Das Mozilla-Build-System - mozconfig</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_getstarted.html" title="Vorige Seite">
+  <link rel="next" href="slide_buildapp.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">Das Mozilla-Build-System</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_getstarted.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_buildapp.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>Die Einstellungen - mozconfig</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Eine <code>mozconfig</code>-Datei enth&auml;lt alle Einstellungen f&uuml;r
+    einen Build-System-Durchlauf:
+    <pre># mozconfig-testext
+# objdir setzten, relativ zum Quellcode
+mk_add_options MOZ_OBJDIR=../objdir-testext
+# nur testext-Erweiterung bauen
+ac_add_options --enable-application=extensions
+ac_add_options --enable-extensions=testext
+# Dieses Beispiel braucht keinen Compiler
+ac_add_options --disable-compile-environment</pre>
+    </li>
+  <li>Unsere Erweiterung liegt in <code>mozilla-central/extensions/testext/</code></li>
+  <li>Befehle zum "Bauen":
+    <pre>cd mozilla-central
+MOZCONFIG=../mozconfig-testext make -f client.mk configure
+cd ../objdir-testext
+make -C extensions</pre>
+    </li>
+  <li>Das fertige XPI-Paket findet sich in
+    <code>objdir-testext/dist/xpi-stage/</code> und eine "vorinstallierte"
+    Version in <code>objdir-testext/dist/bin/extensions</code></li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Das Mozilla-Build-System - Anwendungs-Dateien</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_jarmaker.html" title="Vorige Seite">
+  <link rel="next" href="slide_docs.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">Das Mozilla-Build-System</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_jarmaker.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_docs.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>Dateien, die eine Anwendung implementieren muss</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Genaue Details dazu w&uuml;rden den Rahmen hier sprengen, gute Beispiele
+    liefern Fennec sowie die anderen Mozilla-Anwendungen</li>
+  <li>Alle Dateien sind in <code>mozilla-central/testapp/</code></li>
+  <li><code>Makefile.in</code> ist das Haupt-Makefile, &uuml;blicherweise mit
+    einem <code>app</code>-Unterverzeichnis als letztes Element in DIRS</li>
+  <li><code>build.mk</code> wird in das Haupt-Makefile des ganzen Build-Systems
+    eingebunden und setzt einige grundlegende Variablen wie <code>TIERS</code>
+    sowie Make-Ziele auf oberster Ebene des Systems</li>
+  <li><code>confvars.sh</code> gibt Variablen f&uuml;r das
+    <code>configure</code>-Skript an</li>
+  <li><code>makefiles.sh</code> enth&auml;lt eine Liste von Makefiles, die von
+    <code>configure</code> fr&uuml;hzeitig generiert werden, was viel Zeit spart
+    (auch in <code>extensions/testext/</code> unterst&uuml;tzt)</li>
+  <li><code>app/Makefile.in</code> mit Befehlen zur Erstellung der
+    ausf&uuml;hrbaren Anwendungsdatei und des Mac-dmg-Pakets, das alle Dateien
+    der Anwendung enth&auml;lt (daher am Ende der Liste, alles nachher landet
+    nicht im dmg!)</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

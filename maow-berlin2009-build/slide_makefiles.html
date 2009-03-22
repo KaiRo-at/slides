@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Das Mozilla-Build-System - Makefiles</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_buildapp.html" title="Vorige Seite">
+  <link rel="next" href="slide_jarmaker.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">Das Mozilla-Build-System</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_buildapp.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_jarmaker.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>Makefile-Regeln, der Kern der Sache</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Makefiles enthalten die Regeln f&uuml;r den Bau jeglichen Codes (Makefile
+    im "objdir" wird aus Makefile.in in Quellcode-Verzeichnis erzeugt)</li>
+  <li><code>mozilla-central/extensions/testext/Makefile.in</code>:
+    <pre># [...Lizenz-Kopf...]
+DEPTH=../..
+topsrcdir=@top_srcdir@
+srcdir=@srcdir@
+VPATH=@srcdir@
+
+# Allgemeine Konfigurations-Variablen importieren
+include $(DEPTH)/config/autoconf.mk
+
+# Build-System-interner Name des Moduls (der Erweiterung)
+MODULE                 = testext
+# Name des Verzeichnisses in xpi-stage/ (normalerweise gleich wie MODULE)
+XPI_NAME               = testext
+# Eintr&auml;ge aus paralleler jar.mn kommen in Erweiterungs-eigenes chrome.manifest
+USE_EXTENSION_MANIFEST = 1
+# Haupt-Makefile der Erweiterung mit dieser ID (wie in install.rdf angegeben)
+INSTALL_EXTENSION_ID   = testext@example.org
+# Dateiname der fertigen XPI-Datei in xpi-stage
+XPI_PKGNAME            = testext-$(MOZ_APP_VERSION)
+
+# Dateien, die in das XPI-Paket kopiert werden sollen
+DIST_FILES = install.rdf
+
+# Unterverzeichnisse, in denen weitere Makefiles enthalten sind
+DIRS = locales subtest
+
+# zu installierende XPCOM-Komponenten
+EXTRA_COMPONENTS = components/testext-service.js
+
+# rules.mk verwendet die Variablen und macht die eigentliche Arbeit
+include $(topsrcdir)/config/rules.mk</pre>
+    </li>
+  <li><code>MODULE</code> und <code>XPI_NAME</code> sollten in jedem Makefile
+   der Erweiterung angegeben werden, damit Datieen im XPI landen</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>

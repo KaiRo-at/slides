@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Das Mozilla-Build-System - Einsteig</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="index.html" title="&Uuml;bersicht">
+  <link rel="index" href="toc.html" title="Inhalt">
+  <link rel="start" href="index.html" title="Beginn">
+  <link rel="first" href="slide_introduction.html" title="Erste Seite">
+  <link rel="previous" href="slide_reasons.html" title="Vorige Seite">
+  <link rel="next" href="slide_mozconfig.html" title="N&auml;chste Seite">
+  <link rel="last" href="slide_end.html" title="Letzte Seite">
+</head>
+<body>
+<div id="header"><div id="header-text">Das Mozilla-Build-System</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</div>
+<div id="slidenav"><div id="subheader-text">MAOW Berlin 2009</div>
+  <a href="toc.html" accesskey="h">Inhalt</a> ||
+  <a href="index.html" accesskey="B">Beginn</a> ||
+  <a href="slide_reasons.html" accesskey="Z">&lt; Zur&uuml;ck</a> |
+  <a href="slide_mozconfig.html" id="goNext" accesskey="W">Weiter &gt;</a>
+</div>
+
+<h1>Einstieg ins Build-System</h1>
+
+<div class="simplebox">
+<ul>
+  <li>DOM-Inspector, Venkman und ChatZilla sind gute Beispiel-Erweiterungen
+    f&uuml;r die Build-System-Einbindung</li>
+  <li>Verschiedene <a href="https://developer.mozilla.org/en/Build_Documentation#Build_prerequisites">Werkzeuge</a>
+    werden vorausgesetzt: MozillaBuild und Windows SDK(s) auf Windows;
+    Xcode, Mercurial, libIDL, autoconf213 auf Mac OS X und
+    div. Entwicklerpakete, inkl. autoconf 2.13, Python, Mercurial, GNU make usw.
+    auf Linux</li>
+  <li>Ein Compiler (gcc bzw. unter Windows MSVC, auch in der Gratis-Version)
+    wird f&uuml;r C/C++-Code usw. ben&ouml;tigt, das Packen einer reinen
+    XUL/JS-Erweiterung funktioniert auch ohne</li>
+  <li>Ein <a href="https://developer.mozilla.org/en/Mozilla_Source_Code_%28Mercurial%29">Mozilla-Code-Baum</a>
+    ist notwendig (ca. 450 MB auf der Festplatte!):
+    <pre>hg pull http://hg.mozilla.org/mozilla-central</pre>
+    alternativ dazu ein
+    <a href="http://developer.mozilla.org/en/Comm-central_source_code_%28Mercurial%29">comm-central-Baum</a>
+    (SeaMonkey/Thunderbird/Sunbird, ca. 520 MB):
+    <pre>hg pull http://hg.mozilla.org/comm-central
+cd comm-central
+python client.py checkout</pre>
+    </li>
+  <li>Will man Mozilla-Anwendungen kompilieren, nochmal 230-300 MB pro Anwendung
+    (mit einem Code-Baum k&ouml;nnen mehrere Anwendungen kompiliert werden)</li>
+</ul>
+</div>
+</div>
+
+</body>
+</html>
