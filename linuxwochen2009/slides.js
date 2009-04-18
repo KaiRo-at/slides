@@ -62,3 +62,9 @@ setTimeout("timerFired()", 1000*(slide_seconds/3));
   window.onclick = handleClick;
   window.onkeypress = handleKeyPress;
 })();
+
+// end slide
+function showEvent() {
+  document.getElementById("eventbox").style.display = "block";
+  document.getElementById("eventtext").style.display = "block";
+}
