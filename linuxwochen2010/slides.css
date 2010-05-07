@@ -1,0 +1,241 @@
+/**************************
+ * styles for talk slides *
+ *    by Robert Kaiser    *
+ *    <kairo@kairo.at>    *
+ * (for Linuxwochen 2009) *
+ **************************/
+
+
+/***** base style *****/
+
+body {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 2em;
+  color: white;
+  background-color: black;
+}
+
+ul {
+  padding-left: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+ul:first-child,
+ul:last-child {
+  margin-top: 0;
+}
+
+#header {
+  height: 38px;
+  position: relative;
+  border-bottom: 1px solid #781412;
+  background: #000000 url("template/header-background.png") top left repeat-x;
+  padding: 0 15px 0 0;
+  z-index: 1;
+}
+
+#headerlogo {
+  height: 38px;
+  width: 186px;
+}
+
+#header-text {
+  float: right;
+  padding: 7px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFCCCC;
+}
+
+#header-text.neartime {
+  color: #CCCCFF;
+}
+
+#header-text.ontime {
+  color: #CCFFCC;
+}
+
+#header-text.overtime {
+  color: #FF8080;
+}
+
+#slidenav {
+  background: #f02925 url("template/breadcrumbs-background.png") bottom repeat-x;
+  padding: 4px 15px 30px 55px;
+  font-size: 10px;
+  color: #FFCCCC;
+}
+
+#slidenav a:link,
+#slidenav a:visited {
+  color: #FFFFFF;
+}
+
+#slidenav a:hover,
+#slidenav a:active {
+  color: #FFCCCC;
+}
+
+#slidenav .nolink {
+  color: #AA8080;
+}
+
+#subheader-text {
+  float: right;
+  padding: 0 20px;
+}
+
+/***** headers *****/
+
+h1 {
+  margin: 0 0 0.5em 0;
+  font-size: 1.7em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: #AA8080 3px 3px 5px;
+}
+
+h2 {
+  margin: 0.5em 0;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: #AA8080 2px 2px 3px;
+}
+
+h3 {
+  margin: 0.5em 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+h4 {
+  margin: 0.5em 0;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: left;
+}
+
+/***** boxes *****/
+
+.simplebox {
+  padding: 0.5em;
+}
+
+.captionedbox {
+  padding: 0px;
+}
+
+.simplebox,
+.captionedbox {
+  margin: 1em;
+  border: 1px solid #FF8080;
+  background-color: #400000;
+  -moz-border-radius: .5em;
+  -moz-box-shadow: #AA8080 1px 1px 3px 2px;
+}
+
+.captionedbox-content {
+  margin: 0px;
+  padding: 0.5em;
+  border: 0px;
+  border-top: 2px solid #9FCBF7;
+  -moz-border-top-colors: #FFFFFF #FF8080;
+  -moz-border-radius: 0 0 .5em .5em;
+}
+
+.captionedbox-caption {
+  margin: 0.5em;
+  font-weight: bold;
+  text-shadow: #804040 1px 1px 2px;
+}
+
+/***** misc formatting *****/
+
+.hilite {
+  font-weight: bold;
+  color: #0060C0;
+  text-shadow: #5959ec 1px 1px 1px;
+}
+
+.border {
+  border: 1px solid #FF8080;
+  padding: 0.5em;
+}
+
+ul > li {
+  margin: 0.5em 0;
+}
+
+.cent {
+  text-align: center;
+}
+
+.akey {
+  text-decoration: underline;
+}
+
+a:link { color: #CCCCFF; text-decoration: none; }
+a:visited { color: #EECCFF; text-decoration: none; }
+a:hover, a:active { color: #FFCCCC; text-decoration: underline; }
+
+/***** small stuff *****/
+
+.small {
+  font-size: 0.75em;
+}
+
+ul.small,
+.small ul {
+  padding: 0px;
+  border: 0px;
+  margin: 0px 0px 0px 1em;
+}
+
+ul.small > li
+.small ul > li {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+/***** end slide *****/
+
+#donthurt {
+  width: 341px;
+  height: 400px;
+}
+
+#eventbox {
+  display: none;
+  position: absolute;
+  top: 230px;
+  margin-top: 5em;
+  width: 50%;
+  height: 4em;
+  left: 25%;
+  border: 1px solid #FF8080;
+  background-color: #AA8080;
+  opacity: 0.8;
+  -moz-border-radius: .5em;
+  -moz-box-shadow: #AA8080 1px 1px 3px 2px;
+}
+
+#eventtext {
+  display: none;
+  position: absolute;
+  top: 230px;
+  margin-top: 5.2em;
+  width: 50%;
+  height: 4em;
+  left: 25%;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+  opacity: 1;
+  text-shadow: #FFFFFF 2px 2px 2px;
+}
