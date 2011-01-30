@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>In-Tab UI</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Overview">
+  <link rel="index" id="link-toc" href="#toc" title="Content">
+  <link rel="start" id="link-start" href="#index" title="Start">
+  <!-- link rel="first" id="link-first" href="#" title="First page" hidden>
+  <link rel="previous" id="link-prev" href="#" title="Previous page" hidden>
+  <link rel="next" id="link-next" href="#" title="Next page" hidden>
+  <link rel="last" id="link-last" href="#" title="Last page" hidden -->
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">In-Tab UI</div>
+  <img id="headerlogo" src="template/header-logo.png" alt="">
+</header>
+<nav id="slidenav"><div id="subheader-text"></div>
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; prev</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; prev</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>next &gt;</a>
+  <span id="nav-next-nolink" class="nolink">next &gt;</span>
+</nav>
+
+<article id="toc" title="Table of Contents">
+<h1>Table of Contents</h1>
+<h2>In-Tab UI</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides can be found in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Start Page">
+<h1>In-Tab (In-Content) UI</h1>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Mozilla contributor, add-on developer, SeaMonkey coordinator</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Slides:
+  <a href="http://kairo.mozdev.org/slides/fosdem2011/">http://kairo.mozdev.org/slides/fosdem2011/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Created for
+    <a href="http://fosdem.org/2011/schedule/track/mozilla_devroom">Mozilla
+    Developer Room</a> at <a href="http://www.fosdem.org/">FOSDEM 2011</a> in
+    Brussels.</li>
+  <li>Written with in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation with links on all slides, with accesskeys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward keys</li>
+  <li><a href="#toc">Table of Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+      alt="Licensed under CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+      src="cc-by-sa-80x15.png" /></a> 02/2011 Robert Kaiser</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="basics" title="Basics">
+<h1>Basic Description</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Eliminate separate windows</li>
+  <li>Integrate UI into browser tabs</li>
+  <li>Non-modal, non-popup</li>
+  <li>Hide web-specific controls for those tabs</li>
+</ul>
+</div>
+</article>
+
+<article id="current" title="Current State">
+<h1>Current State</h1>
+
+<div class="simplebox">
+"Examples of in-content UI already present include session restore,
+about:config, new add-ons manager, network error pages and phishing/malware
+warning pages."
+<div class="cent topmargin">
+<img src="minefield-addons-manager.png" alt="Add-ons manager">
+</div>
+</div>
+</article>
+
+<article id="plans-prefs" title="Plans: Preferences">
+<h1>Plans: Preferences</h1>
+
+<div class="simplebox">
+As <a href="http://blog.stephenhorlander.com/2010/06/01/in-content-ui-visual-unification/">laid
+out</a> by Stephen Horlander in June 2010, preferences are among the targets
+for moving UI into tabs, here's a mockup he drew up:
+<div class="cent topmargin">
+<img src="win7-preferences-network.png" alt="Win7 Network Preference Mockup">
+</div>
+</div>
+</article>
+
+<article id="plans-tentative" title="Plans: Tentative">
+<h1>Plans: Tentative</h1>
+
+<div class="simplebox">
+The blog post as well as the
+<a href="https://wiki.mozilla.org/Firefox/Projects/Incontent_Page_Design">in-content
+page design</a> wiki page also talks about the following:
+<ul>
+  <li>Library (History and Bookmarks View)</li>
+  <li>Downloads Manager</li>
+  <li>Toolbar Customization</li>
+  <li>Tab View</li>
+  <li>home tab</li>
+  <li>About Firefox</li>
+  <li>Help</li>
+</ul>
+Non-goal: "Redesign all windows and panels"
+tracking bugs: bug 584942
+</div>
+</article>
+
+<article id="exp-dataman" title="Tahoe">
+<h1>Tahoe Data Manager</h1>
+
+<div class="simplebox cent">
+<img src="minefield-tahoe-dataman.png" alt="Tahoe Data Manager">
+</div>
+</article>
+
+<article id="exp-dlman" title="Jökulsárlón">
+<h1>Jökulsárlón Download Manager</h1>
+
+<div class="simplebox cent">
+<img src="minefield-jokulsarlon-dlman.png" alt="Jökulsárlón Download Manager">
+</div>
+</article>
+
+<article id="exp-mbrot" title="Mandelbrot">
+<h1>KaiRo.at Mandelbrot</h1>
+
+
+<div class="simplebox cent">
+<img src="minefield-mandelbrot.png" alt="KaiRo.at Mandelbrot">
+</div>
+</article>
+
+<article id="demo" title="Demo">
+<h1>Demo</h1>
+
+
+<div class="simplebox">
+Let's take a look at some currently working examples of in-tab UI!
+</div>
+</article>
+
+<article id="end" title="Discussion">
+<h1>Open Discussion</h1>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Thanks for your attention!</p>
+<div class="captionedbox-content">
+We should have some time for discussion now.
+<ul>
+ <li>Any open questions?</li>
+ <li>Any unmentioned issues?</li>
+ <li>Anyone wanting to help us?</li>
+ <li>Anything I forgot to mention?</li>
+</ul>
+</div>
+</div>
+</article>
+
+</body>
+</html>
