@@ -148,7 +148,7 @@ h1 {
   font-size: 1.7em;
   font-weight: bold;
   text-align: center;
-  text-shadow: #AA8080 3px 3px 5px;
+  text-shadow: #AAAA80 3px 3px 5px;
 }
 
 h2 {
@@ -156,7 +156,7 @@ h2 {
   font-size: 1.3em;
   font-weight: bold;
   text-align: center;
-  text-shadow: #AA8080 2px 2px 3px;
+  text-shadow: #AAAA80 2px 2px 3px;
 }
 
 h3 {
@@ -189,7 +189,7 @@ h4 {
   border: 1px solid #FF8080;
   background-color: #400000;
   -moz-border-radius: .5em;
-  -moz-box-shadow: #AA8080 1px 1px 3px 2px;
+  -moz-box-shadow: #AAAA80 1px 1px 3px 2px;
 }
 
 .captionedbox-content {
@@ -204,16 +204,16 @@ h4 {
 .captionedbox-caption {
   margin: 0.5em;
   font-weight: bold;
-  text-shadow: #804040 1px 1px 2px;
+  text-shadow: #AAAA80 1px 1px 2px;
 }
 
 /***** misc formatting *****/
 
 mark {
   font-weight: bold;
-  color: #0060C0;
+  color: #FFEEAA;
   background-color: transparent;
-  text-shadow: #5959ec 1px 1px 1px;
+  text-shadow: #CCCC00 2px 2px 3px;
 }
 
 .border {
@@ -240,6 +240,10 @@ ul > li {
 a:link { color: #CCCCFF; text-decoration: none; }
 a:visited { color: #EECCFF; text-decoration: none; }
 a:hover, a:active { color: #FFCCCC; text-decoration: underline; }
+
+mark a:link { color: #FFFFCC; }
+mark a:visited { color: #FFEE80; }
+mark a:hover, mark a:active { color: #FFFFDD; }
 
 /***** small stuff *****/
 
