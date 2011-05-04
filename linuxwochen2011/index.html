@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>In-Tab UI</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Überblick">
+  <link rel="index" id="link-toc" href="#toc" title="Inhalt">
+  <link rel="start" id="link-start" href="#index" title="Start">
+  <!-- link rel="first" id="link-first" href="#" title="First page" hidden>
+  <link rel="previous" id="link-prev" href="#" title="Previous page" hidden>
+  <link rel="next" id="link-next" href="#" title="Next page" hidden>
+  <link rel="last" id="link-last" href="#" title="Last page" hidden -->
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">CSI:Mozilla</div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla Firefox</a>
+</header>
+<nav id="slidenav"><div id="subheader-text"></div>
+  <a href="#toc" id="nav-toc" accesskey="t">inhalt</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; zurück</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; zurück</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>weiter &gt;</a>
+  <span id="nav-next-nolink" class="nolink">weiter &gt;</span>
+</nav>
+
+<article id="toc" title="Table of Contents">
+<h1>Inhalt</h1>
+<h2>CSI:Mozilla</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Folgende Folien sind in dieser Präsentation enthalten:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Startseite">
+<h1>CSI:Mozilla - Den Bugs auf der Spur</h1>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Mozilla-Manager</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Slides:
+  <a href="http://kairo.mozdev.org/slides/linuxwochen2011/">http://kairo.mozdev.org/slides/linuxwochen2011/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Erstellt für einen Vortrag auf den
+    <a href="http://www.linuxwochen.at/">Linuxwochen 2011</a> in
+    Wien.</li>
+  <li>Geschrieben in HTML 5 mit CSS 3 und JavaScript.</li>
+  <li>Navigation mit Links auf allen Folien, mit Accesskeys
+   (e.g. "n"/Alt+Shift+N for "next") oder vor/zurück-Pfeilasten</li>
+  <li><a href="#toc">Inhalt</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+      alt="Licensed under CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+      src="cc-by-sa-80x15.png" /></a> 05/2011 Robert Kaiser</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="mozilla" title="Was ist Mozilla?">
+<h1>Mozilla</h1>
+
+<div class="simplebox">
+<ul>
+  <li><mark>Gemeinnützige</mark> Stiftung</li>
+  <li>Innovation, Offenheit und Auswahl im Web</li>
+  <li>Firefox, Thunderbird, Drumbeat, Bugzilla, SeaMonkey, XULRunner, ...</li>
+  <li>Riesige Community</li>
+</ul>
+</div>
+</article>
+
+<article id="ff4-overview" title="Firefox 4: Überblick">
+<h1>Firefox 4</h1>
+
+<div class="simplebox">
+<ul>
+  <li>März 2011 - auch für Android und N900!</li>
+  <li>Große Anzahl an Neuerungen</li>
+  <li>Manche Funktionen fast 1 Jahr vorher fertig</li>
+  <li>Letztes "großes" Release</li>
+  <li>In Zukunft schnelle, kleine Schritte</li>
+</ul>
+</div>
+</article>
+
+<article id="ff4-features" title="Firefox 4: Funktionen">
+<h1>Firefox 4: Funktionen</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Neue einfachere Oberfläche (anpassbar!)</li>
+  <li>Neue Web-Funktionen -
+    <a href="http://webofwonder.org/">webofwonder.org</a> - WebGL, WebM,
+    Audio-API, CSS-Transformationen, IndexedDB, ...</li>
+  <li>Performance (Start und Ausführung, Hardwarebeschleunigung)</li>
+  <li>DNT, Sync, App-Tabs, Panorama, ...</li>
+  <li>Neustart-freie Add-Ons</li>
+</ul>
+</div>
+</article>
+
+<article id="new-process" title="Neuer Release-Prozess">
+<h1>Neuer Prozess</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Kleine, schnelle Schritte, Versionsnummern immer weniger wichtig</li>
+  <li>Neuer "Zug" alle 6 Wochen</li>
+  <li>Nightly / Aurora / Beta / Release</li>
+  <li>Derzeit  5 in Aurora, 6 in Nightly - 17./24. Mai: 5-&gt;Beta, 6-&gt;Aurora, 7-&gt;Nightly</li>
+  <li>Automatische Updates</li>
+</ul>
+<div class="cent topmargin">
+<img src="nightly-aurora-beta.jpg" alt="Logos: Nightly, Aurora, Beta/Firefox">
+</div>
+</div>
+</article>
+
+<article id="ff5" title="Firefox 5">
+<h1>Firefox 5</h1>
+
+<div class="simplebox">
+<ul>
+  <li><mark>Juni 2011</mark> (!)</li>
+  <li>Derzeit "Aurora"</li>
+  <li>Performance (Verbindungen, Seiten-Ausführung)</li>
+  <li>CSS-Animationen, überarbeitete Rechtschreibprüfung, ...</li>
+  <li><a href="https://wiki.mozilla.org/Features/Release_Tracking#Firefox_5"
+        >https://wiki.mozilla.org/Features/Release_Tracking#Firefox_5</a></li>
+</ul>
+</div>
+</article>
+
+<article id="ff6" title="Firefox 6">
+<h1>Firefox 6</h1>
+
+<div class="simplebox">
+<ul>
+  <li><mark>August 2011</mark></li>
+  <li>Derzeit "Nightly"</li>
+  <li>"Scratchpad" ("Schmierzettel"?), Firefox Share (F1)?</li>
+  <li>Ab 24. Mai "Aurora" - was nicht korrekt funktioniert, wird gestrichen
+    und kommt später</li>
+</ul>
+</div>
+</article>
+
+<article id="ff7plus" title="Firefox 7+">
+<h1>Firefox 7+</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Websockets, <a href="https://wiki.mozilla.org/Identity">"Firefox
+    Identity"</a>, usw.</li>
+  <li><a href="https://wiki.mozilla.org/Platform/Features/IonMonkey">"IonMonkey"</a>
+    (Noch schelleres JavaScript)</li>
+  <li><a href="http://blog.mozilla.com/joe/2011/04/26/introducing-the-azure-project/">"Azure"</a>
+    (Besser beschleunigte Grafikfunktionen)</li>
+  <li><a href="https://wiki.mozilla.org/Electrolysis">"Electrolysis"</a> (Prozesstrennung),
+    usw.</li>
+  <li>Auslieferung 12-18 Wochen nach Fertigstellung der Funktionen</li>
+</ul>
+</div>
+</article>
+
+<article id="csi-mozilla" title="CSI:Mozilla">
+<h1>"CSI:Mozilla"</h1>
+
+<div class="simplebox cent">
+<ul>
+  <li>"CrashKill"-Team</li>
+  <li>"Autopsieberichte und Spurensicherung" von "toten" Firefox-Prozessen</li>
+  <li>Finden von größeren Serien"fällen"</li>
+  <li>Analyse von Zusammenhängen</li>
+  <li>Zuständige Entwickler (intern/extern) zur Lösung bewegen</li>
+</ul>
+</div>
+</article>
+
+<article id="crash" title="Was ist ein Absturz?">
+<h1>Absturz?</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Ungültiger Aufruf -&gt; unsauberes Beenden von Prozessen</li>
+  <li>Nicht antwortendes Plugin ("Hang")</li>
+  <li>Absturzmelder sammelt Daten ("Spurensicherung", "Autopsie")</li>
+  <li>An Mozilla übermittelt, ev. mit Kommentar</li>
+  <li>Dort aufbereitet, analysiert</li>
+</ul>
+</div>
+</article>
+
+<article id="reported-data" title="Daten im Bericht">
+<h1>Daten in Absturzberichten</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Produkt, Version, Build ID, System, Channel, ...</li>
+  <li>Aufrufe im Stack ("Autopsie")</li>
+  <li>Geladene Module, Erweiterungen, Kommentar, ... ("Spurensicherung")</li>
+</ul>
+</div>
+</article>
+
+<article id="csi-overview" title="Überblick">
+<h1>Überblick</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Verwandte Abstürze -&gt; "Signatur"</li>
+  <li>"Topcrashers"</li>
+  <li>Signifikante Anstiege</li>
+  <li>Korrelationen</li>
+</ul>
+</div>
+</article>
+
+<article id="demo" title="Demo">
+<h1>Demo</h1>
+
+<div class="simplebox">
+Wahlweise:
+<ul>
+  <li>Absturz</li>
+  <li>Firefox-Funktionen</li>
+</ul>
+</div>
+</article>
+
+<article id="end" title="Aktiv werden">
+<h1>Aktiv werden</h1>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Danke für die Aufmerksamkeit!</p>
+<div class="captionedbox-content">
+Jetzt ist es an der Zeit, selbst aktiv zu werden:
+<ul>
+  <li><mark>Firefox 4</mark> installieren, wo möglich!</li>
+  <li><mark>Aurora</mark> testen! <a href="http://www.firefox.com/channel">www.firefox.com/channel</a></li>
+  <li><mark>Absturzmeldungen</mark> senden!</li>
+  <li>Mozilla <mark>unterstützen</mark>!</li>
+</ul>
+</div>
+</div>
+</article>
+
+</body>
+</html>
