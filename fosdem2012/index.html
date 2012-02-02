@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>CSI:Mozilla</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Overview">
+  <link rel="index" id="link-toc" href="#toc" title="Content">
+  <link rel="start" id="link-start" href="#index" title="Start">
+  <!-- link rel="first" id="link-first" href="#" title="First page" hidden>
+  <link rel="previous" id="link-prev" href="#" title="Previous page" hidden>
+  <link rel="next" id="link-next" href="#" title="Next page" hidden>
+  <link rel="last" id="link-last" href="#" title="Last page" hidden -->
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">CSI:Mozilla</div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla Firefox</a>
+</header>
+<nav id="slidenav"><div id="subheader-text"></div>
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; back</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>fwd &gt;</a>
+  <span id="nav-next-nolink" class="nolink">fwd &gt;</span>
+</nav>
+
+<article id="toc" title="Table of Contents">
+<h1>Table of Contents</h1>
+<h2>CSI:Mozilla</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides are available in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Start Page">
+<h1>CSI:Mozilla - Crash Scene Investigations</h1>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Mozilla Crash Scene Investigator</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Slides:
+  <a href="http://kairo.mozdev.org/slides/fosdem2012/">http://kairo.mozdev.org/slides/fosdem2012/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Created for
+    <a href="http://fosdem.org/2012/schedule/track/mozilla_devroom">Mozilla
+    Developer Room</a> at <a href="http://www.fosdem.org/">FOSDEM 2012</a> in
+    Brussels.</li>
+  <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation via links on all slides, via access keys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward arrow keys</li>
+  <li><a href="#toc">Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+        alt="Licensed under CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+        src="cc-by-sa-80x15.png" /></a> 01/2012
+      Robert Kaiser &amp; the Mozilla CrashKill team</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="crashkill" title="CrashKill">
+<h1>CrashKill</h1>
+
+<div class="simplebox">
+<div class="cent">
+<p><img src="reporter.png" alt="Crash Reporter"></p>
+<p><mark>Mission: To improve stability of our
+  products</mark></p>
+</div>
+</article>
+
+<article id="factors" title="Stability Factors">
+<h1 style="display:none;">Stability Factors</h1>
+
+<div class="simplebox cent">
+<img src="factors.png"
+ alt="stability factors: Flash, add-ons, website changes, malware, code changes">
+</div>
+</article>
+
+<article id="crash-analysis" title="Reading the Tea Leaves">
+<h1>Reading The Tea Leaves</h1>
+
+<div class="simplebox">
+<ul>
+  <li><mark>Trends</mark>: crash rates, "explosiveness"</li>
+  <li><mark>Topcrash</mark> lists, crash ranks</li>
+  <li><mark>Correlations</mark> with code, website, 3rd-party software changes</li>
+  <li>Specifics (browser vs. plugin, OSes, uptime, etc.)</li>
+  <li><mark>Pitfalls</mark>: rates and ADUs, ranks, signature changes</li>
+</ul>
+</div>
+</article>
+
+<article id="focus" title="Areas of Focus">
+<h1>Areas of Focus</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Long tail</li>
+  <li>3rd-party issues, <mark>hangs</mark>, malware</li>
+  <li>Analysis by <mark>component</mark></li>
+  <li><mark>Startup</mark> crashes</li>
+  <li><mark>Mobile</mark>: fewer users, devices, Java, Android Symbol Sender</li>
+  <li>Most crashes in core, not desktop/mobile-specific</li>
+</ul>
+</div>
+</article>
+
+<article id="socorro" title="Socorro">
+<h1>Socorro</h1>
+
+<div class="simplebox">
+<p><img src="socorro.png" alt="Socorro front page"></p>
+<ul>
+  <li><mark>crash-stats.mozilla.com</mark></li>
+  <li>Working closely with Socorro team to identify and prioritize front-end
+      features that will help us diagnose crashes</li>
+</ul>
+</div>
+</article>
+
+<article id="bugzilla" title="Bugzilla Best Practice">
+<h1>Bugzilla Best Practice</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Add <mark>crash</mark> keyword</li>
+  <li>If a regression, add <mark>regression</mark> keyword
+    <ul>
+      <li>Add <mark>regressionwindow-wanted</mark> keyword</li>
+      <li>Try finding regression window</li>
+      <li>Try to correlate with push log</li>
+    </ul>
+  </li>
+  <li>If possible, find and add steps to reproduce</li>
+  <li>Need crashing websites for work: add <mark>needURLs</mark> keyword</li>
+</ul>
+</div>
+</article>
+
+<article id="community" title="Community">
+<h1>Community</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Keep community engaged by fixing their issues</li>
+  <li>Community member Scoobidiver: >650 crash bugs filed</li>
+  <li>We <mark>need more members</mark> of the community contributing in a more
+      coordinated fashion</li>
+  <li>From filing good bugs via regression hunting to trying to fix</li>
+  <li><mark>YOU can help!</mark></li>
+</ul>
+</div>
+</article>
+
+<article id="help" title="How You Can Help">
+<h1>How You Can Help</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Make sure you <mark>submit crash reports</mark>, ideally including email
+      and comment</li>
+  <li><mark>Report bugs</mark> for crashes, tell us if you can reproduce them</li>
+  <li>If you have a regular Firefox crash, help us to diagnose it - email
+      <mark>marcia@mozilla.com</mark> with details</li>
+  <li>Visit us in #crashkill on irc.mozilla.org</li>
+  <li>CrashKill meetings - Mondays @ 10am Pacific ("7pm Central Europe") x290</li>
+  <li>Try fixing crashes - each one counts!</li>
+</ul>
+</div>
+</article>
+
+<article id="team" title="CrashKill-Team">
+<h1 style="display:none;">The CrashKill-Team</h1>
+
+<div class="simplebox cent">
+<img src="team.png"
+ alt="Chris Hofmann, Sheila Mooney, Marcia Knous, Noaki Hirata, Robert Kaiser">
+</div>
+</article>
+
+</body>
+</html>
