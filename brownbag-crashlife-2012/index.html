@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>CSI:Mozilla</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Overview">
+  <link rel="index" id="link-toc" href="#toc" title="Content">
+  <link rel="start" id="link-start" href="#index" title="Start">
+  <!-- link rel="first" id="link-first" href="#" title="First page" hidden>
+  <link rel="previous" id="link-prev" href="#" title="Previous page" hidden>
+  <link rel="next" id="link-next" href="#" title="Next page" hidden>
+  <link rel="last" id="link-last" href="#" title="Last page" hidden -->
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">Crash Life Cycle</div>
+  <a id="headerlogo" href="#index" title="Start page">Mozilla Firefox</a>
+</header>
+<nav id="slidenav"><div id="subheader-text"></div>
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; back</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>fwd &gt;</a>
+  <span id="nav-next-nolink" class="nolink">fwd &gt;</span>
+</nav>
+
+<article id="toc" title="Table of Contents">
+<h1>Table of Contents</h1>
+<h2>Crash Life Cycle</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides are available in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Start Page">
+<h1>The Life Cycle of a Firefox Crash</h1>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Crash Scene Investigator - CSI:Mozilla</small>
+</div>
+
+<div class="simplebox">
+<mark>Blog post:</mark>
+  <a href="http://home.kairo.at/blog/2012-05/the_life_cycle_of_a_crash">http://home.kairo.at/blog/2012-05/the_life_cycle_of_a_crash</a>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption small">Slides:
+  <a href="http://kairo.mozdev.org/slides/brownbag-crashlife-2012/">http://kairo.mozdev.org/slides/brownbag-crashlife-2012/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Created for a Brown Bag during Mozilla Stability Work Week 2012 in
+  Mountain View.</li>
+  <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation via links on all slides, via access keys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward arrow keys</li>
+  <li><a href="#toc">Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+        alt="Licensed under CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+        src="cc-by-sa-80x15.png" /></a> 06/2012
+      Robert Kaiser &amp; the Mozilla CrashKill team</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="reporter" title="Crash Reporter">
+
+<div class="simplebox">
+<div class="cent">
+<img src="reporter.png" alt="Crash Reporter">
+</div>
+</article>
+
+<article id="breakpad" title="Breakpad">
+<h1>Breakpad</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Fetch stack, modules, add-ons, metadata</li>
+  <li>Prompt user</li>
+  <li>Different UI for plugins</li>
+  <li>Send report to Mozilla</li>
+</ul>
+</div>
+</article>
+
+<article id="aboutcrashes" title="about:crashes">
+<h1>about:crashes</h1>
+
+<div class="simplebox">
+<ul>
+  <li>List of crashes for user</li>
+  <li>Report ID, submission/transmission date</li>
+  <li>ID ending in YYMMDD date: submission success</li>
+  <li>Link to report or re-submission</li>
+</ul>
+</div>
+</article>
+
+<article id="socorro1" title="Socorro - Processing">
+<h1>Socorro: Collection, Processing</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Collector - 2M reports/day</li>
+  <li>Processing, throttling</li>
+  <li>Stackwalking</li>
+  <li>Signature generation</li>
+</ul>
+</div>
+</article>
+
+<article id="socorro2" title="Socorro - Reports">
+<h1>Socorro: Reports, UI</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Aggregations per UTC day &rarr; Top Crashers (TCBS), etc.</li>
+  <li><mark><a href="https://crash-stats.mozilla.com/">crash-stats.mozilla.com</a></mark></li>
+  <li>Build info from FTP, ADI info from metrics</li>
+</ul>
+</div>
+</article>
+
+<article id="socorro3" title="Socorro - TCBS">
+
+<div class="simplebox">
+<div class="cent">
+<img src="tcbs.png" alt="Socorro: Top Crashes By Signature">
+</div>
+</div>
+</article>
+
+<article id="custom" title="Custom Reports">
+<h1>Custom Reports</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Raw data in CSVs, direct DB access</li>
+  <li><a href="https://crash-analysis.mozilla.com/">crash-analysis.mozilla.com</a></li>
+  <li>Prototyping reports, one-off analysis</li>
+  <li><mark><a href="https://arewestableyet.com/">arewestableyet.com</a></mark></li>
+</ul>
+</div>
+</article>
+
+<article id="crashkill" title="CrashKill">
+<h1>CrashKill</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Watch Socorro and custom reports</li>
+  <li>Make sure bugs are reported</li>
+  <li>Poke developers, escalate if needed</li>
+  <li>Work with QA, third parties, blocklisting, etc.</li>
+  <li>Feed into release decisions</li>
+</ul>
+</div>
+</article>
+
+<article id="qadev" title="QA, Developers">
+<h1>QA &amp; Developers</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Reproduce</li>
+  <li>Investigate, debug</li>
+  <li>Fix</li>
+  <li>Verify</li>
+</ul>
+</div>
+</article>
+
+<article id="bugzilla" title="Bugzilla">
+<h1>Bugzilla</h1>
+
+<div class="simplebox">
+<ul>
+  <li><mark>crash</mark> keyword</li>
+  <li><mark>topcrash</mark> keyword, "startupcrash" whiteboard</li>
+  <li><mark>regression</mark>, <mark>regressionwindow-wanted</mark> keywords
+  <li><mark>needURLs</mark> keyword</li>
+</ul>
+</div>
+</article>
+
+<article id="build" title="Build">
+<h1>Build</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Fix landing on mozilla-central (Nightly)</li>
+  <li>Builds generated</li>
+  <li><mark>Symbols</mark> &rarr; Symbol Server &rarr; Socorro</li>
+  <li>Possibly uplifted to Aurora or Beta</li>
+  <li>Extremely grave cases: Chemspill</li>
+</ul>
+</div>
+</article>
+
+<article id="fullcycle" title="Full Cycle">
+
+<div class="simplebox">
+<div class="cent">
+<img src="lifecycle.png" alt="Life Cycle of a Crash">
+</div>
+</div>
+</article>
+
+</body>
+</html>
