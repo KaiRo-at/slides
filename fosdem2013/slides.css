@@ -1,0 +1,266 @@
+/**************************
+ * styles for talk slides *
+ *    by Robert Kaiser    *
+ *    <kairo@kairo.at>    *
+ * (for Linuxwochen 2009) *
+ **************************/
+
+
+/***** base style *****/
+
+html {
+  overflow: hidden; /* to make translations not paint scrollbars */
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 2em;
+  color: #6d7581;
+  background: white url("template/page-background.png") top left repeat-x;
+}
+
+ul {
+  padding-left: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+ul:first-child,
+ul:last-child {
+  margin-top: 0;
+}
+
+#header {
+  height: 38px;
+  position: relative;
+  padding: 0 15px 0 0;
+  z-index: 1;
+}
+
+#headerlogo {
+  position: relative;
+  display: block;
+  text-indent: -500px;
+  font-size: 1px;
+  overflow: hidden;
+  height: 48px;
+  width: 186px;
+  background: url("template/firefox-title.png") 5px 3px no-repeat;
+}
+
+#header-text {
+  float: right;
+  padding: 7px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #C0C8CA;
+}
+
+#header-text.neartime {
+  color: #A0C8DA;
+}
+
+#header-text.ontime {
+  color: #80CC80;
+}
+
+#header-text.overtime {
+  color: #FF8080;
+}
+
+#slidenav {
+  padding: 4px 15px 30px 55px;
+  font-size: 10px;
+  color: #A0C8DA;
+}
+
+#slidenav a:link,
+#slidenav a:visited {
+  color: #6d7581;
+}
+
+#slidenav a:hover,
+#slidenav a:active {
+  color: #0000FF;
+}
+
+#slidenav .nolink {
+  color: #A0C8DA;
+}
+
+#subheader-text {
+  float: right;
+  padding: 0 20px;
+  color: #6d7581;
+}
+
+article {
+  position: absolute;
+  width: 100%;
+  /* header is 38px + 1px border, slidenav is 13px + 4px + 30px paddings,
+     another 5px for safety */
+  height: calc(100% - 90px);
+  overflow: auto;
+
+  transition-property: transform, opacity;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+  transform-origin: center 5em;
+
+  opacity: 0;
+/*
+  transform: translate(-100%, 0);
+*/
+/*
+  transform: scale(0.1) rotate(360deg);
+*/
+  transform: scale(0.1) rotate(360deg) translate(-200%, 0);
+}
+
+article[aria-selected="true"] {
+  opacity: 1;
+  transform: scale(1) rotate(0deg) translate(0, 0);
+}
+
+article[aria-selected="true"] ~ article {
+  opacity: 0;
+/*
+  transform: translate(100%, 0);
+*/
+/*
+  transform: scale(0.1) rotate(-360deg);
+*/
+  transform: scale(0.1) rotate(-360deg) translate(200%, 0);
+}
+
+/***** headers *****/
+
+h1 {
+  margin: 0 0 0.5em 0;
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #505050;
+  text-align: center;
+  text-shadow: #AAAA80 3px 3px 5px;
+}
+
+h2 {
+  margin: 0.5em 0;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #505050;
+  text-align: center;
+  text-shadow: #AAAA80 2px 2px 3px;
+}
+
+h3 {
+  margin: 0.5em 0;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #505050;
+  text-align: center;
+}
+
+h4 {
+  margin: 0.5em 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: #505050;
+  text-align: left;
+}
+
+/***** boxes *****/
+
+.simplebox {
+  padding: 0.5em;
+}
+
+.captionedbox {
+  padding: 0px;
+}
+
+.simplebox,
+.captionedbox {
+  margin: 1em;
+  border: 1px solid #A0C8DA;
+  background: white url("template/page-background.png") top left repeat-x;
+  border-radius: .5em;
+  box-shadow: #6d7581 1px 1px 3px 2px;
+}
+
+.captionedbox-content {
+  margin: 0px;
+  padding: 0.5em;
+  border: 0px;
+  border-top: 2px solid #A0C8DA;
+  -moz-border-top-colors: #A0C8DA #6d7581;
+  border-radius: 0 0 .5em .5em;
+}
+
+.captionedbox-caption {
+  margin: 0.5em;
+  font-weight: bold;
+  text-shadow: #AAAA80 1px 1px 2px;
+}
+
+/***** misc formatting *****/
+
+mark {
+  font-weight: bold;
+  color: #FF6600;
+  background-color: transparent;
+  text-shadow: #AAAA80 2px 2px 3px;
+}
+
+.border {
+  border: 1px solid #6d7581;
+  padding: 0.5em;
+}
+
+ul > li {
+  margin: 0.5em 0;
+}
+
+.cent {
+  text-align: center;
+}
+
+.topmargin {
+  margin-top: 0.5em;
+}
+
+.akey {
+  text-decoration: underline;
+}
+
+a:link, a:visited { color: #447bc4; text-decoration: none; }
+a:hover, a:active { color: #FF6600; text-decoration: underline; }
+
+mark a:link, mark a:visited { color: #FF6600; }
+mark a:hover, mark a:active { color: #FF6600; }
+
+/***** small stuff *****/
+
+.small,
+.small {
+  font-size: 0.75em;
+}
+
+ul.small,
+.small ul {
+  padding: 0px;
+  border: 0px;
+  margin: 0px 0px 0px 1em;
+}
+
+ul.small > li
+.small ul > li {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+/***** specific slides *****/
+
