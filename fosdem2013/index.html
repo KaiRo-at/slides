@@ -16,9 +16,10 @@
 </head>
 <body onload="docLoaded();">
 <header id="header"><div id="header-text">Mozilla Stability</div>
-  <a id="headerlogo" href="#index" title="Startseite">Mozilla Firefox</a>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
 </header>
-<nav id="slidenav"><div id="subheader-text"></div>
+<nav id="slidenav">
   <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
   <a href="#index" id="nav-start" accesskey="s">start</a> ||
   <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
@@ -39,7 +40,7 @@
 </article>
 
 <article id="index" title="Start Page">
-<h1>Improving Mozilla Stability</h1>
+<h1>Improving Stability of Mozilla Products</h1>
 
 <div class="simplebox">
 <mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
@@ -53,7 +54,7 @@
 <div class="captionedbox-content small">
 <ul class="small">
   <li>Created for
-    <a href="http://fosdem.org/2013/schedule/track/mozilla_devroom">Mozilla
+    <a href="http://fosdem.org/2013/schedule/track/mozilla/">Mozilla
     Developer Room</a> at <a href="http://www.fosdem.org/">FOSDEM 2013</a> in
     Brussels.</li>
   <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
@@ -68,16 +69,52 @@
 </div>
 </article>
 
+<article id="win7crash" title="Win7 Crash Reporter (Screen Shot)">
+<h1 style="display:none;">Windows Crash</h1>
+
+<div class="simplebox cent">
+<img src="win7-reporter.png"
+ alt="Win7 Crash Reporter">
+</div>
+</article>
+
+<article id="androidcrash" title="Android Crash Reporter (Screen Shot)">
+<h1 style="display:none;">Android Crash</h1>
+
+<div class="simplebox cent">
+<img src="android-reporter.png"
+ alt="Android Crash Reporter">
+</div>
+</article>
+
+<article id="fxoscrash" title="Firefox OS Crash Reporter (Screen Shot)">
+<h1 style="display:none;">Firefox OS Crash</h1>
+
+<div class="simplebox cent">
+<img src="fxos-reporter.png"
+ alt="Firefox OS Crash Reporter">
+</div>
+</article>
+
 <article id="awsy" title="Are We Stable Yet?">
 <h1>Are We Stable Yet?</h1>
 
 <div class="simplebox">
 <ul>
-  <li>http://arewestableyet.com/</li>
+  <li><a href="http://arewestableyet.com/">http://arewestableyet.com/</a></li>
   <li>Common <mark>stability indicators</mark></li>
   <li>ADI (active daily installations) and <mark>crash rate</mark> (crashes per 100 ADI)</li>
   <li>Startup and Flash crashes, tracked bugs</li>
 </ul>
+</div>
+</article>
+
+<article id="awsy-sshot" title="Are We Stable Yet? (Screen Shot)">
+<h1 style="display:none;">Are We Stable Yet?</h1>
+
+<div class="simplebox cent">
+<img src="awsy.png"
+ alt="Are We Stable Yet?">
 </div>
 </article>
 
@@ -86,11 +123,20 @@
 
 <div class="simplebox">
 <ul>
-  <li>http://crash-stats.mozilla.com/</li>
+  <li><a href="http://crash-stats.mozilla.com/">http://crash-stats.mozilla.com/</a></li>
   <li><mark>Collects</mark> crash reports, displays contents and statistics</li>
   <li>Signature: Last functions(s) called before crash</li>
   <li><mark>Top crashes</mark> by signature and release</li>
 </ul>
+</div>
+</article>
+
+<article id="socorro-tcbs" title="Socorro - Top Crashes (Screen Shot)">
+<h1 style="display:none;">Socorro - Top Crashes</h1>
+
+<div class="simplebox cent">
+<img src="tcbs.png"
+ alt="Socorro - Top Crashes">
 </div>
 </article>
 
@@ -99,11 +145,20 @@
 
 <div class="simplebox">
 <ul>
-  <li>https://crash-analysis.mozilla.com/rkaiser/0000.overview.html</li>
+  <li><a href="https://crash-analysis.mozilla.com/rkaiser/0000.overview.html">https://crash-analysis.mozilla.com/rkaiser/0000.overview.html</a></li>
   <li>Testing ground for reports to be integrated into Socorro in the future</li>
   <li><mark>Explosiveness</mark>: detection of rising/new crashes</li>
   <li><mark>B2G</mark> crash list: reports from Firefox OS (testing) devices</li>
 </ul>
+</div>
+</article>
+
+<article id="explosive" title="Explosiveness Report (Screen Shot)">
+<h1 style="display:none;">Explosiveness Report</h1>
+
+<div class="simplebox cent">
+<img src="explosive.png"
+ alt="Explosiveness Report">
 </div>
 </article>
 
@@ -112,7 +167,7 @@
 
 <div class="simplebox">
 <ul>
-  <li>https://bugzilla.mozilla.org/</li>
+  <li><a href="https://bugzilla.mozilla.org/">https://bugzilla.mozilla.org/</a></li>
   <li><mark>Central hub</mark> of tracking and QA/developer/etc. interaction</li>
   <li><mark>Keywords</mark>: crash, topcrash, needURLs</li>
   <li><mark>Tracking flags</mark> for releases</li>
@@ -125,8 +180,8 @@
 
 <div class="simplebox">
 <ul>
-  <li>Mailing list: stability@mozilla.org</li>
-  <li>irc.mozilla.org: #crashkill</li>
+  <li>Mailing list: <a href="https://mail.mozilla.org/listinfo/stability">stability&#64;mozilla&#46;org</a></li>
+  <li>irc.mozilla.org: <a href="irc://irc.mozilla.org/crashkill">#crashkill</a></li>
   <li>CrashKill meetings: Mondays @ 10am Pacific, Stability room in Vidyo</li>
 </ul>
 </div>

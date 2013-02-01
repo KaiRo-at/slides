@@ -8,18 +8,42 @@
 
 /***** base style *****/
 
+@font-face{
+  font-family: 'Open Sans';
+  src: url('template/OpenSans-Regular-webfont.woff');
+  font-weight: normal;
+  font-style: normal
+}
+
+@font-face{
+  font-family: 'Open Sans';
+  src: url('template/OpenSans-Semibold-webfont.woff');
+  font-weight: bold;
+  font-style: normal
+}
+
+@font-face{
+  font-family: 'Open Sans';
+  src: url('template/OpenSans-Italic-webfont.woff');
+  font-weight: normal;
+  font-style: italic
+}
+
 html {
   overflow: hidden; /* to make translations not paint scrollbars */
+  background: #f5f1e8 url("template/page-background.png") top left repeat;
+  height: 100%;
 }
 
 body {
   margin: 0px;
   padding: 0px;
   border: 0px;
-  font-family: Arial,Helvetica,sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 2em;
-  color: #6d7581;
-  background: white url("template/page-background.png") top left repeat-x;
+  color: #333333;
+  background: url("template/page-background-top.png") top left repeat-x;
+  height: 100%;
 }
 
 ul {
@@ -33,33 +57,35 @@ ul:last-child {
 }
 
 #header {
-  height: 38px;
+  height: 40px;
   position: relative;
-  padding: 0 15px 0 0;
-  z-index: 1;
+  border-top: 1px solid white;
 }
 
 #headerlogo {
-  position: relative;
+  position: absolute;
   display: block;
-  text-indent: -500px;
+  right: 20px;
+  top: 0;
+  text-indent: -2000px;
   font-size: 1px;
   overflow: hidden;
-  height: 48px;
-  width: 186px;
-  background: url("template/firefox-title.png") 5px 3px no-repeat;
+  height: 41px;
+  width: 148px;
+  background: url("template/mozilla-tab.png") no-repeat;
 }
 
 #header-text {
-  float: right;
-  padding: 7px 20px;
-  font-size: 24px;
+  position: relative;
+  top: 5px;
+  left: 25px;
+  font-size: 20px;
   font-weight: bold;
-  color: #C0C8CA;
+  color: #808080;
 }
 
 #header-text.neartime {
-  color: #A0C8DA;
+  color: #80AACC;
 }
 
 #header-text.ontime {
@@ -70,30 +96,33 @@ ul:last-child {
   color: #FF8080;
 }
 
-#slidenav {
-  padding: 4px 15px 30px 55px;
+#subheader-text {
+  color: #808080;
+  position: relative;
+  top: 3px;
+  left: 25px;
   font-size: 10px;
-  color: #A0C8DA;
+}
+
+#slidenav {
+  position: absolute;
+  right: 200px;
+  top: 15px;
+  font-size: 10px;
 }
 
 #slidenav a:link,
 #slidenav a:visited {
-  color: #6d7581;
+  color: #484848;
 }
 
 #slidenav a:hover,
 #slidenav a:active {
-  color: #0000FF;
+  color: #0073aa;
 }
 
 #slidenav .nolink {
-  color: #A0C8DA;
-}
-
-#subheader-text {
-  float: right;
-  padding: 0 20px;
-  color: #6d7581;
+  color: #A0A0A0;
 }
 
 article {
@@ -137,37 +166,30 @@ article[aria-selected="true"] ~ article {
 
 /***** headers *****/
 
-h1 {
-  margin: 0 0 0.5em 0;
-  font-size: 1.7em;
+h1, h2, h3, h4 {
+  margin: 0.5em 0;
   font-weight: bold;
-  color: #505050;
+  color: #484848;
   text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.7em;
   text-shadow: #AAAA80 3px 3px 5px;
 }
 
 h2 {
-  margin: 0.5em 0;
   font-size: 1.3em;
-  font-weight: bold;
-  color: #505050;
-  text-align: center;
   text-shadow: #AAAA80 2px 2px 3px;
 }
 
 h3 {
-  margin: 0.5em 0;
   font-size: 1.1em;
-  font-weight: bold;
-  color: #505050;
-  text-align: center;
 }
 
 h4 {
-  margin: 0.5em 0;
   font-size: 1em;
-  font-weight: bold;
-  color: #505050;
   text-align: left;
 }
 
@@ -184,19 +206,17 @@ h4 {
 .simplebox,
 .captionedbox {
   margin: 1em;
-  border: 1px solid #A0C8DA;
-  background: white url("template/page-background.png") top left repeat-x;
-  border-radius: .5em;
-  box-shadow: #6d7581 1px 1px 3px 2px;
+  box-shadow: 0 0 0 1px #fff inset;
+  background: #fff;
+  background-image: radial-gradient(center 45px, ellipse farthest-corner, #f5f1e8 0, #fff 100%);
+  border-bottom: 1px solid #ddd;
 }
 
 .captionedbox-content {
   margin: 0px;
   padding: 0.5em;
   border: 0px;
-  border-top: 2px solid #A0C8DA;
-  -moz-border-top-colors: #A0C8DA #6d7581;
-  border-radius: 0 0 .5em .5em;
+  border-top: 1px solid #d6d6d6;
 }
 
 .captionedbox-caption {
@@ -235,7 +255,7 @@ ul > li {
   text-decoration: underline;
 }
 
-a:link, a:visited { color: #447bc4; text-decoration: none; }
+a:link, a:visited { color: #0096dd; text-decoration: none; }
 a:hover, a:active { color: #FF6600; text-decoration: underline; }
 
 mark a:link, mark a:visited { color: #FF6600; }
