@@ -128,9 +128,10 @@ ul:last-child {
 article {
   position: absolute;
   width: 100%;
-  /* header is 38px + 1px border, slidenav is 13px + 4px + 30px paddings,
-     another 5px for safety */
-  height: calc(100% - 90px);
+  /* header is 40px, 7px to have a bit of distance,
+   * 3px height-reducing on the bottom for safety */
+  top: 47px;
+  height: calc(100% - 50px);
   overflow: auto;
 
   transition-property: transform, opacity;
@@ -213,14 +214,15 @@ h4 {
 }
 
 .captionedbox-content {
-  margin: 0px;
+  margin: 0;
   padding: 0.5em;
   border: 0px;
   border-top: 1px solid #d6d6d6;
 }
 
 .captionedbox-caption {
-  margin: 0.5em;
+  margin: 0;
+  padding: 0.5em;
   font-weight: bold;
   text-shadow: #AAAA80 1px 1px 2px;
 }
