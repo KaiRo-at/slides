@@ -2,31 +2,31 @@
  * styles for talk slides *
  *    by Robert Kaiser    *
  *    <kairo@kairo.at>    *
- * (for Linuxwochen 2009) *
+ *   (for FOSDEM 2013)    *
  **************************/
 
 
 /***** base style *****/
 
-@font-face{
+@font-face {
   font-family: 'Open Sans';
   src: url('template/OpenSans-Regular-webfont.woff');
   font-weight: normal;
-  font-style: normal
+  font-style: normal;
 }
 
-@font-face{
+@font-face {
   font-family: 'Open Sans';
   src: url('template/OpenSans-Semibold-webfont.woff');
   font-weight: bold;
-  font-style: normal
+  font-style: normal;
 }
 
-@font-face{
+@font-face {
   font-family: 'Open Sans';
   src: url('template/OpenSans-Italic-webfont.woff');
   font-weight: normal;
-  font-style: italic
+  font-style: italic;
 }
 
 html {
