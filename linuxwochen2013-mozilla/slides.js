@@ -17,7 +17,7 @@ var pageTitle, headerText, subHeaderText;
 var navPrev, navNext, navPrevNolink, navNextNolink;
 
 // Slide timer - color variation of headerText
-var slideSeconds = 3 * 60;
+var slideSeconds = 2 * 60;
 
 // Called when the document has been loaded.
 function docLoaded() {
