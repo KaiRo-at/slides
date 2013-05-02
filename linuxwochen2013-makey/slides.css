@@ -92,11 +92,11 @@ ul:last-child {
 }
 
 #header-text.neartime {
-  color: #80AACC;
+  color: #6080FF;
 }
 
 #header-text.ontime {
-  color: #80CC80;
+  color: #40AA40;
 }
 
 #header-text.overtime {
@@ -129,7 +129,7 @@ ul:last-child {
 }
 
 #slidenav .nolink {
-  color: #A0A0A0;
+  color: #CCCCCC;
 }
 
 article {
@@ -177,7 +177,7 @@ article[aria-selected="true"] ~ article {
 h1, h2, h3, h4 {
   margin: 0.5em 0;
   font-weight: bold;
-  color: #336699;
+  color: #003366;
   text-align: center;
 }
 

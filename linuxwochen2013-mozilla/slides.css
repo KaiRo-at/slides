@@ -245,6 +245,17 @@ mark {
   box-shadow: #6d7581 1px 1px 3px 2px;
 }
 
+.slidepic {
+  float: right;
+  margin-left: .5em;
+}
+
+.ensurepicinbox {
+  clear: both;
+  font-size: 1px;
+  margin: 0;
+}
+
 ul > li {
   margin: 0.5em 0;
 }
