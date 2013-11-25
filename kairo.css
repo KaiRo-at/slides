@@ -30,6 +30,12 @@ div.KaiRoLogo { float: left; margin-right: 5px; }
  text-align: right;
 }
 
+.errpagetext {
+  font-size: 1.5em;
+  margin: 2em;
+  text-align: center;
+}
+
 @media screen and (max-width: 550px) {
  h1 {
   clear: both;
