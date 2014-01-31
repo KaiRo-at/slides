@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Developing Webapps for Firefox OS</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Overview">
+  <link rel="index" id="link-toc" href="#toc" title="Contents">
+  <link rel="start" id="link-start" href="#index" title="Start">
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">Web App Dev</div>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
+</header>
+<nav id="slidenav">
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; back</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>fwd &gt;</a>
+  <span id="nav-next-nolink" class="nolink">fwd &gt;</span>
+</nav>
+
+<article id="toc" title="Table of Contents">
+<h1>Table of Contents</h1>
+<h2>Developing Webapps for Firefox OS</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides are available in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Start Page">
+<h1>Developing Webapps for Firefox OS</h1>
+<h2>The Efficient &amp; Simplistic Approach</h2>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Project Manager, Mozilla QA</small>
+</div>
+
+<div class="simplebox">
+<mark>Sayak Sarkar</mark>
+<br><small>Mozilla Rep</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Slides:
+  <a href="http://slides.kairo.at/fosdem2014/">http://slides.kairo.at/fosdem2014/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Created for
+    <a href="http://fosdem.org/2014/schedule/track/mozilla/">Mozilla
+    Developer Room</a> at <a href="http://www.fosdem.org/">FOSDEM 2014</a> in
+    Brussels.</li>
+  <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation via links on all slides, via access keys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward arrow keys</li>
+  <li><a href="#toc">Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+        alt="Licensed under CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+        src="cc-by-sa-80x15.png"></a> 01/2014 Robert Kaiser &amp; Sayak Sarkar -
+    "Mozilla", "Firefox" and their logos are
+    <a href="http://www.mozilla.org/foundation/trademarks/list.html">trademarks
+    of the Mozilla Foundation</a>.</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="webapp" title="Web Apps">
+<h1>What is a Web App?</h1>
+
+<div class="simplebox">
+<ul>
+<li>hosted / packaged</li>
+<li>"web site" (HTML/CSS/JS) + app manifest</li>
+</ul>
+</div>
+</article>
+
+<article id="manifest" title="App Manifest">
+<h1>App Manifest</h1>
+
+<div class="simplebox">
+<pre class="small"><code>{
+  "name": "Lantea Maps",
+  "description": "Display maps and record (GPS) tracks of your location.",
+  "launch_path": "/index.html",
+  "appcache_path": "/manifest.appcache",
+  "permissions": {
+    "storage": {
+      "description": "Required for saving settings, tracks, and the tile cache."
+    },
+    "geolocation": {
+      "description": "Required record tracks."
+    }
+  },
+  "developer": {
+    "name": "Robert Kaiser",
+    "url": "http://www.kairo.at/"
+  },
+  "icons": {
+    "16": "/style/lanteaIcon16.png",
+    "32": "/style/lanteaIcon32.png",
+    "64": "/style/lanteaIcon64.png",
+    "128": "/style/lanteaIcon128.png"
+  }
+}
+</code></pre>
+</div>
+</article>
+
+<article id="bestpractices" title="Best Practices">
+<h1>Best Practices for Development</h1>
+
+<div class="simplebox">
+<p>When writing, think of later maintenance:</p>
+<ul class="arrows">
+  <li>Readable for someone unfamiliar with that code</li>
+  <li>Variable names that explain themselves</li>
+  <li>Comments with explanations for anything non-obvious</li>
+  <li>That's true for CSS and HTML as well!</li>
+  <li>Group thing in logical ways</li>
+</ul>
+</div>
+</article>
+
+<article id="practices-conclusion" title="Conclusion on Practices">
+<h1>Best Practices for Development</h1>
+
+<div class="simplebox">
+<p>How should code look like when you want to write a patch?</p>
+<ul class="arrows">
+  <li>Write your own code like that!</li>
+</ul>
+</div>
+</article>
+
+<article id="libraries" title="Careful with Libraries">
+<h1>Be Careful with Libraries</h1>
+
+<div class="simplebox">
+<ul>
+  <li>When starting to learn things, you should know what every line does</li>
+  <li>Due to e.g. CSP restrictions, libraries can give odd errors in apps</li>
+  <li>Size &amp; efficiency: How much of the library do you actually use?</li>
+  <li>It's easier to patch your own code than a library</li>
+  <li>Be aware of licenses!</li>
+</ul>
+
+</div>
+</article>
+
+<article id="libraries-conclusion" title="Conclusions on Libraries">
+<h1>Be Careful with Libraries</h1>
+
+<div class="simplebox">
+<ul class="arrows">
+  <li>Only use libraries if you really trust them, use a big enough portion of them, and really know what you are doing.</li>
+  <li>Also, ideally, the basic logic of your app stands without libraries and they are only helpers.</li>
+</ul>
+</div>
+</article>
+
+<article id="devtools" title="Developer Tools">
+<h1>Web App Development Tools</h1>
+
+<div class="simplebox">
+<img src="devtools.png" alt="Firefox DevTools" class="slidepic">
+<p class="cent">App Manager - and more!</p>
+<p class="cent largetext"><strong>DEMO TIME!</strong></p>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="end" title="The End">
+
+<div class="simplebox">
+<img src="be-the-future.png" alt="Firefox OS - Be The Future" class="slidepic">
+<p class="cent largetext"><strong>Questions?</strong></p>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+</body>
+</html>
