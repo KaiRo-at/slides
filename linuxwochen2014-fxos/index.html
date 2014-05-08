@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Firefox OS: Das Web als Betriebssystem</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Überblick">
+  <link rel="index" id="link-toc" href="#toc" title="Inhalt">
+  <link rel="start" id="link-start" href="#index" title="Start">
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">Firefox OS</div>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
+</header>
+<nav id="slidenav">
+  <a href="#toc" id="nav-toc" accesskey="t">Inhalt</a> ||
+  <a href="#index" id="nav-start" accesskey="s">Start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; zurück</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; zurück</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>weiter &gt;</a>
+  <span id="nav-next-nolink" class="nolink">weiter &gt;</span>
+</nav>
+
+<article id="toc" title="Inhalt">
+<h1>Inhalt</h1>
+<h2>Firefox OS: Das Web als Betriebssystem</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Folgende Folien sind in dieser Präsentation enthalten:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Startseite">
+<h1>Firefox OS: Das Web als Betriebssystem</h1>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Qualitätsprojektmanager, Mozilla</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Folien:
+  <a href="http://slides.kairo.at/linuxwochen2014-fxos/">http://slides.kairo.at/linuxwochen2014-fxos/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Erstellt für einen
+    <a href="https://cfp.linuxwochen.at/de/LWW14/public/events/163">Vortrag</a>
+    auf den <a href="http://www.linuxwochen.at/">Linuxwochen 2014</a> in Wien.</li>
+  <li>Geschrieben in HTML 5 mit CSS 3 und JavaScript.</li>
+  <li>Navigation mit Links auf allen Folien, mit Accesskeys
+   (z.B. "n"/Alt+Umschalt+N für "next"/weiter) oder vor/zurück-Pfeilasten</li>
+  <li><a href="#toc">Inhalt</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+      alt="Lizenziert unter CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+      src="cc-by-sa-80x15.png"></a> 05/2014 Robert Kaiser -
+    "Mozilla", "Firefox" und deren Logos sind
+    <a href="http://www.mozilla.org/foundation/trademarks/list.html">Handelsmarken
+    der Mozilla Foundation</a>.</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="mission" title="The Mission">
+<h1>Building a Better Internet</h1>
+
+<div class="simplebox">
+<img src="mozorg-hack.gif" alt="hack - mozilla.org" class="slidepic">
+<p class="largetext">Mozilla's mission is to <b>promote openness, innovation &amp;
+opportunity</b> on the <b>Web</b>.</p>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="different" title="Mozilla vs. Mobile">
+<h1>Different Than Current Mobile</h1>
+
+<div class="simplebox">
+<img src="webmaker.png" alt="Mozilla Webmaker" class="slidepic">
+<ul>
+  <li>Web is public resource, not commercial commodity</li>
+  <li>Open standards, decentralized networks</li>
+  <li>Worldwide community, control to the user</li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="mobile" title="Mozilla and Mobile">
+<h1>Mozilla &amp; Mobile</h1>
+
+<div class="simplebox">
+<img src="fxandroid.png" alt="Firefox for Android" class="slidepic">
+<ul>
+  <li>Early tries with Minimo, then Maemo</li>
+  <li>Now: Firefox for Android</li>
+  <li>Web should not be locked in a browser app</li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="firefoxos" title="Firefox OS">
+<h1>Firefox OS</h1>
+
+<div class="simplebox">
+<img src="fxos_shot.png" alt="Firefox OS" class="slidepic">
+<p>Web as first-class citizen:</p>
+<p><b>All UI and Apps are HTML+CSS+JS!</b></p>
+<p class="small">Target is to standardize all required new APIs (or replace them with standards).</p>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="market" title="Market Status">
+<h1>Available Now</h1>
+
+<div class="simplebox">
+<img src="phone-marketplace-screenshot.jpg" alt="Firefox Marketplace" class="slidepic">
+<ul>
+  <li>Primarily emerging markets as first target</li>
+  <li>Shipped in 9 countries (ES, PL, DE, parts of South/Latin America)</li>
+  <li>3 phones (ZTE Open, Alcatel One Touch Fire, LG Fireweb)</li>
+  <li>Thousands of apps in the Firefox Marketplace</li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="architecture" title="Architecture">
+<h1>Architecture</h1>
+
+<div class="cent">
+<img src="fxos-architecture.png" alt="Firefox OS Architecture">
+</div>
+</article>
+
+<article id="allweb" title="Alles Web!">
+<h1>Alles ist Web!</h1>
+
+<div class="simplebox">
+...
+</div>
+</article>
+
+<article id="webapi" title="WebAPIs">
+<h1>WebAPIs</h1>
+
+<div class="simplebox">
+...
+</div>
+</article>
+
+<article id="security" title="Sicherheit">
+<h1>Sicherheit</h1>
+
+<div class="simplebox">
+...
+</div>
+</article>
+
+<article id="plans" title="Plans">
+<h1>Plans for Firefox OS</h1>
+
+<div class="simplebox">
+<img src="be-the-future.png" alt="Be the Future" class="slidepic">
+<ul>
+  <li>More countries, more devices</li>
+  <li>System UI overhaul ("Haida")</li>
+  <li>Add "missing" features (C&amp;P, NFC, etc.)</li>
+  <li>Over time, get ready for higher end phones and tablets</li>
+  <li>Push Marketplace and APIs to Android &amp; desktop</li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="links" title="Ressourcen">
+<h1>Ressourcen</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Documentation: <a href="https://developer.mozilla.org/en-US/Firefox_OS">developer.mozilla.org/Firefox_OS</a></li>
+  <li>Feature Articles: <a href="https://hacks.mozilla.org/">hacks.mozilla.org</a></li>
+  <li>Web APIs: <a href="https://wiki.mozilla.org/WebAPI">wiki.mozilla.org/WebAPI</a></li>
+  <li>App Development: <a href="https://marketplace.firefox.com/developers/">marketplace.firefox.com/developers/</a></li>
+  <li>Get ZTE Open: <a href="http://stores.ebay.com/ztemobileuk">stores.ebay.com/ztemobileuk</a></li>
+  <li>Get Geeksphone: <a href="http://www.geeksphone.com/">geeksphone.com</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>
