@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Firefox OS Tricorder</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Overview">
+  <link rel="index" id="link-toc" href="#toc" title="Contents">
+  <link rel="start" id="link-start" href="#index" title="Start">
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">Tricorder</div>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
+</header>
+<nav id="slidenav">
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; back</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>fwd &gt;</a>
+  <span id="nav-next-nolink" class="nolink">fwd &gt;</span>
+</nav>
+
+<article id="toc" title="Table of Contents">
+<h1>Table of Contents</h1>
+<h2>Firefox OS Tricorder</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides are available in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Start Page">
+<h1>Firefox OS Tricorder</h1>
+<h2>Reading Device Sensor Data in JavaScript</h2>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Program Manager, Mozilla QA</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Slides:
+  <a href="http://slides.kairo.at/fosdem2015/">http://slides.kairo.at/fosdem2015/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Created for
+    <a href="http://fosdem.org/2015/schedule/track/mozilla/">Mozilla
+    Developer Room</a> at <a href="http://www.fosdem.org/">FOSDEM 2015</a> in
+    Brussels.</li>
+  <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation via links on all slides, via access keys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward arrow keys</li>
+  <li><a href="#toc">Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+        alt="Licensed under CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+        src="cc-by-sa-80x15.png"></a> 01/2015 Robert Kaiser -
+    "Mozilla", "Firefox" and their logos are
+    <a href="http://www.mozilla.org/foundation/trademarks/list.html">trademarks
+    of the Mozilla Foundation</a>; <a href="http://www.startrek.com/">Star Trek</a>
+    and related items are trademarks of
+    <a href="http://www.paramount.com/">Paramount Pictures</a>.</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="tricorder" title="Tricorder">
+<h1>What is a Tricorder?</h1>
+
+<div class="simplebox">
+<img src="starfleet_tricorder_2370.jpg" class="slidepic"
+ alt="Starfleet Tricorder, 2370">
+<p>Sensor device as seen on "Star Trek"</p>
+<p>Displays whatever data is needed at plot speeds and resolutions.</p>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="fxos-tricorder" title="Firefox OS Tricorder">
+<h1>Firefox OS Tricorder App</h1>
+
+<div class="simplebox">
+<p>Displays sensor data</p>
+<p><a href="https://marketplace.firefox.com/app/tricorder/">marketplace.firefox.com/app/tricorder/</a></p>
+<p>Code: <a href="https://github.com/KaiRo-at/tricorder">github.com/KaiRo-at/tricorder</a></p>
+</div>
+</article>
+
+<article id="ui" title="UI">
+<h1>Firefox OS Tricorder UI</h1>
+
+<div class="simplebox">
+</div>
+</article>
+
+<article id="module" title="Module">
+<h1>Module</h1>
+
+<div class="simplebox">
+<ul>
+  <li>HTML (switch, display)</li>
+  <li>JS Object
+    <ul>
+      <li>2 Methods: activate(), deactivate()</li>
+    </ul>
+  </li>
+</ul>
+</div>
+</article>
+
+<article id="position" title="Position Module">
+<h1>Position Module</h1>
+
+<div class="simplebox">
+<p>GPS, WiFi/Cell Location</p>
+<p>API: Geolocation</p>
+<p>Permission: geolocation</p>
+</div>
+</article>
+
+<article id="position-code" title="Position: Code">
+<h1>Position: Code</h1>
+
+<div class="simplebox">
+<pre>
+  this.watchID = navigator.geolocation.watchPosition(
+    function(position) { ... },
+    function(error) { ... },
+    {enableHighAccuracy: true, maximumAge: 10000, timeout: 60000}
+  );
+
+  navigator.geolocation.clearWatch(this.watchID);
+</pre>
+</div>
+</article>
+
+<article id="gravity" title="Gravity Module">
+<h1>Gravity Module</h1>
+
+<div class="simplebox">
+<p>Accelerometer, Magnetic Compass</p>
+<p>APIs: deviceorientation, devicemotion events</p>
+<p>Permissions: ---</p>
+</div>
+</article>
+
+<article id="gravity-code" title="Gravity: Code">
+<h1>Gravity: Code</h1>
+
+<div class="simplebox">
+<pre>
+  window.addEventListener("deviceorientation", this.orientEvent, true);
+  window.addEventListener("devicemotion", this.motionEvent, true);
+
+  orientEvent: function(orientData) {
+    orientData.alpha / .beta / .gamma (in °)
+  },
+  motionEvent: function(event) {
+    event.accelerationIncludingGravity.x / .y / .z (in m/s²)
+  },
+
+  window.removeEventListener("deviceorientation", this.orientEvent, true);
+  window.removeEventListener("devicemotion", this.motionEvent, true);
+</pre>
+</div>
+</article>
+
+<article id="sound" title="Sound Module">
+<h1>Sound Module</h1>
+
+<div class="simplebox">
+<p>Microphone</p>
+<p>APIs: WebRTC(getUserMedia), WebAudio</p>
+<p>Permissions: audio-capture</p>
+</div>
+</article>
+
+<article id="sound-code" title="Sound: Code">
+<h1>Sound: Code</h1>
+
+<div class="simplebox">
+<pre>
+</pre>
+</div>
+</article>
+
+<article id="environment" title="Environment Module">
+<h1>Environment Module</h1>
+
+<div class="simplebox">
+<p>Light, Proximity; Flashlight</p>
+<p>APIs: devicelight, deviceproximity events; Camera API</p>
+<p>Permissions: ---; camera (for Flash)</p>
+</div>
+</article>
+
+<article id="environment-code" title="Environment: Code">
+<h1>Environment: Code</h1>
+
+<div class="simplebox">
+<pre>
+</pre>
+</div>
+</article>
+
+<article id="device" title="Device Module">
+<h1>Device Module</h1>
+
+<div class="simplebox">
+<p>Battery</p>
+<p>APIs: Battery</p>
+<p>Permissions: ---</p>
+</div>
+</article>
+
+<article id="device-code" title="Device: Code">
+<h1>Device: Code</h1>
+
+<div class="simplebox">
+<pre>
+</pre>
+</div>
+</article>
+
+<article id="end" title="The End">
+
+<div class="simplebox">
+<h1 class="cent" style="position: relative; z-index: 3; color: #FFFFFF; font-size: 2.5em;">Questions?</h1>
+<img src="mister_tricorder.jpg" class="sshot"
+     style="width: 100%; margin-top: -4.5em; position: relative; z-index: 1;"
+     alt="Data &amp; Mister Tricorder">
+</div>
+</article>
+
+</body>
+</html>
