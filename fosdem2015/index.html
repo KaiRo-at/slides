@@ -122,7 +122,7 @@
 
 <div class="simplebox">
 <p>GPS, WiFi/Cell Location</p>
-<p>API: Geolocation</p>
+<p>API: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation">Geolocation</a></p>
 <p>Permission: geolocation</p>
 </div>
 </article>
@@ -132,7 +132,7 @@
 
 <div class="simplebox">
 <pre>
-  this.watchID = navigator.geolocation.watchPosition(
+  this.watchID = <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation.watchPosition">navigator.geolocation.watchPosition</a>(
     function(position) {
       position.coords.latitude / .longitude / .accuracy / ...
     },
@@ -150,7 +150,8 @@
 
 <div class="simplebox">
 <p>Accelerometer, Magnetometer</p>
-<p>APIs: deviceorientation, devicemotion events</p>
+<p>APIs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceOrientationEvent">deviceorientation</a>,
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent">devicemotion</a> events</p>
 <p>Permissions: ---</p>
 </div>
 </article>
@@ -160,8 +161,8 @@
 
 <div class="simplebox">
 <pre>
-  window.addEventListener("deviceorientation", this.orientEvent, true);
-  window.addEventListener("devicemotion", this.motionEvent, true);
+  window.addEventListener("<a href="https://developer.mozilla.org/en-US/docs/Web/Events/deviceorientation">deviceorientation</a>", this.orientEvent, true);
+  window.addEventListener("<a href="https://developer.mozilla.org/en-US/docs/Web/Events/devicemotion">devicemotion</a>", this.motionEvent, true);
 
   orientEvent: function(orientData) {
     orientData.alpha / .beta / .gamma (in °)
@@ -181,7 +182,8 @@
 
 <div class="simplebox">
 <p>Microphone</p>
-<p>APIs: WebRTC(getUserMedia), WebAudio</p>
+<p>APIs: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/WebRTC">WebRTC</a>(getUserMedia),
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">WebAudio</a></p>
 <p>Permissions: audio-capture</p>
 </div>
 </article>
@@ -191,12 +193,12 @@
 
 <div class="simplebox">
 <pre>
-  navigator.getUserMedia({ audio: true },
+  <a href="https://developer.mozilla.org/en-US/docs/NavigatorUserMedia.getUserMedia">navigator.getUserMedia</a>({ audio: true },
     function(aLocalMediaStream) {
       gModSound.mAudio.stream = aLocalMediaStream;
-      gModSound.mAudio.context = new window.AudioContext();
+      gModSound.mAudio.context = new <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext">window.AudioContext</a>();
       gModSound.mAudio.input = gModSound.mAudio.context.createMediaStreamSource(gModSound.mAudio.stream);
-      gModSound.mAudio.analyzer = gModSound.mAudio.context.createAnalyser();
+      gModSound.mAudio.analyzer = gModSound.mAudio.context<a href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode">.createAnalyser</a>();
       gModSound.mAudio.input.connect(gModSound.mAudio.analyzer);
     },
     function(err) { ... }
@@ -204,7 +206,7 @@
 
   // in window.requestAnimationFrame():
   var data = new Uint8Array(gModSound.mAudio.frequencySlices);
-  gModSound.mAudio.analyzer.getByteFrequencyData(data);
+  gModSound.mAudio.analyzer<a href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode.getByteFrequencyData">.getByteFrequencyData</a>(data);
   // ... do something with data ...
 
   gModSound.mAudio.stream.stop();
@@ -217,7 +219,9 @@
 
 <div class="simplebox">
 <p>Light, Proximity; Flashlight</p>
-<p>APIs: devicelight, deviceproximity events; Camera API</p>
+<p>APIs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceLightEvent">devicelight</a>,
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceProximityEvent">deviceproximity</a> events;
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Camera_API">Camera API</a></p>
 <p>Permissions: ---; camera (for Flash)</p>
 </div>
 </article>
@@ -227,8 +231,8 @@
 
 <div class="simplebox">
 <pre>
-  window.addEventListener("devicelight", this.lightEvent, true);
-  window.addEventListener("deviceproximity", this.proxEvent, true);
+  window.addEventListener("<a href="https://developer.mozilla.org/en-US/docs/Web/Events/devicelight">devicelight</a>", this.lightEvent, true);
+  window.addEventListener("<a href="https://developer.mozilla.org/en-US/docs/Web/Events/deviceproximity">deviceproximity</a>", this.proxEvent, true);
 
   lightEvent: function(lightData) {
     lightData.value (in lux)
@@ -240,7 +244,7 @@
   window.removeEventListener("devicelight", this.lightEvent, true);
   window.removeEventListener("deviceproximity", this.proxEvent, true);
 
-  // flash/torch code works via navigator.mozCameras.getCamera
+  // flash/torch code works via <a href="https://developer.mozilla.org/en-US/docs/Web/API/CameraManager.getCamera">navigator.mozCameras.getCamera</a>
   // flaky and subject to change, please consult code on github
 </pre>
 </div>
@@ -251,7 +255,7 @@
 
 <div class="simplebox">
 <p>Battery</p>
-<p>APIs: Battery</p>
+<p>APIs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API">Battery Status API</a></p>
 <p>Permissions: ---</p>
 </div>
 </article>
@@ -261,26 +265,13 @@
 
 <div class="simplebox">
 <pre>
-  (navigator.battery.level * 100).toFixed(1) + "%";
+  0 &lt;= <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.battery">navigator.battery</a>.level &lt;= 1
 
-  if (navigator.battery.charging) {
-    if (navigator.battery.chargingTime == 0 ||
-        navigator.battery.chargingTime == Infinity) {
-      "charging";
-    }
-    else {
-      "charging, " + navigator.battery.chargingTime + "s remaining";
-    }
-  }
-  else {
-    if (navigator.battery.dischargingTime == 0 ||
-        navigator.battery.dischargingTime == Infinity) {
-      "discharging";
-    }
-    else {
-      navigator.battery.dischargingTime + "s usage remaining";
-    }
-  }
+  .charging (true/false)
+
+  .chargingTime (in s; 0 or Infinity: unknown)
+
+  .dischargingTime (in s; 0 or Infinity: unknown)
 </pre>
 </div>
 </article>
