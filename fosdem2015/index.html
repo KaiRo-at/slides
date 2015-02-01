@@ -197,7 +197,8 @@
     function(aLocalMediaStream) {
       gModSound.mAudio.stream = aLocalMediaStream;
       gModSound.mAudio.context = new <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext">window.AudioContext</a>();
-      gModSound.mAudio.input = gModSound.mAudio.context.createMediaStreamSource(gModSound.mAudio.stream);
+      gModSound.mAudio.input =
+          gModSound.mAudio.context.createMediaStreamSource(gModSound.mAudio.stream);
       gModSound.mAudio.analyzer = gModSound.mAudio.context<a href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode">.createAnalyser</a>();
       gModSound.mAudio.input.connect(gModSound.mAudio.analyzer);
     },
