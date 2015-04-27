@@ -1,0 +1,326 @@
+/**************************
+ * styles for talk slides *
+ *    by Robert Kaiser    *
+ *    <kairo@kairo.at>    *
+ *   (for FOSDEM 2013)    *
+ **************************/
+
+
+/***** base style *****/
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('template/OpenSans-Regular-webfont.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('template/OpenSans-Semibold-webfont.woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('template/OpenSans-Italic-webfont.woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+html {
+  overflow: hidden; /* to make translations not paint scrollbars */
+  background: #f5f1e8 url("template/page-background.png") top left repeat;
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2em;
+  color: #333333;
+  background: url("template/page-background-top.png") top left repeat-x;
+  height: 100%;
+}
+
+ul {
+  padding-left: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+ul:first-child,
+ul:last-child {
+  margin-top: 0;
+}
+
+#header {
+  height: 40px;
+  position: relative;
+  border-top: 1px solid white;
+}
+
+#headerlogo {
+  position: absolute;
+  display: block;
+  right: 20px;
+  top: 0;
+  text-indent: -2000px;
+  font-size: 1px;
+  overflow: hidden;
+  height: 41px;
+  width: 148px;
+  background: url("template/mozilla-tab.png") no-repeat;
+}
+
+#header-text {
+  position: relative;
+  top: 5px;
+  left: 25px;
+  width: calc(100% - 50px);
+  font-size: 20px;
+  font-weight: bold;
+  color: #808080;
+}
+
+#header-text.neartime {
+  color: #80AACC;
+}
+
+#header-text.ontime {
+  color: #80CC80;
+}
+
+#header-text.overtime {
+  color: #FF8080;
+}
+
+#subheader-text {
+  color: #808080;
+  position: relative;
+  top: 3px;
+  left: 25px;
+  width: calc(100% - 50px);
+  font-size: 10px;
+}
+
+#slidenav {
+  position: absolute;
+  right: 200px;
+  top: 15px;
+  font-size: 10px;
+}
+
+#slidenav a:link,
+#slidenav a:visited {
+  color: #484848;
+}
+
+#slidenav a:hover,
+#slidenav a:active {
+  color: #0073aa;
+}
+
+#slidenav .nolink {
+  color: #A0A0A0;
+}
+
+article {
+  position: absolute;
+  width: 100%;
+  /* header is 40px, 7px to have a bit of distance,
+   * 3px height-reducing on the bottom for safety */
+  top: 47px;
+  height: calc(100% - 50px);
+  overflow: auto;
+
+  transition-property: transform, opacity;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+  transform-origin: center 5em;
+
+  opacity: 0;
+/*
+  transform: translate(-100%, 0);
+*/
+/*
+  transform: scale(0.1) rotate(360deg) translate(-200%, 0);
+*/
+  transform: scale(0.1) translate(-400%, 0);
+}
+
+article[aria-selected="true"] {
+  opacity: 1;
+  transform: scale(1) rotate(0deg) translate(0, 0);
+}
+
+article[aria-selected="true"] ~ article {
+  opacity: 0;
+/*
+  transform: translate(100%, 0);
+*/
+/*
+  transform: scale(0.1) rotate(-360deg) translate(200%, 0);
+*/
+  transform: scale(0.1) translate(400%, 0);
+}
+
+/***** headers *****/
+
+h1, h2, h3, h4 {
+  margin: 0.5em 0;
+  font-weight: bold;
+  color: #484848;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.7em;
+  text-shadow: #AAAA80 3px 3px 5px;
+}
+
+h2 {
+  font-size: 1.3em;
+  text-shadow: #AAAA80 2px 2px 3px;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+h4 {
+  font-size: 1em;
+  text-align: left;
+}
+
+/***** boxes *****/
+
+.simplebox {
+  padding: 0.5em;
+}
+
+.captionedbox {
+  padding: 0px;
+}
+
+.simplebox,
+.captionedbox {
+  margin: 1em;
+  box-shadow: 0 0 0 1px #fff inset;
+  background: #fff;
+  background-image: radial-gradient(center 45px, ellipse farthest-corner, #f5f1e8 0, #fff 100%);
+  border-bottom: 1px solid #ddd;
+}
+
+.captionedbox-content {
+  margin: 0;
+  padding: 0.5em;
+  border: 0px;
+  border-top: 1px solid #d6d6d6;
+}
+
+.captionedbox-caption {
+  margin: 0;
+  padding: 0.5em;
+  font-weight: bold;
+  text-shadow: #AAAA80 1px 1px 2px;
+}
+
+/***** misc formatting *****/
+
+mark {
+  font-weight: bold;
+  color: #FF6600;
+  background-color: transparent;
+  text-shadow: #AAAA80 2px 2px 3px;
+}
+
+.border {
+  border: 1px solid #6d7581;
+  padding: 0.5em;
+}
+
+.sshot {
+  box-shadow: #6d7581 1px 1px 3px 2px;
+}
+
+.slidepic {
+  float: right;
+  margin-left: .5em;
+}
+
+.ensurepicinbox {
+  clear: both;
+  font-size: 1px;
+  margin: 0;
+}
+
+.largetext {
+  font-size: 2em;
+}
+
+ul > li {
+  margin: 0.5em 0;
+}
+
+.columns2 {
+  -moz-columns: 2;
+}
+
+ul.nobullets > li {
+  list-style-type: none;
+}
+
+ul.arrows > li {
+  list-style-type: none;
+}
+ul.arrows > li:before {
+  content: "\21d2\20"; /* \2192 would be single thin arrow, hex 20 is space */
+}
+
+.cent {
+  text-align: center;
+}
+
+.topmargin {
+  margin-top: 0.5em;
+}
+
+.akey {
+  text-decoration: underline;
+}
+
+a:link, a:visited { color: #0096dd; text-decoration: none; }
+a:hover, a:active { color: #FF6600; text-decoration: underline; }
+
+mark a:link, mark a:visited { color: #FF6600; }
+mark a:hover, mark a:active { color: #FF6600; }
+
+pre { margin: 0; }
+
+/***** small stuff *****/
+
+.small,
+.small {
+  font-size: 0.75em;
+}
+
+ul.small,
+.small ul {
+  padding: 0px;
+  border: 0px;
+  margin: 0px 0px 0px 1em;
+}
+
+ul.small > li
+.small ul > li {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+/***** specific slides *****/
+

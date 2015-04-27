@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Firefox OS Tricorder</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Überblick">
+  <link rel="index" id="link-toc" href="#toc" title="Inhalt">
+  <link rel="start" id="link-start" href="#index" title="Start">
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">Tricorder</div>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
+</header>
+<nav id="slidenav">
+  <a href="#toc" id="nav-toc" accesskey="t">Inhalt</a> ||
+  <a href="#index" id="nav-start" accesskey="s">Start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; zurück</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; zurück</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>weiter &gt;</a>
+  <span id="nav-next-nolink" class="nolink">weiter &gt;</span>
+</nav>
+
+<article id="toc" title="Inhalt">
+<h1>Inhalt</h1>
+<h2>Firefox OS Tricorder</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Folgende Folien sind in dieser Präsentation enthalten:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Start Page">
+<h1>Firefox OS Tricorder</h1>
+<h2>Auslesen von Gerätesensoren mittels JavaScript</h2>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Release Quality Manager, Mozilla</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Folien:
+  <a href="https://slides.kairo.at/linuxwochen2015/">https://slides.kairo.at/linuxwochen2015/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Erstellt für einen
+    <a href="https://cfp.linuxwochen.at/de/LWW15/public/events/283">Vortrag</a>
+    auf den <a href="http://www.linuxwochen.at/">Linuxwochen 2015</a> in Wien.</li>
+  <li>Geschrieben in HTML 5 mit CSS 3 und JavaScript.</li>
+  <li>Navigation mit Links auf allen Folien, mit Accesskeys
+   (z.B. "n"/Alt+Umschalt+N für "next"/weiter) oder vor/zurück-Pfeilasten</li>
+  <li><a href="#toc">Inhalt</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+      alt="Lizenziert unter CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+      src="cc-by-sa-80x15.png"></a> 04/2015 Robert Kaiser -
+    "Mozilla", "Firefox" und deren Logos sind
+    <a href="http://www.mozilla.org/foundation/trademarks/list.html">Handelsmarken
+    der Mozilla Foundation</a>; <a href="http://www.startrek.com/">Star Trek</a>
+    und zugehörige Elemente sind Warenzeichen von
+    <a href="http://www.paramount.com/">Paramount Pictures</a>.</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="tricorder" title="Tricorder">
+<h1>Was ist ein Tricorder?</h1>
+
+<div class="simplebox">
+<img src="starfleet_tricorder_2370.jpg" class="slidepic"
+ alt="Starfleet Tricorder, 2370">
+<p>Sensorgerät wie in "Star Trek" zu sehen</p>
+<p>Zeigt jegliche Daten an, die gerade benötigt werden, in Plot-Geschwindigkeit und -auflösung.</p>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="fxos-tricorder" title="Firefox OS Tricorder">
+<h1>Firefox-OS-Tricorder-App</h1>
+
+<div class="simplebox">
+<p>Zeigt Daten von Gerätesensoren an, die von WebAPIs zur Verfügung gestellt werden.</p>
+<p><a href="https://marketplace.firefox.com/app/tricorder/">marketplace.firefox.com/app/tricorder/</a></p>
+<p>Code: <a href="https://github.com/KaiRo-at/tricorder">github.com/KaiRo-at/tricorder</a></p>
+</div>
+</article>
+
+<article id="ui" title="UI">
+<h1>Firefox-OS-Tricorder-Oberfläche</h1>
+
+<div class="simplebox cent">
+<img src="tricorder-ui.svg"
+     alt="Beschreibung der Tricorder-Oberfläche">
+</div>
+</article>
+
+<article id="module" title="Modul">
+<h1>Modul</h1>
+
+<div class="simplebox">
+<ul>
+  <li>HTML (Schalter, Anzeige)</li>
+  <li>JS-Objekt
+    <ul>
+      <li>2 Methoden: activate(), deactivate()</li>
+    </ul>
+  </li>
+</ul>
+</div>
+</article>
+
+<article id="position" title="Positions-Modul">
+<h1>Positions-Modul</h1>
+
+<div class="simplebox">
+<p>GPS, WLAN/Handysender-Peilung</p>
+<p>API: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation">Geolocation</a></p>
+<p>Berechtigung: geolocation</p>
+</div>
+</article>
+
+<article id="position-code" title="Position: Code">
+<h1>Position: Code</h1>
+
+<div class="simplebox">
+<pre>
+  this.watchID = <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation.watchPosition">navigator.geolocation.watchPosition</a>(
+    function(position) {
+      position.coords.latitude / .longitude / .accuracy / ...
+    },
+    function(error) { ... },
+    {enableHighAccuracy: true, maximumAge: 10000, timeout: 60000}
+  );
+
+  navigator.geolocation.clearWatch(this.watchID);
+</pre>
+</div>
+</article>
+
+<article id="gravity" title="Schwerkraft-Modul">
+<h1>Schwerkraft-Modul ("Gravity")</h1>
+
+<div class="simplebox">
+<p>Accelerometer, Magnetometer</p>
+<p>APIs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceOrientationEvent">deviceorientation</a>-,
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent">devicemotion</a>-Erignisse</p>
+<p>Berechtigungen: ---</p>
+</div>
+</article>
+
+<article id="gravity-code" title="Schwerkraft: Code">
+<h1>Schwerkraft: Code</h1>
+
+<div class="simplebox">
+<pre>
+  window.addEventListener("<a href="https://developer.mozilla.org/en-US/docs/Web/Events/deviceorientation">deviceorientation</a>", this.orientEvent, true);
+  window.addEventListener("<a href="https://developer.mozilla.org/en-US/docs/Web/Events/devicemotion">devicemotion</a>", this.motionEvent, true);
+
+  orientEvent: function(orientData) {
+    orientData.alpha / .beta / .gamma (in °)
+  },
+  motionEvent: function(event) {
+    event.accelerationIncludingGravity.x / .y / .z (in m/s²)
+  },
+
+  window.removeEventListener("deviceorientation", this.orientEvent, true);
+  window.removeEventListener("devicemotion", this.motionEvent, true);
+</pre>
+</div>
+</article>
+
+<article id="sound" title="Schall-Modul">
+<h1>Schall-Modul ("Sound")</h1>
+
+<div class="simplebox">
+<p>Mikrofon</p>
+<p>APIs: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/WebRTC">WebRTC</a>(getUserMedia),
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">WebAudio</a></p>
+<p>Berechtigungen: audio-capture</p>
+</div>
+</article>
+
+<article id="sound-code" title="Schall: Code">
+<h1>Schall: Code</h1>
+
+<div class="simplebox">
+<pre>
+  <a href="https://developer.mozilla.org/en-US/docs/NavigatorUserMedia.getUserMedia">navigator.getUserMedia</a>({ audio: true },
+    function(aLocalMediaStream) {
+      gModSound.mAudio.stream = aLocalMediaStream;
+      gModSound.mAudio.context = new <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext">window.AudioContext</a>();
+      gModSound.mAudio.input =
+          gModSound.mAudio.context.createMediaStreamSource(gModSound.mAudio.stream);
+      gModSound.mAudio.analyzer = gModSound.mAudio.context<a href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode">.createAnalyser</a>();
+      gModSound.mAudio.input.connect(gModSound.mAudio.analyzer);
+    },
+    function(err) { ... }
+  );
+
+  // in window.requestAnimationFrame():
+  var data = new Uint8Array(gModSound.mAudio.frequencySlices);
+  gModSound.mAudio.analyzer<a href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode.getByteFrequencyData">.getByteFrequencyData</a>(data);
+  // ... do something with data ...
+
+  gModSound.mAudio.stream.stop();
+</pre>
+</div>
+</article>
+
+<article id="environment" title="Umgebungs-Modul">
+<h1>Umgebungs-Modul ("Environment")</h1>
+
+<div class="simplebox">
+<p>Licht, Entfernung; Taschenlampe</p>
+<p>APIs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceLightEvent">devicelight</a>-,
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceProximityEvent">deviceproximity</a>-Ereignisse;
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Camera_API">Camera API</a></p>
+<p>Berechtigungen: ---; camera (für Lampe)</p>
+</div>
+</article>
+
+<article id="environment-code" title="Umgebung: Code">
+<h1>Umgebung: Code</h1>
+
+<div class="simplebox">
+<pre>
+  window.addEventListener("<a href="https://developer.mozilla.org/en-US/docs/Web/Events/devicelight">devicelight</a>", this.lightEvent, true);
+  window.addEventListener("<a href="https://developer.mozilla.org/en-US/docs/Web/Events/deviceproximity">deviceproximity</a>", this.proxEvent, true);
+
+  lightEvent: function(lightData) {
+    lightData.value (in lux)
+  },
+  proxEvent: function(proxData) {
+    proxData.min &lt;= .value &lt;= .max (in cm)
+  },
+
+  window.removeEventListener("devicelight", this.lightEvent, true);
+  window.removeEventListener("deviceproximity", this.proxEvent, true);
+
+  // Taschenlampe mittels <a href="https://developer.mozilla.org/en-US/docs/Web/API/CameraManager.getCamera">navigator.mozCameras.getCamera</a>
+  // Funktioniert nicht immer und kann sich jederzeit ändern, bitte Code aif GitHub nachlesen.
+</pre>
+</div>
+</article>
+
+<article id="device" title="Geräte-Modul">
+<h1>Geräte-Modul ("Device")</h1>
+
+<div class="simplebox">
+<p>Batterie</p>
+<p>APIs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API">Battery Status API</a></p>
+<p>Berechtigungen: ---</p>
+</div>
+</article>
+
+<article id="device-code" title="Gerät: Code">
+<h1>Gerät: Code</h1>
+
+<div class="simplebox">
+<pre>
+  0 &lt;= <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.battery">navigator.battery</a>.level &lt;= 1
+
+  .charging (true/false)
+
+  .chargingTime (in s; 0 or Infinity: unbekannt)
+
+  .dischargingTime (in s; 0 or Infinity: unbekannt)
+</pre>
+</div>
+</article>
+
+<article id="end" title="Ende">
+
+<div class="simplebox">
+<h1 class="cent" style="position: relative; z-index: 3; color: #FFFFFF; font-size: 2.5em;">Fragen?</h1>
+<img src="mister_tricorder.jpg" class="sshot"
+     style="width: 100%; margin-top: -4.5em; position: relative; z-index: 1;"
+     alt="Data &amp; Mister Tricorder">
+</div>
+</article>
+
+</body>
+</html>
