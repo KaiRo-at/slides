@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Data Improving Firefox</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Overview">
+  <link rel="index" id="link-toc" href="#toc" title="Contents">
+  <link rel="start" id="link-start" href="#index" title="Start">
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">Data</div>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
+</header>
+<nav id="slidenav">
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; back</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>fwd &gt;</a>
+  <span id="nav-next-nolink" class="nolink">fwd &gt;</span>
+</nav>
+
+<article id="toc" title="Table of Contents">
+<h1>Table of Contents</h1>
+<h2>How Your Data Helps to Improve Firefox</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides are available in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Start Page">
+<h1>How Your Data Helps to Improve Firefox</h1>
+<h2>Sending crash reports (and other info) pays off!</h2>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Program Manager, Mozilla QA</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Slides:
+  <a href="http://slides.kairo.at/fosdem2016/">http://slides.kairo.at/fosdem2016/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Created for
+    <a href="http://fosdem.org/2016/schedule/track/mozilla/">Mozilla
+    Developer Room</a> at <a href="http://www.fosdem.org/">FOSDEM 2016</a> in
+    Brussels.</li>
+  <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation via links on all slides, via access keys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward arrow keys</li>
+  <li><a href="#toc">Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+        alt="Licensed under CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+        src="cc-by-sa-80x15.png"></a> 01/2016 Robert Kaiser -
+    "Mozilla", "Firefox" and their logos are
+    <a href="http://www.mozilla.org/foundation/trademarks/list.html">trademarks
+    of the Mozilla Foundation</a>; <a href="http://www.startrek.com/">Star Trek</a>
+    and related items are trademarks of
+    <a href="http://www.paramount.com/">Paramount Pictures</a>.</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="data" title="Data Talk">
+<div class="simplebox">
+<h1 class="cent" style="position: relative; z-index: 3; color: #FFFFFF; font-size: 2.5em;">Let's talk about Data</h1>
+<img src="mister_tricorder.jpg" class="sshot"
+     style="width: 100%; margin-top: -4.5em; position: relative; z-index: 1;"
+     alt="Data &amp; Mister Tricorder">
+</div>
+</article>
+
+<article id="privacy" title="Data Privacy">
+<h1>Data Privacy</h1>
+
+<div class="simplebox">
+<p>Principles: <a href="https://www.mozilla.org/en-US/privacy/principles/">mozilla.org/privacy/principles</a></p>
+<ol>
+  <li>No surprises</li>
+  <li>User control</li>
+  <li>Limited data</li>
+  <li>Sensible settings</li>
+  <li>Defense in depth</li>
+</ol>
+</div>
+</article>
+
+<article id="collection" title="Data Collection">
+<h1>Data Collection</h1>
+
+<div class="simplebox">
+<ul>
+  <li>passive
+    <ul>
+      <li>updates, blocklists, …</li>
+    </ul>
+  </li>
+  <li>active
+    <ul>
+      <li>Telemetry, FHR, …</li>
+      <li>Crash Reports, SSL Error reports, …</li>
+    </ul>
+  </li>
+</ul>
+</div>
+</article>
+
+<article id="crashes" title="Crash Analysis">
+<h1>Crash Analysis</h1>
+
+<div class="simplebox">
+<p>Finding new and rising crashes</p>
+<p>Analyze crash data to help developers to debug and fix crash issues</p>
+<p>Only voluntarily submitted crashes</p>
+</div>
+</article>
+
+<article id="telemetry" title="Telemetry">
+<h1>Telemetry</h1>
+
+<div class="simplebox">
+<p>Anonymized data from very specific probes, e.g. startup time, crashes experienced, number of bookmarks, etc.</p>
+<p>Environment, e.g. OS, graphics hardware and drivers, add-ons, etc.</p>
+<p>2 sets of data: base (formerly FHR) + extended</p>
+</div>
+</article>
+
+<article id="telemetry-examples" title="Telemetry: Examples">
+<h1>Telemetry: Examples</h1>
+
+<div class="simplebox">
+<ul>
+  <li><a href="http://robertovitillo.com/2014/11/12/using-spark-to-recommend-add-ons-for-firefox/">Add-on recommendations</a></li>
+  <li><a href="http://robertovitillo.com/2014/11/25/clustering-firefox-hangs/">Firefox hangs</a></li>
+  <li><a href="http://robertovitillo.com/2015/02/16/add-on-hangs-a-brief-summary/">Add-on hangs</a></li>
+</ul>
+</div>
+</article>
+
+<article id="experiments" title="Telemetry Experiments">
+<h1>Telemetry Experiments</h1>
+
+<div class="simplebox">
+<p>On pre-release channels, A/B test shipped to specific set/percentage of users, control plus experiment groups</p>
+<p>Examples: e10s (right now), default search (late 2014)</p>
+</div>
+</article>
+
+<article id="uitelemetry" title="UI Telemetry">
+<h1>UI Telemetry</h1>
+
+<div class="simplebox">
+<p>Telemetry about usage of UI elements</p>
+<p>Example: items in toolbar vs. menu panel vs. customize mode</p>
+<p>Android:
+<a href="http://starkravingfinkle.org/blog/2014/07/firefox-for-android-collecting-and-using-telemetry/">initial findings</a>,
+<a href="http://starkravingfinkle.org/blog/2015/10/fun-with-telemetry-url-suggestions/">url suggestions</a>
+</p>
+</div>
+</article>
+
+<article id="websites" title="Website A/B Testing">
+<h1>Website A/B Testing</h1>
+
+<div class="simplebox">
+<p>On Mozilla websites, classic A/B testing is being done.</p>
+<p>Examples: <a href="https://fundraising.mozilla.org/category/testing/">Fundraising</a>, many others</p>
+</div>
+</article>
+
+<article id="studies" title="User Studies">
+<h1>User Studies</h1>
+
+<div class="simplebox">
+Focused studies done at times,<br>
+with more invasive telemetry,<br>
+small set of users included<br>
+are informed and compensated.
+</div>
+</article>
+
+<article id="end" title="The End">
+
+<div class="simplebox">
+<h1 class="cent" style="position: relative; z-index: 3; color: #FFFFFF; font-size: 2.5em;">Questions?</h1>
+<img src="mister_tricorder.jpg" class="sshot"
+     style="width: 100%; margin-top: -4.5em; position: relative; z-index: 1;"
+     alt="Data &amp; Mister Tricorder">
+</div>
+</article>
+
+</body>
+</html>
