@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Web Logins after Persona</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Overview">
+  <link rel="index" id="link-toc" href="#toc" title="Contents">
+  <link rel="start" id="link-start" href="#index" title="Start">
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">Web Logins</div>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
+</header>
+<nav id="slidenav">
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; back</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>fwd &gt;</a>
+  <span id="nav-next-nolink" class="nolink">fwd &gt;</span>
+</nav>
+
+<article id="toc" title="Table of Contents">
+<h1>Table of Contents</h1>
+<h2>Web Logins after Persona</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides are available in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" title="Start Page">
+<h1>Web Logins after Persona</h1>
+<h2>How I solved logins on my small websites</h2>
+
+<div class="simplebox">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Mozilla Rep</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">Slides:
+  <a href="https://slides.kairo.at/fosdem2016/">https://slides.kairo.at/fosdem2017/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Created for
+    <a href="http://fosdem.org/2016/schedule/track/mozilla/">Mozilla
+    Developer Room</a> at <a href="http://www.fosdem.org/">FOSDEM 2017</a> in
+    Brussels.</li>
+  <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation via links on all slides, via access keys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward arrow keys</li>
+  <li><a href="#toc">Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/at/"><img
+        alt="Licensed under CC-BY-SA," style="border-width:0;vertical-align:bottom;"
+        src="cc-by-sa-80x15.png"></a> 01/2017 Robert Kaiser.</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="persona" title="What's Persona?">
+<h1>What <s>is</s>was Persona?</h1>
+
+<div class="simplebox">
+<p>Login/Identity solution by Mozilla, 2011-2016</p>
+<ul>
+  <li>Decentralized / Federated (with Fallback)</li>
+  <li>Multiple identities</li>
+  <li>Verified Email</li>
+  <li>Potential for browser integration</li>
+  <li>BrowserID protocol, easy to implement, server-side verification</li>
+  <li>Permission-less</li>
+</ul>
+<p><a href="http://feeding.cloud.geek.nz/posts/persona-guiding-principles/">See
+blog post by François Marier</a></p>
+</div>
+</article>
+
+<article id="smallsite" title="Needs of a Small Website">
+<h1>Needs of a Small Website</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Easy to implement</li>
+  <li>Trusted identification</li>
+  <li>Avoid dealing with how to secure passwords</li>
+  <li>No lock-in (identification via email?)</li>
+  <li>Privacy (not telling every login attempt to a big company)</li>
+</ul>
+</div>
+</article>
+
+<article id="localext" title="Local vs. External Login">
+<h1>Local vs. External Login</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Local: Need to secure passwords</li>
+  <li>Local: Sounds easy to implement, complications in details</li>
+  <li>Local: Can always be trusted</li>
+  <li>External: Potential for lock-in</li>
+  <li>External: Potential privacy issues</li>
+  <li>External: Implementation difficulty depends on API</li>
+</ul>
+</div>
+</article>
+
+<article id="extalt" title="External Alternatives">
+<h1>External Alternatives</h1>
+
+<div class="simplebox">
+<ul>
+  <li><s>Mozilla Persona</s></li>
+  <li><s>Firefox Accounts</s></li>
+  <li>Facebook, Google, GitHub</li>
+  <li>Other OAuth2 providers</li>
+  <li>OpenID Connect (OIDC) providers (based on OAuth2)</li>
+  <li>Other/older providers/standards (OAuth1, ...)</li>
+  <li>Intermediates, e.g. Auth0</li>
+</ul>
+</div>
+</article>
+
+<article id="portier" title="Interlude: A Future Alternative">
+<h1>Interlude: A Future Alternative</h1>
+
+<div class="simplebox">
+<p><a href="https://portier.github.io/">Portier</a> is a new in-development alternative</p>
+<ul>
+  <li>Email authentication</li>
+  <li>Decentralized (fallback to passwordless email auth)</li>
+  <li>Speaking OIDC to client and "Brokers"</li>
+  <li>"Spiritual successor to Mozilla Persona"</li>
+  <li>Still in development ("early beta")</li>
+</ul>
+</div>
+</article>
+
+<article id="selfhost" title="Self-Hosted &quot;External&quot;">
+<h1>Self-Hosted &quot;External&quot;</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Full control over login stack</li>
+  <li>Password security isolated from website code</li>
+  <li>Management of multiple identities possible</li>
+  <li>Privacy and trust are no issues</li>
+  <li>When using standard API, possibility for being switched out later</li>
+  <li>Still needing to secure properly</li>
+</ul>
+</div>
+</article>
+
+<article id="phpauthserver" title="The PHP Authserver">
+<h1>The PHP Authserver</h1>
+
+<div class="simplebox">
+<ul>
+  <li>OAuth2 API (potential extension to OIDC later), using <a href="http://bshaffer.github.io/oauth2-server-php-docs/">oauth2-server-php</a></li>
+  <li>Password storage with password_hash (currently bcrypt) + nonce, auto-upgrade on login</li>
+  <li>Relatively easy to install on Linux with Apache + PHP5/PHP7 + MySQL (Other DBs should be easy to support)</li>
+  <li><a href="http://www.doctrine-project.org/projects/dbal.html">Doctrine DBAL</a> for DB abstraction,
+      <a href="https://github.com/KaiRo-at/php-utility-classes">php-utility-classes</a> for email and DOM document abstraction</li>
+  <li>Skinnable to brand installation to fit operator</a>
+  <li>My installation at <a href="https://auth.kairo.at/">auth.kairo.at</a> scores <a href="https://observatory.mozilla.org/analyze.html?host=auth.kairo.at">A+ from Mozilla Observatory</a></li>
+</ul>
+</div>
+</article>
+
+<article id="status" title="Current Status">
+<h1>Current Status</h1>
+<ul>
+  <li>Only Authorization Code flow supported right now, oauth2-server-php can do Client Credentials as well as OIDC, should not be too hard to add.</li>
+  <li>Tested with Apache and MySQL for now, other web and DB servers should be possible easily.</li>
+  <li>Rudimentary documentation exists in the main README.</li>
+  <li>Languages supported are US English (default) and German, detected via Accept-Language sent by browser.</li>
+  <li>Testing is done by running logins with KaiRo's websites (2 different client implementations).</li>
+  <li><mark>Open Source at <a href="https://github.com/KaiRo-at/authserver">github.com/KaiRo-at/authserver</a></mark>, under MPL2 - <mark>released TODAY</mark>!</li>
+</ul>
+<div class="simplebox">
+
+</div>
+</article>
+
+<article id="help" title="Help Needed">
+<h1>Help Needed</h1>
+
+<div class="simplebox">
+<ul>
+  <li>Implementation of OIDC and perhaps Client Credentials flows.</li>
+  <li>Setting up a test suite and infrastructure.</li>
+  <li>Writing more complete documentation.</li>
+  <li>More languages?</li>
+  <li>More installations?</li>
+  <li>Your ideas and pull requests!</li>
+</ul>
+</div>
+</article>
+
+<article id="end" title="The End">
+
+<div class="simplebox">
+<h1 class="cent" style="position: relative; z-index: 3; font-size: 2.5em;">Questions?</h1>
+<h2 class="cent" style="position: relative; margin-top: 3rem; z-index: 3; font-size: 2em;"><a href="https://github.com/KaiRo-at/authserver">github.com/KaiRo-at/authserver</a></h2>
+<img src="autodestruct_deactivated.jpg" class="sshot"
+     style="width: 100%; margin-top: -7.5em; position: relative; z-index: 1;"
+     alt="Auto Destruct Deactivated">
+</div>
+</article>
+
+</body>
+</html>
