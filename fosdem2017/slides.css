@@ -79,7 +79,8 @@ ul:last-child {
   overflow: hidden;
   height: 40px;
   width: 64px;
-  background: url("template/KaiRoLogo-64x40.png") no-repeat;
+  background: url("template/KaiRoLogo-256x160.png") no-repeat;
+  background-size: 64px 40px;
 }
 
 #header-text {
@@ -115,7 +116,7 @@ ul:last-child {
 
 #slidenav {
   position: absolute;
-  right: 200px;
+  right: 120px;
   top: 15px;
   font-size: 10px;
 }
@@ -258,6 +259,7 @@ s {
 .slidepic {
   float: right;
   margin-left: .5em;
+  max-width: 33%;
 }
 
 .ensurepicinbox {

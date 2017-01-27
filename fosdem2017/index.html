@@ -70,6 +70,7 @@
 <h1>What <s>is</s>was Persona?</h1>
 
 <div class="simplebox">
+<img src="persona-logo-wordmark.png" alt="Mozilla Persona" class="slidepic">
 <p>Login/Identity solution by Mozilla, 2011-2016</p>
 <ul>
   <li>Decentralized / Federated (with Fallback)</li>
@@ -88,6 +89,7 @@ blog post by François Marier</a></p>
 <h1>Needs of a Small Website</h1>
 
 <div class="simplebox">
+<img src="enter_access_code.jpg" alt="Enter Access Code" class="slidepic">
 <ul>
   <li>Easy to implement</li>
   <li>Trusted identification</li>
@@ -102,12 +104,13 @@ blog post by François Marier</a></p>
 <h1>Local vs. External Login</h1>
 
 <div class="simplebox">
+<img src="access_denied.jpg" alt="Access Denied" class="slidepic">
 <ul>
   <li>Local: Need to secure passwords</li>
-  <li>Local: Sounds easy to implement, complications in details</li>
+  <li>Local: Sounds easy to implement, <mark>complications</mark> in details</li>
   <li>Local: Can always be trusted</li>
-  <li>External: Potential for lock-in</li>
-  <li>External: Potential privacy issues</li>
+  <li>External: Potential for <mark>lock-in</mark></li>
+  <li>External: Potential <mark>privacy issues</mark></li>
   <li>External: Implementation difficulty depends on API</li>
 </ul>
 </div>
@@ -117,10 +120,11 @@ blog post by François Marier</a></p>
 <h1>External Alternatives</h1>
 
 <div class="simplebox">
+<img src="login_icons.png" alt="Login icons" class="slidepic">
 <ul>
   <li><s>Mozilla Persona</s></li>
   <li><s>Firefox Accounts</s></li>
-  <li>Facebook, Google, GitHub</li>
+  <li>Facebook, Google, GitHub, ...</li>
   <li>Other OAuth2 providers</li>
   <li>OpenID Connect (OIDC) providers (based on OAuth2)</li>
   <li>Other/older providers/standards (OAuth1, ...)</li>
@@ -133,13 +137,14 @@ blog post by François Marier</a></p>
 <h1>Interlude: A Future Alternative</h1>
 
 <div class="simplebox">
-<p><a href="https://portier.github.io/">Portier</a> is a new in-development alternative</p>
+<img src="autodestruct_deactivated.jpg" alt="Auto Destruct Deactivated" class="slidepic">
+<p><mark><a href="https://portier.github.io/">Portier</a></mark> is a new in-development alternative</p>
 <ul>
   <li>Email authentication</li>
   <li>Decentralized (fallback to passwordless email auth)</li>
   <li>Speaking OIDC to client and "Brokers"</li>
   <li>"Spiritual successor to Mozilla Persona"</li>
-  <li>Still in development ("early beta")</li>
+  <li>Still in development ("early beta"): <a href="https://portier.github.io/">portier.github.io</a></li>
 </ul>
 </div>
 </article>
@@ -148,12 +153,13 @@ blog post by François Marier</a></p>
 <h1>Self-Hosted &quot;External&quot;</h1>
 
 <div class="simplebox">
+<img src="oauth2_openid.png" alt="OAuth2" class="slidepic">
 <ul>
-  <li>Full control over login stack</li>
+  <li><mark>Full control</mark> over login stack</li>
   <li>Password security isolated from website code</li>
   <li>Management of multiple identities possible</li>
-  <li>Privacy and trust are no issues</li>
-  <li>When using standard API, possibility for being switched out later</li>
+  <li><mark>Privacy and trust</mark>  are no issues</li>
+  <li>When using <mark>standard API</mark>, possibility for being switched out later</li>
   <li>Still needing to secure properly</li>
 </ul>
 </div>
@@ -163,6 +169,7 @@ blog post by François Marier</a></p>
 <h1>The PHP Authserver</h1>
 
 <div class="simplebox">
+<img src="kairo_at_auth.png" alt="KaiRo.at Auth" class="slidepic">
 <ul>
   <li>OAuth2 API (potential extension to OIDC later), using <a href="http://bshaffer.github.io/oauth2-server-php-docs/">oauth2-server-php</a></li>
   <li>Password storage with password_hash (currently bcrypt) + nonce, auto-upgrade on login</li>
@@ -177,6 +184,8 @@ blog post by François Marier</a></p>
 
 <article id="status" title="Current Status">
 <h1>Current Status</h1>
+
+<div class="simplebox">
 <ul>
   <li>Only Authorization Code flow supported right now, oauth2-server-php can do Client Credentials as well as OIDC, should not be too hard to add.</li>
   <li>Tested with Apache and MySQL for now, other web and DB servers should be possible easily.</li>
@@ -185,8 +194,6 @@ blog post by François Marier</a></p>
   <li>Testing is done by running logins with KaiRo's websites (2 different client implementations).</li>
   <li><mark>Open Source at <a href="https://github.com/KaiRo-at/authserver">github.com/KaiRo-at/authserver</a></mark>, under MPL2 - <mark>released TODAY</mark>!</li>
 </ul>
-<div class="simplebox">
-
 </div>
 </article>
 
@@ -194,6 +201,7 @@ blog post by François Marier</a></p>
 <h1>Help Needed</h1>
 
 <div class="simplebox">
+<img src="generic_auth.png" alt="KaiRo.at Auth" class="slidepic">
 <ul>
   <li>Implementation of OIDC and perhaps Client Credentials flows.</li>
   <li>Setting up a test suite and infrastructure.</li>
@@ -207,12 +215,12 @@ blog post by François Marier</a></p>
 
 <article id="end" title="The End">
 
-<div class="simplebox">
-<h1 class="cent" style="position: relative; z-index: 3; font-size: 2.5em;">Questions?</h1>
-<h2 class="cent" style="position: relative; margin-top: 3rem; z-index: 3; font-size: 2em;"><a href="https://github.com/KaiRo-at/authserver">github.com/KaiRo-at/authserver</a></h2>
-<img src="autodestruct_deactivated.jpg" class="sshot"
-     style="width: 100%; margin-top: -7.5em; position: relative; z-index: 1;"
-     alt="Auto Destruct Deactivated">
+<div class="simplebox" style="position: relative;">
+<h1 class="cent" style="position: absolute; width: calc(100% - 2rem); z-index: 3; font-size: 2.5em;">Questions?</h1>
+<h2 class="cent" style="position: absolute; width: calc(100% - 2rem); top: 20rem; z-index: 3; font-size: 2em;"><a href="https://github.com/KaiRo-at/authserver">github.com/KaiRo-at/authserver</a></h2>
+<img src="access_enabled.jpg" class="sshot"
+     style="width: 100%; z-index: 1;"
+     alt="Access Enabled">
 </div>
 </article>
 
