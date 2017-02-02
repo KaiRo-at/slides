@@ -216,8 +216,7 @@ h4 {
 .simplebox,
 .captionedbox {
   margin: 1em;
-  background: #fff;
-  background-image: radial-gradient(center 45px, ellipse farthest-corner, #FFFFEE 0, #fff 100%);
+  background: #FFFFFF;
   box-shadow: #AAAA80 3px 3px 2px 0;
 }
 
@@ -334,3 +333,48 @@ ul.small > li
 
 /***** specific slides *****/
 
+.endslidecontainer {
+  position: relative;
+}
+
+.endslidepic {
+  width: 100%;
+  z-index: 1;
+}
+
+.endslidetext {
+  position: absolute;
+  width: calc(100% - 2rem);
+  z-index: 3;
+}
+
+h1.endslidetext {
+  font-size: 2.5em;
+}
+
+h2.endslidetext,
+h3.endslidetext {
+  font-size: 2em;
+}
+
+.endslidetext:first-child {
+  top: 1rem;
+}
+
+.endslidetext:nth-child(2) {
+  top: 20rem;
+}
+
+.endslidetext:nth-child(3) {
+  top: 30rem;
+}
+
+@media (min-resolution: 1.3dppx) {
+  .endslidetext:nth-child(2) {
+    top: 15rem;
+  }
+
+  .endslidetext:nth-child(3) {
+    top: 25rem;
+  }
+}

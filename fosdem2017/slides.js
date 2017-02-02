@@ -17,6 +17,7 @@ var pageTitle, headerText, subHeaderText;
 var navPrev, navNext, navPrevNolink, navNextNolink;
 
 // Slide timer - color variation of headerText
+// Up to 2/3 of that time, use "ontime" styling, then "neartime" until this is reached, "overtime" after that.
 var slideSeconds = 2 * 60;
 
 // Called when the document has been loaded.
