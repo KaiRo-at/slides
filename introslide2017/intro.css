@@ -1,0 +1,78 @@
+/**************************
+ * styles for intro slide *
+ *    by Robert Kaiser    *
+ *    <kairo@kairo.at>    *
+ *   (version of 2017)    *
+ **************************/
+
+html {
+  background-color: #EEEEEE;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Liberation Mono", monospace;
+  font-size: 2.5rem;
+  color: #000000;
+  background-image: url("Mozilla_open_vcbg2.jpg");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+}
+
+h1 {
+  padding-top: 5rem;
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h1, h2, p {
+  margin-top: 0;
+  margin-left: 5rem;
+  margin-bottom: 2rem;
+}
+
+.highlighttext {
+  background-color: #FABA00;
+}
+
+a:link, a:visited,
+a:hover, a:active {
+  color: #000000;
+  text-decoration: none;
+}
+
+#tslogo {
+  position: absolute;
+  height: 20%;
+  top: 5rem;
+  right: 4%;
+}
+
+#repslogo {
+  position: absolute;
+  height: 25%;
+  top: 35%;
+  right: 4%;
+}
+
+#bottomline {
+  position: absolute;
+  margin-bottom: 0;
+  bottom: 7%;
+  left: 0;
+}
+
+#mozlogo {
+  position: absolute;
+  height: 25%;
+  bottom: 7%;
+  right: 4%;
+}
