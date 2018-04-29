@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>Mozilla Emerging Technologies</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Überblick">
+  <link rel="index" id="link-toc" href="#toc" title="Inhalt">
+  <link rel="start" id="link-start" href="#index" title="Start">
+</head>
+<body onload="docLoaded();">
+<header id="header"><div id="header-text">Emerging Tech</div>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
+</header>
+<nav id="slidenav">
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; back</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>fwd &gt;</a>
+  <span id="nav-next-nolink" class="nolink">fwd &gt;</span>
+</nav>
+
+<article id="toc" data-title="Inhalt">
+<h1><span>Inhalt</span></h1>
+<h2>Mozilla Emerging Technologies</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides are available in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" data-title="Start Page" data-seconds="600">
+<h1><span>Mozilla Emerging Technologies</span></h1>
+<h2>New Technologies for the Open Web</h2>
+
+<div class="simplebox decofont">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>,
+"KaiRo" &lt;kairo@kairo.at&gt;
+<br><small>Mozilla Tech Speaker</small>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption decofont">Slides:
+  <a href="https://slides.kairo.at/linuxwochen2018/">https://slides.kairo.at/linuxwochen2018/</a></p>
+<div class="captionedbox-content small">
+<ul class="small">
+  <li>Created for a
+    <a href="https://cfp.linuxwochen.at/de/LWW18/public/events/741">presentation</a>
+    at <a href="http://www.linuxwochen.at/">Linuxwochen 2018</a> in Wien/Vienna.</li>
+  <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation via links on all slides, via access keys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward arrow keys</li>
+  <li><a href="#toc">Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+      alt="Lizenziert unter CC-BY-SA," class="ccinline" src="cc-by-sa.svg"></a>
+    04/2018 Robert Kaiser -
+    "Mozilla", "Firefox" and their logos are
+    <a href="http://www.mozilla.org/foundation/trademarks/list.html">trademarks
+    of Mozilla Foundation</a>.</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="mozet" data-title="Emerging Technologies Group">
+<h1><span>Emerging Technologies Group</span></h1>
+
+<div class="simplebox">
+<ul>
+  <li>R&amp;D organization @ Mozilla, a.k.a. <mark>Mozilla Research</mark></li>
+  <li><a href="https://research.mozilla.org/">research.mozilla.org</a></li>
+  <li><a href="https://www.mozilla.org/en-US/technology/">mozilla.org/technology</a></li>
+  <li>Multiple teams for different technologies</li>
+</ul>
+</div>
+</article>
+
+<article id="webxr" data-title="Mixed Reality">
+<h1><span>Mixed Reality (XR)</span></h1>
+
+<div class="simplebox">
+<img src="vrheadset-boy.png" class="slidepic"
+ alt="A-Frame - aframe-io">
+<ul>
+  <li>WebXR - <mark>Virtual &amp; Augmented Reality</mark> (WebVR &amp; AR)</li>
+  <li><a href="https://research.mozilla.org/mixed-reality/">research.mozilla.org/mixed-reality</a></li>
+  <li><a href="https://webvr.info/">webvr.info</a> - WebVR API, <mark>Open Standard</mark></li>
+  <li>In concert with WebGL, WebAudio and Gamepad APIs</li>
+  <li>Windows: Firefox release, Mac: Nightly, Linux: in development</li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="aframe" data-title="A-Frame">
+<h1><span>A-Frame - XR Made Simple</span></h1>
+
+<div class="simplebox">
+<img src="aframe-sticker.png" class="slidepic"
+ alt="A-Frame - aframe-io">
+Example:
+<pre>
+&lt;<mark>a-scene</mark>&gt;
+  &lt;a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"&gt;&lt;/a-sphere&gt;
+  &lt;<mark>a-cube</mark> position="-1 0.5 1" rotation="0 0 0" width="1" height="1" depth="1" color="#4CC3D9"&gt;
+    &lt;<mark>a-animation</mark> attribute="rotation" repeat="indefinite" to="0 360 0"&gt;&lt;/a-animation&gt;
+  &lt;/a-cube&gt;
+  &lt;a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"&gt;&lt;/a-cylinder&gt;
+  &lt;a-plane rotation="-90 0 0" width="4" height="4" color="#7BC8A4"&gt;&lt;/a-plane&gt;
+  &lt;a-sky color="#ECECEC"&gt;&lt;/a-sky&gt;
+&lt;/a-scene&gt;
+</pre>
+<p><a href="https://codepen.io/mozvr/pen/jqERjQ">edit/view</a>
+- More at <a href="https://aframe.io/">aframe.io</a>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="codecs" data-title="Open Media Codecs">
+<h1><span>Open Media Codecs - Daala &amp; AV1</span></h1>
+
+<div class="simplebox">
+<img src="av1-comingsoon.png" class="slidepic" alt="AV1 - Coming Soon">
+<ul>
+  <li><a href="https://www.opus-codec.org/">Opus</a>: <mark>royalty-free, open, universal</mark> audio codec</li>
+  <li>Next target: do the same with video</li>
+  <li>Mozilla/Xiph: Daala + Google: VP9 + Cisco: Thor</li>
+  <li><a href="http://aomedia.org/">Alliance for Open Media (AOMedia)</a> for collaboration</li>
+  <li>AV1 bitstream frozen since April 2018</li>
+  <li>Next: De-/Encoding perf, hardware support, ...</li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="speech" data-title="Speech &amp; Learning">
+<h1><span>Speech &amp; Machine Learning</span></h1>
+
+<div class="simplebox">
+<img src="speechlearning.png" class="slidepic" alt="Speech Recording + Learning">
+<ul>
+  <li><a href="https://voice.mozilla.org/">Common Voice</a>: Open repository for <mark>voice recordings</mark></li>
+  <li>Machine learning to train speech-to-text (STT) systems</li>
+  <li>DeepSpeech / Pipsqueak: Mozilla STT, open source</li>
+  <li><mark>Offline speech recognition</mark> engine, for security + privacy, can run on RPi3</li>
+  <li><a href="https://blog.mozilla.org/blog/2017/11/29/announcing-the-initial-release-of-mozillas-open-source-speech-recognition-model-and-voice-dataset/">Only
+    6.5% error rate on first released model</a></li>
+  <li><a href="https://research.mozilla.org/machine-learning/">research.mozilla.org/machine-learning</a></li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="rust" data-title="Rust">
+<h1><span>Programmiersprache - Rust</span></h1>
+
+<div class="simplebox">
+</div>
+</article>
+
+<article id="servo" data-title="Servo Web-Engine">
+<h1><span>Web-Engine - Servo</span></h1>
+
+<div class="simplebox">
+</div>
+</article>
+
+<article id="wasm" data-title="WebAssembly">
+<h1><span>WebAssembly</span></h1>
+
+<div class="simplebox">
+</div>
+</article>
+
+<article id="iot" data-title="Web of Things">
+<h1><span>IoT - Things Gateway</span></h1>
+
+<div class="simplebox">
+</div>
+</article>
+
+<article id="end" data-title="Ende">
+
+<div class="simplebox">
+<h1 class="cent" style="position: relative; z-index: 3; color: #FFFFFF; font-size: 2.5em;">Fragen?</h1>
+<img src="mister_tricorder.jpg" class="sshot"
+     style="width: 100%; margin-top: -4.5em; position: relative; z-index: 1;"
+     alt="Data &amp; Mister Tricorder">
+</div>
+</article>
+
+</body>
+</html>
