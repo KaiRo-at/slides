@@ -356,12 +356,6 @@ mark a:hover, mark a:active { color: #005E5E; }
 
 pre { margin: 0; }
 
-.ccinline {
-  border-width: 0;
-  vertical-align: bottom;
-  height: 1.75em;
-}
-
 /***** small stuff *****/
 
 .small,
@@ -385,3 +379,63 @@ ul.small > li
 
 /***** specific slides *****/
 
+/* start slide */
+.ccinline {
+  border-width: 0;
+  vertical-align: bottom;
+  height: 1.75em;
+}
+
+/* end slide */
+.endslidecontainer {
+  position: relative;
+}
+
+.endslidepic {
+  width: 100%;
+  z-index: 1;
+}
+
+.endslidetext {
+  position: absolute;
+  width: calc(100% - 2rem);
+  z-index: 3;
+}
+
+h1.endslidetext {
+  color: white;
+  font-size: 2.5em;
+}
+
+h2.endslidetext,
+h3.endslidetext {
+  font-size: 2em;
+}
+
+h2.endslidetext > span,
+h3.endslidetext > span {
+  background-color: white;
+  padding: 0 10px;
+}
+
+.endslidetext:first-child {
+  top: 1rem;
+}
+
+.endslidetext:nth-child(2) {
+  top: 11rem;
+}
+
+.endslidetext:nth-child(3) {
+  top: 21rem;
+}
+
+@media (min-resolution: 1.3dppx) {
+  .endslidetext:nth-child(2) {
+    top: 6rem;
+  }
+
+  .endslidetext:nth-child(3) {
+    top: 11rem;
+  }
+}

@@ -193,10 +193,21 @@ function timerFired() {
   function handleKeyPress(e) {
     e = e || event;
     switch (e.keyCode) {
+      // See https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode#Constants_for_keyCode_value
       case e.DOM_VK_LEFT:
+      case e.DOM_VK_DOWN:
+      case e.DOM_VK_PAGE_DOWN:
+      case e.DOM_VK_H: //8bitdo Zero "X"
         go("prev"); break;
       case e.DOM_VK_RIGHT:
+      case e.DOM_VK_UP:
+      case e.DOM_VK_PAGE_UP:
+      case e.DOM_VK_J: //8bitdo Zero "B"
         go("next"); break;
+      case e.DOM_VK_HOME:
+        go("start"); break;
+      case e.DOM_VK_END:
+        go("toc"); break;
     }
   }
 
