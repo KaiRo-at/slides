@@ -199,6 +199,8 @@ function timerFired() {
       case "Left": // non-standard, old browsers
       case "Down": // non-standard, old browsers
       case "PageDown":
+      case "P":
+      case "p":
       case "H": //8bitdo Zero "X"
       case "h": //8bitdo Zero "X"
         go("prev"); break;
@@ -207,12 +209,18 @@ function timerFired() {
       case "Right": // non-standard, old browsers
       case "Up": // non-standard, old browsers
       case "PageUp":
+      case "N":
+      case "n":
       case "J": //8bitdo Zero "B"
       case "j": //8bitdo Zero "B"
         go("next"); break;
       case "Home":
+      case "I": //8bitdo Zero "Y"
+      case "i": //8bitdo Zero "Y"
         go("start"); break;
       case "End":
+      case "G": //8bitdo Zero "A"
+      case "g": //8bitdo Zero "A"
         go("toc"); break;
     }
   }
