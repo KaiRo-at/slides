@@ -358,7 +358,7 @@ pre { margin: 0; }
 
 /***** small stuff *****/
 
-.small,
+small,
 .small {
   font-size: 0.75em;
 }
@@ -409,7 +409,7 @@ h1.endslidetext {
 
 h2.endslidetext,
 h3.endslidetext {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 h2.endslidetext > span,
@@ -427,15 +427,18 @@ h3.endslidetext > span {
 }
 
 .endslidetext:nth-child(3) {
-  top: 21rem;
+  top: 17rem;
 }
 
 @media (min-resolution: 1.3dppx) {
+  .endslidetext:first-child {
+    top: .5rem;
+  }
   .endslidetext:nth-child(2) {
-    top: 6rem;
+    top: 9rem;
   }
 
   .endslidetext:nth-child(3) {
-    top: 11rem;
+    top: 14rem;
   }
 }
