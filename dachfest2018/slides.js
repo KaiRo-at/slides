@@ -19,7 +19,7 @@ var navPrev, navNext, navPrevNolink, navNextNolink;
 // Slide timer - color variation of headerText
 // Time per slide is total presentation length divided by number of slides
 // except start and end slide.
-var presLengthSeconds = 15 * 60;
+var presLengthSeconds = 20 * 60;
 var slideStart, timerMSec;
 
 // Called when the document has been loaded.
