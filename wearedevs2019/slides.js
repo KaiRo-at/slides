@@ -23,7 +23,7 @@ var presLengthSeconds = 20 * 60;
 var slideStart, timerMSec;
 
 // Called when the document has been loaded.
-function docLoaded() {
+window.onload = function() {
   pageTitle = document.getElementsByTagName("title")[0];
   headerText = document.getElementById("header-text");
   subHeaderText = document.getElementById("subheader-text");
@@ -70,6 +70,9 @@ function docLoaded() {
     location.hash = "#" + currentSlide.name;
   }
   updateDisplay();
+  document.getElementById("hidesdesc").onclick = function(event) {
+    document.getElementById("slidesdesc").classList.toggle("hidden");
+  }
 }
 
 // Called when the hash part of the location changes.
@@ -186,7 +189,7 @@ function timerFired() {
   function handleClick(e) {
     e = e || event;
     var target = (window.event) ? e.srcElement : e.target;
-    if (e.which == 1 && target.nodeName != "A" && target.nodeName != "VIDEO")
+    if (e.which == 1 && target.nodeName != "A" && target.nodeName != "VIDEO" && !target.classList.contains("noadvance"))
       go("next");
   }
 

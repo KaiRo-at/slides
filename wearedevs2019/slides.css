@@ -348,6 +348,10 @@ ul.arrows > li:before {
   text-decoration: underline;
 }
 
+.hidden {
+  display: none;
+}
+
 a:link, a:visited { color: #00458B; text-decoration: none; }
 a:hover, a:active { color: #959595; text-decoration: underline; }
 
