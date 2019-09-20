@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>VR Map: Using OSM Data In a WebVR Environment</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Überblick">
+  <link rel="index" id="link-toc" href="#toc" title="Inhalt">
+  <link rel="start" id="link-start" href="#index" title="Start">
+</head>
+<body>
+<header id="header"><div id="header-text">VR Map</div>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
+</header>
+<nav id="slidenav">
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; back</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>fwd &gt;</a>
+  <span id="nav-next-nolink" class="nolink">fwd &gt;</span>
+</nav>
+
+<article id="toc" data-title="Inhalt">
+<h1><span>Contents</span></h1>
+<h2>VR Map: Using OSM Data In a WebVR Environment</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides are available in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" data-title="Start Page" data-seconds="600">
+<h1><span>VR Map: Using OSM Data In a WebVR Environment</span></h1>
+<h2>Simple GeoData Visualization with A-Frame</h2>
+
+<div class="simplebox decofont">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption decofont"><span id="hidesdesc" class="noadvance">Slides:</span>
+  <a href="https://slides.kairo.at/sotm2019/">https://slides.kairo.at/sotm2019/</a></p>
+<div class="captionedbox-content small">
+<ul class="small" id="slidesdesc">
+  <li>Created for <a href="https://2019.stateofthemap.org/sessions/9TMRYN">a
+    presentation</a> at <a href="https://2019.stateofthemap.org/">State of the
+    Map 2019</a> in Heidelberg, Germany.</li>
+  <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation via links on all slides, via access keys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward arrow keys</li>
+  <li><a href="#toc">Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+      alt="Lizenziert unter CC-BY-SA," class="ccinline" src="cc-by-sa.svg"></a>
+    04/2018-09/2019 Robert Kaiser -
+    "Mozilla", "Firefox" and their logos are
+    <a href="http://www.mozilla.org/foundation/trademarks/list.html">trademarks
+    of Mozilla Foundation</a>.</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="introduction" data-title="Introduction - KaiRo">
+<h1><span>Robert Kaiser - KaiRo</span></h1>
+
+<div class="simplebox">
+<img src="kairo.jpg" class="slidepic"
+ alt="Robert Kaiser">
+<ul>
+  <li>kairo@kairo.at / <a href="https://home.kairo.at/">home.kairo.at</a></li>
+  <li><mark><a href="https://www.openstreetmap.org/user/KaiRo">KaiRo</a></mark> on OSM</li>
+  <li><mark><a href="https://events.mozilla.org/techspeakers">Mozilla Tech Speaker</a></mark></li>
+  <li>Based in Vienna, Austria</li>
+  <li>Not on most major social networks</li>
+  <li>But on <a href="https://joindiaspora.com/people/eb2e0ec0ec0d04bc">Diaspora*</a>,
+      <a href="https://mozillians.org/en-US/u/KaiRo/">Mozillians</a>,
+      <a href="https://telegram.me/KaiRo_at">Telegram</a>,
+      <a href="https://www.linkedin.com/in/robert-kaiser-kairo-at">LinkedIn</a>,
+      <a href="https://github.com/KaiRo-at">KaiRo-at at GitHub</a></li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="objectivepre" data-title="Objectives">
+<h1><span>Objectives</span></h1>
+
+<div class="simplebox">
+<img src="vrusermoz.jpg" class="slidepic"
+ alt="VR headset user">
+<ul>
+  <li>Cross-Device nature of <mark>WebVR/WebXR</mark></li>
+  <li>Ease of use of <mark>A-Frame</mark></li>
+  <li>Ability to use <mark>OpenStreetMap data</mark></li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="webvr" data-title="WebVR &amp; WebXR">
+<h1><span>WebVR &amp; WebXR</span></h1>
+
+<div class="simplebox">
+<img src="vruser.jpg" class="slidepic"
+ alt="VR headset user">
+<ul>
+  <li><a href="https://webvr.info/">WebVR</a>: <mark>Virtual Reality</mark>
+    powered by Web technologies</li>
+  <li>Evolving into <a href="https://github.com/immersive-web/webxr">WebXR
+    Device API</a> - Mixed Reality (Virtual + Augmented Reality)</li>
+  <li><mark>Open Standard</mark> (proposal), in concert with WebGL, WebAudio
+    and Gamepad APIs</li>
+  <li>Firefox: Windows (55+) &amp; MacOS X (64+) release, 
+    <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1310655">Linux in
+    development</a></li>
+  <li>Chrome experimental; support on stand-alone headset browsers</li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="vrmap" data-title="VR Map">
+<h1><span>VR Map</span></h1>
+
+<div class="simplebox">
+<img src="vrmap-small.png" class="slidepic"
+ alt="VR Map in 2D">
+<ul>
+  <li><mark>Demo</mark> for WebVR with live
+    <a href="https://www.openstreetmap.org/">OpenStreetMap</a> data</li>
+  <li>Usable in 2D mode <mark>on any modern browser</mark></li>
+  <li>Supports headset + controller where WebVR is supported</li>
+  <li>Using <a href="https://aframe.io/">A-Frame</a> (see later)</li>
+  <li>Simple: Currently ~80 lines HTML, <mark>~600 lines JS</mark></li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="vrmapdemo" data-title="VR Map Demo">
+<h1><span><a href="https://vrmap.kairo.at/">vrmap.kairo.at</a></span></h1>
+
+<div class="simplebox cent">
+<a href="https://vrmap.kairo.at/" target="_blank"><img src="vrmap-large.png" class="sshot" alt="VR Map in 2D"></a>
+</div>
+</article>
+
+<article id="code-basics" data-title="Code Basics">
+<h1><span>Code Basics</span></h1>
+
+<div class="simplebox">
+<img src="vrusermoz.jpg" class="slidepic"
+ alt="VR Headset user with Mozilla logos">
+<ul>
+  <li>The world is flat (in two ways)!</li>
+  <li><mark>Ground tiles</mark> using
+    <a href="https://en.wikipedia.org/wiki/Mercator_projection">Mercator projection</a>,
+    "Mapnik" rendering from <a href="https://www.openstreetmap.org/">OSM</a>
+    via KaiRo's tile caching server</li>
+  <li><mark>Trees</mark> and <mark>buildings</mark>: live OSM data via
+    <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a></li>
+  <li>Camera/controller setup to support multiple devices for navigating the scene</li>
+  <li>Built with Mozilla-orginated <a href="https://aframe.io/">A-Frame</a> library</li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="aframe" data-title="A-Frame">
+<h1><span>A-Frame - XR Made Simple</span></h1>
+
+<div class="simplebox">
+<img src="aframe-sticker.png" class="slidepic"
+ alt="A-Frame - aframe-io">
+Example:
+<pre>
+&lt;<mark>a-scene</mark>&gt;
+  &lt;a-sphere <small>position="0 1.25 -1" radius="1.25" color="#EF2D5E"</small>&gt;&lt;/a-sphere&gt;
+  &lt;<mark>a-cube</mark> <small>position="-1 0.5 1" rotation="0 0 0" …</small>&gt;
+    &lt;<mark>a-animation</mark> <small>attribute="rotation" … to="0 360 0"</small>&gt;&lt;/a-animation&gt;
+  &lt;/a-cube&gt;
+  &lt;a-cylinder <small>position="1 0.75 1" …</small>&gt;&lt;/a-cylinder&gt;
+  &lt;a-plane <small>…</small>&gt;&lt;/a-plane&gt;
+  &lt;a-sky <small>color="#ECECEC"</small>&gt;&lt;/a-sky&gt;
+&lt;/a-scene&gt;
+</pre>
+<p><a href="https://codepen.io/mozvr/pen/jqERjQ" target="_blank">edit/view</a>
+- More at <a href="https://aframe.io/">aframe.io</a>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="code-details" data-title="Code Details">
+<h1><span>Code Details</span></h1>
+
+<div class="simplebox">
+<img src="vrusermoz.jpg" class="slidepic"
+ alt="VR Headset user with Mozilla logos">
+<ul>
+  <li><code>index.html</code>: JS includes, start dialog, scene, camera/controller rig</li>
+  <li><code>map.js</code>: variables, load handler, fetch from Overpass API</li>
+  <li><code>conversions.js</code>: coordinate conversions</li>
+  <li><code>position-limit.js</code>: A-Frame component for keeping position above ground</li>
+  <li><code>tiles.js, trees.js, buildings.js</code>: load/draw the 3 types of objects</li>
+  <li><mark><a href="https://github.com/KaiRo-at/vrmap" target="_blank">KaiRo-at/vrmap
+    at GitHub</a></mark></li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="objectivepost" data-title="Objectives - Recap">
+<h1><span>Objectives - Recap</span></h1>
+
+<div class="simplebox">
+<img src="vruser.jpg" class="slidepic"
+ alt="VR headset user">
+<ul>
+  <li>Cross-Device nature of <mark>WebVR/WebXR</mark></li>
+  <li>Ease of use of <mark>A-Frame</mark></li>
+  <li>Ability to use <mark>OpenStreetMap data</mark></li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="makeyourown" data-title="Make It Your Own">
+<h1><span>Make It Your Own</span></h1>
+
+<div class="simplebox" style="position: relative;">
+<div style="max-width: 60%; max-height: 18em; position: relative; z-index: 2;">
+<img src="tune3dmr.jpg" class="sshot" alt="tune3dmr">
+<br><mark>tune3DMR</mark>
+</div>
+<div style="max-width: 60%; max-height: 18em; position: absolute; right: 0; top: 2em; z-index: 1; text-align: right;">
+<mark>OSMRail</mark><br>
+<img src="OSMRail.jpg" class="sshot" alt="OSMRail">
+</div>
+</div>
+</article>
+
+<article id="end" data-title="The End">
+
+<div class="simplebox endslidecontainer">
+<h1 class="cent endslidetext"><span>Questions?</span></h1>
+<h2 class="cent endslidetext"><span><a href="https://vrmap.kairo.at/">vrmap.kairo.at</a></span></h2>
+<h3 class="cent endslidetext"><span><a href="https://github.com/KaiRo-at/vrmap">github.com/KaiRo-at/vrmap</a></span></h3>
+<img src="vrmap-large.png" class="sshot endslidepic" alt="VR Map in 2D">
+</div>
+</article>
+
+</body>
+</html>
