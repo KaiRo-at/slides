@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="Author" content="KaiRo - Robert Kaiser">
+  <title>VR Space: Creating A Solar System With WebXR</title>
+  <link rel="stylesheet" type="text/css" href="slides.css">
+  <script type="text/javascript" src="slides.js"></script>
+  <link rel="contents" href="#index" title="Überblick">
+  <link rel="index" id="link-toc" href="#toc" title="Inhalt">
+  <link rel="start" id="link-start" href="#index" title="Start">
+</head>
+<body>
+<header id="header"><div id="header-text">VR Space</div>
+  <div id="subheader-text"></div>
+  <a id="headerlogo" href="#index" title="Startseite">Mozilla</a>
+</header>
+<nav id="slidenav">
+  <a href="#toc" id="nav-toc" accesskey="t">toc</a> ||
+  <a href="#index" id="nav-start" accesskey="s">start</a> ||
+  <a href="#" id="nav-prev" accesskey="p" hidden>&lt; back</a>
+  <span id="nav-prev-nolink" class="nolink">&lt; back</span> |
+  <a href="#" id="nav-next" id="goNext" accesskey="n" hidden>fwd &gt;</a>
+  <span id="nav-next-nolink" class="nolink">fwd &gt;</span>
+</nav>
+
+<article id="toc" data-title="Inhalt">
+<h1><span>Contents</span></h1>
+<h2>VR Space: Creating A Solar System With WebXR</h2>
+
+<div class="captionedbox">
+<p class="captionedbox-caption">The following slides are available in this presentation:</p>
+<div class="captionedbox-content">
+<ul id="toc-list">
+</ul>
+</article>
+
+<article id="index" data-title="Start Page" data-seconds="600">
+<h1><span>VR Space: Creating A Solar System With WebXR</span></h1>
+<h2>A Step-By-Step Tutorial Of A-Frame</h2>
+
+<div class="simplebox decofont">
+<mark><a href="http://home.kairo.at/">Robert Kaiser</a></mark>
+</div>
+
+<div class="captionedbox">
+<p class="captionedbox-caption decofont"><span id="hidesdesc" class="noadvance">Slides:</span>
+  <a href="https://slides.kairo.at/tsmeetup201909/">https://slides.kairo.at/tsmeetup201909/</a></p>
+<div class="captionedbox-content small">
+<ul class="small" id="slidesdesc">
+  <li>Created for a presentation at <a href="https://wiki.mozilla.org/TechSpeakers/Meetups/Amsterdam_2019">Mozilla
+    Tech Speakers Meetup 2019</a> in Amsterdam, The Netherlands.</li>
+  <li>Written in HTML 5 with CSS 3 and JavaScript.</li>
+  <li>Navigation via links on all slides, via access keys
+   (e.g. "n"/Alt+Shift+N for "next") or back/forward arrow keys</li>
+  <li><a href="#toc">Contents</a></li>
+  <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+      alt="Lizenziert unter CC-BY-SA," class="ccinline" src="cc-by-sa.svg"></a>
+    09/2019 Robert Kaiser -
+    "Mozilla", "Firefox" and their logos are
+    <a href="http://www.mozilla.org/foundation/trademarks/list.html">trademarks
+    of Mozilla Foundation</a>.</li>
+</ul>
+</div>
+</div>
+</article>
+
+<article id="introduction" data-title="Introduction - KaiRo">
+<h1><span>Robert Kaiser - KaiRo</span></h1>
+
+<div class="simplebox">
+<img src="kairo.jpg" class="slidepic"
+ alt="Robert Kaiser">
+<ul>
+  <li>kairo@kairo.at / <a href="https://home.kairo.at/">home.kairo.at</a></li>
+  <li><mark><a href="https://events.mozilla.org/techspeakers">Mozilla Tech Speaker</a></mark></li>
+  <li>Based in Vienna, Austria</li>
+  <li>Not on most major social networks</li>
+  <li>But on <a href="https://joindiaspora.com/people/eb2e0ec0ec0d04bc">Diaspora*</a>,
+      <a href="https://mozillians.org/en-US/u/KaiRo/">Mozillians</a>,
+      <a href="https://telegram.me/KaiRo_at">Telegram</a>,
+      <a href="https://www.linkedin.com/in/robert-kaiser-kairo-at">LinkedIn</a>,
+      <a href="https://github.com/KaiRo-at">KaiRo-at at GitHub</a></li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="webvr" data-title="WebVR &amp; WebXR">
+<h1><span>WebVR &amp; WebXR</span></h1>
+
+<div class="simplebox">
+<img src="vruser.jpg" class="slidepic"
+ alt="VR headset user">
+<ul>
+  <li><a href="https://webvr.info/">WebVR</a>: <mark>Virtual Reality</mark>
+    powered by Web technologies</li>
+  <li>Evolving into <a href="https://github.com/immersive-web/webxr">WebXR
+    Device API</a> - Mixed Reality (Virtual + Augmented Reality)</li>
+  <li><mark>Open Standard</mark> (proposal), in concert with WebGL, WebAudio
+    and Gamepad APIs</li>
+  <li>Firefox: Windows (55+) &amp; MacOS X (64+) release,
+    <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1310655">Linux in
+    development</a>,
+    <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1419190">WebXR coming
+    soon</a></li>
+  <li>Chrome experimental; support on stand-alone headset browsers</li>
+</ul>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="aframe" data-title="A-Frame">
+<h1><span>A-Frame + The Sun</span></h1>
+
+<div class="simplebox">
+<img src="step1-sun.png" class="slidepic"
+ alt="Preview: The Sun">
+<pre>
+&lt;<mark>a-scene</mark>&gt;
+  &lt;<mark>a-sphere</mark> id="sun" <small>position="0 0 0" radius="1" color="#FFFF00"</small>&gt;&lt;/a-sphere&gt;
+
+  &lt;a-entity id="cameraRig" <small>position="0 -1 2" movement-controls="speed: .1; fly: true; camera: #head;"&gt;</small>
+    &lt;a-entity id="head" <small>camera="active: true" look-controls position="0 1.6 0"&gt;&lt;/a-entity&gt;</small>
+    &lt;a-entity id="left-hand" <small>link-controls="hand: left "…&gt;&lt;/a-entity&gt;</small>
+    &lt;a-entity id="right-hand" <small>link-controls="hand: right "…&gt;&lt;/a-entity&gt;</small>
+  &lt;a-entity&gt;
+&lt;/a-scene&gt;
+</pre>
+<p><a href="https://glitch.com/~vrspace-1-sun" target="_blank">edit/view</a>
+- A-Frame documentation at <a href="https://aframe.io/">aframe.io</a>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="planet" data-title="Adding a Planet">
+<h1><span>Adding a Planet</span></h1>
+
+<div class="simplebox">
+<img src="step2-planet.png" class="slidepic"
+ alt="Preview: A planet">
+<pre>
+&lt;a-scene&gt;
+  …
+  &lt;a-entity position="0 0 0" rotation="0 -120 0"
+            <mark>animation="property: rotation;</mark> to: 0 240 0; <small>loop: true; dur: 600000; easing: linear;"&gt;</small>
+    &lt;<mark>a-sphere id="redplanet"</mark> position="0 0 6" <small>radius=".3" color="#FF8080"&gt;&lt;/a-sphere&gt;</small>
+  &lt;/a-entity&gt;
+  …
+&lt;/a-scene&gt;
+</pre>
+<p><a href="https://glitch.com/~vrspace-2-planet" target="_blank">edit/view</a>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="light" data-title="Let There Be Light">
+<h1><span>Let There Be Light!</span></h1>
+
+<div class="simplebox">
+<img src="step3-light.png" class="slidepic"
+ alt="Preview: Better Lights">
+<pre>
+&lt;a-scene&gt;
+  &lt;a-entity <mark>light="type: ambient;</mark> color: #BBB; intensity: .1;"&gt;&lt;/a-entity&gt;
+  &lt;a-sphere id="sun" <small>position="0 0 0" radius="1" color="#FFFF00"</small>
+            <mark>material="emissive: #FFFF00;" light="type: point;</mark> <small>intensity: 1; distance: 50; decay: 2"&gt;&lt;/a-sphere&gt;</small>
+  …
+&lt;/a-scene&gt;
+</pre>
+<p><a href="https://glitch.com/~vrspace-3-light" target="_blank">edit/view</a>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="realistic" data-title="Realistic Planets">
+<h1><span>Realistic Planets</span></h1>
+
+<div class="simplebox">
+<img src="step4-realistic.png" class="slidepic"
+ alt="Preview: Realistic Planets">
+<pre>
+&lt;a-scene&gt;
+  <small>&lt;a-assets&gt;</small>
+    <small>&lt;a-asset-item id="saturnmodel" response-type="arraybuffer" src="Saturn_1_120536.glb"&gt;&lt;/a-asset-item&gt;</small>
+  <small>&lt;/a-assets&gt;</small>
+  …
+  &lt;a-entity …&gt;
+    &lt;a-sphere id="earth" <mark>src="<a href="https://xr.kairo.at//space/earth_equirect.jpg">earth_equirect.jpg</a>"</mark> …&gt;&lt;/a-sphere&gt;
+  &lt;/a-entity&gt;
+  &lt;a-entity …&gt;
+    &lt;a-sphere id="saturn" <mark>gltf-model="#saturnmodel"</mark> scale="0.003 0.003 0.003" …&gt;&lt;/a-sphere&gt;
+  &lt;/a-entity&gt;
+  …
+&lt;/a-scene&gt;
+</pre>
+<p><a href="https://glitch.com/~vrspace-4-realistic" target="_blank">edit/view</a>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="ship" data-title="Space Ship">
+<h1><span>Space Ship</span></h1>
+
+<div class="simplebox">
+<img src="step5-ship.png" class="slidepic"
+ alt="Preview: Space ship">
+<mark>"All I ask is a tall ship, and a star to steer by."</mark>
+<br><small><i>- James T. Kirk, citing John Masefield</i></small>
+<pre>
+&lt;a-scene&gt;
+  …
+  &lt;a-entity …&gt;
+    &lt;a-entity id="ship" …&gt;
+      &lt;<mark>a-cylinder</mark> <small>position="0 0 0" radius=".4" height="0.04" color="#CCC0DD"&gt;&lt;/a-cylinder&gt;</small>
+      <small>&lt;a-cylinder rotation="90 0 0" position="0.2 0.05 .9" radius=".03" height=".8" color="#CCC0DD"&gt;&lt;/a-cylinder&gt;</small>
+      <small>&lt;a-cylinder rotation="90 0 0" position="-0.2 0.05 .9" radius=".03" height=".8" color="#CCC0DD"&gt;&lt;/a-cylinder&gt;</small>
+      …
+    &lt;/a-entity&gt;
+  &lt;/a-entity&gt;
+  …
+&lt;/a-scene&gt;
+</pre>
+<p><a href="https://glitch.com/~vrspace-5-ship" target="_blank">edit/view</a>
+<p class="ensurepicinbox"></p>
+</div>
+</article>
+
+<article id="end" data-title="The End">
+
+<div class="simplebox endslidecontainer">
+<h1 class="cent endslidetext"><span>Questions?</span></h1>
+<h2 class="cent endslidetext"><span><a href="https://glitch.com/~vrspace-1-sun">glitch.com/~vrspace-1-sun</a></span></h2>
+<h2 class="cent endslidetext"><span><a href="https://glitch.com/~vrspace-5-ship">glitch.com/~vrspace-5-ship</a></span></h2>
+<h3 class="cent endslidetext"><span><a href="https://xr.kairo.at/space">xr.kairo.at/space</a></span></h3>
+<h3 class="cent endslidetext"><span><a href="https://github.com/KaiRo-at/xr/tree/master/space">github.com/KaiRo-at/xr/tree/master/space</a></span></h3>
+<img src="vrspace-large.png" class="sshot endslidepic" alt="VR Space in 2D">
+</div>
+</article>
+
+</body>
+</html>
