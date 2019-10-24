@@ -120,7 +120,8 @@
 &lt;<mark>a-scene</mark>&gt;
   &lt;<mark>a-sphere</mark> id="sun" <small>position="0 0 0" radius="1" color="#FFFF00"</small>&gt;&lt;/a-sphere&gt;
 
-  &lt;a-entity id="cameraRig" <small>position="0 -1 2" movement-controls="speed: .1; fly: true; camera: #head;"&gt;</small>
+  &lt;a-entity id="cameraRig" <small>position="0 -1 2"</small>
+               <small> movement-controls="speed: .1; fly: true; camera: #head;"&gt;</small>
     &lt;a-entity id="head" <small>camera="active: true" look-controls position="0 1.6 0"&gt;&lt;/a-entity&gt;</small>
     &lt;a-entity id="left-hand" <small>link-controls="hand: left "…&gt;&lt;/a-entity&gt;</small>
     &lt;a-entity id="right-hand" <small>link-controls="hand: right "…&gt;&lt;/a-entity&gt;</small>
@@ -143,8 +144,10 @@
 &lt;a-scene&gt;
   …
   &lt;a-entity position="0 0 0" rotation="0 -120 0"
-            <mark>animation="property: rotation;</mark> to: 0 240 0; <small>loop: true; dur: 600000; easing: linear;"&gt;</small>
-    &lt;<mark>a-sphere id="redplanet"</mark> position="0 0 6" <small>radius=".3" color="#FF8080"&gt;&lt;/a-sphere&gt;</small>
+            <mark>animation="property: rotation;</mark> to: 0 240 0;
+                             <small>loop: true; dur: 600000; easing: linear;"&gt;</small>
+    &lt;<mark>a-sphere id="redplanet"</mark> position="0 0 6"
+                       <small>radius=".3" color="#FF8080"&gt;&lt;/a-sphere&gt;</small>
   &lt;/a-entity&gt;
   …
 &lt;/a-scene&gt;
@@ -164,7 +167,8 @@
 &lt;a-scene&gt;
   &lt;a-entity <mark>light="type: ambient;</mark> color: #BBB; intensity: .1;"&gt;&lt;/a-entity&gt;
   &lt;a-sphere id="sun" <small>position="0 0 0" radius="1" color="#FFFF00"</small>
-            <mark>material="emissive: #FFFF00;" light="type: point;</mark> <small>intensity: 1; distance: 50; decay: 2"&gt;&lt;/a-sphere&gt;</small>
+            <mark>material="emissive: #FFFF00;" light="type: point;</mark>
+            <small>intensity: 1; distance: 50; decay: 2"&gt;&lt;/a-sphere&gt;</small>
   …
 &lt;/a-scene&gt;
 </pre>
@@ -189,7 +193,8 @@
     &lt;a-sphere id="earth" <mark>src="<a href="https://xr.kairo.at//space/earth_equirect.jpg">earth_equirect.jpg</a>"</mark> …&gt;&lt;/a-sphere&gt;
   &lt;/a-entity&gt;
   &lt;a-entity …&gt;
-    &lt;a-sphere id="saturn" <mark>gltf-model="#saturnmodel"</mark> scale="0.003 0.003 0.003" …&gt;&lt;/a-sphere&gt;
+    &lt;a-sphere id="saturn" <mark>gltf-model="#saturnmodel"</mark>
+                 scale="0.003 0.003 0.003" …&gt;&lt;/a-sphere&gt;
   &lt;/a-entity&gt;
   …
 &lt;/a-scene&gt;
