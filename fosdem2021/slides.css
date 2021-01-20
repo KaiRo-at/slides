@@ -426,9 +426,30 @@ h3.endslidetext > span {
   padding: 0 10px;
 }
 
+.endslidetext:first-child {
+  top: 1rem;
+}
+
+.endslidetext:nth-child(2) {
+  top: 11rem;
+}
+
+.endslidetext:nth-child(3) {
+  top: 17rem;
+}
+
 @media (min-resolution: 1.3dppx) {
   h2.endslidetext,
   h3.endslidetext {
     font-size: 1.2em;
+  }
+  .endslidetext:first-child {
+    top: .5rem;
+  }
+  .endslidetext:nth-child(2) {
+    top: 9rem;
+  }
+  .endslidetext:nth-child(3) {
+    top: 14rem;
   }
 }
