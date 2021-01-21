@@ -435,10 +435,10 @@ h3.endslidetext > span {
 }
 
 .endslidetext:nth-child(3) {
-  top: 30rem;
+  top: 33rem;
 }
 
-@media (min-resolution: 1.3dppx) {
+@media (min-resolution: 1.35dppx) {
   h2.endslidetext,
   h3.endslidetext {
     font-size: 1.2em;
