@@ -427,15 +427,15 @@ h3.endslidetext > span {
 }
 
 .endslidetext:first-child {
-  top: 1rem;
+  top: 3rem;
 }
 
 .endslidetext:nth-child(2) {
-  top: 11rem;
+  top: 22rem;
 }
 
 .endslidetext:nth-child(3) {
-  top: 17rem;
+  top: 30rem;
 }
 
 @media (min-resolution: 1.3dppx) {
