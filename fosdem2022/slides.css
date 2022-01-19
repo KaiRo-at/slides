@@ -251,6 +251,7 @@ h4 {
 .mainbox,
 .captionedbox {
   margin: 1em;
+  margin-bottom: 0;
   background-color: white;
   /* box-shadow: 0 0 0 1px black inset; */
   /* border-bottom: 1px solid black; */
